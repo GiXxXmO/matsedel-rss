@@ -2,6 +2,8 @@
 using System.Xml;
 using HtmlAgilityPack;
 using System.Text;
+using System.Text.Json;
+using System.IO;
 using System.Globalization;
 
 var scraper = new MatsedelScraper();
@@ -11,6 +13,9 @@ public class MatsedelScraper
 {
     private readonly HttpClient _httpClient;
     private const string BaseUrl = "https://www.skara.se";
+    private const string PushIdFile = "pushid.json";
+    private const int DefaultPushId = 3671;
+    private const int Tries = 10;
     
     public MatsedelScraper()
     {
@@ -67,7 +72,6 @@ public class MatsedelScraper
     private async Task<Dictionary<DateTime, MenuDay>> GetMenuForMonthAsync(DateTime month)
     {
         var menuData = new Dictionary<DateTime, MenuDay>();
-        
         // Försök olika URL-format för att hitta matsedeln
         var monthNames = new[] 
         { 
@@ -77,35 +81,52 @@ public class MatsedelScraper
         
         string? html = null;
         string? usedUrl = null;
-        
-        // Försök olika URL-kombinationer
+
+        // Läs senaste sparade pushID (om finns) och testa sekventiellt
+        var savedId = LoadLastPushId() ?? DefaultPushId;
+
         foreach (var monthName in monthNames)
         {
-            var urls = new[]
+            bool found = false;
+
+            for (int offset = 0; offset < Tries; offset++)
             {
-                $"{BaseUrl}/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/matsedelfor{monthName}.{GetPageId(month)}.html",
-                $"{BaseUrl}/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/matsedelfor{monthName}.html"
-            };
-            
-            foreach (var url in urls)
-            {
+                var tryId = savedId + offset;
+                var urlWithId = $"{BaseUrl}/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/matsedelfor{monthName}.{tryId}.html";
+
                 try
                 {
-                    Console.WriteLine($"Försöker URL: {url}");
-                    html = await _httpClient.GetStringAsync(url);
-                    usedUrl = url;
-                    Console.WriteLine($"Lyckades hämta sida från: {url}");
+                    Console.WriteLine($"Försöker URL: {urlWithId}");
+                    html = await _httpClient.GetStringAsync(urlWithId);
+                    usedUrl = urlWithId;
+                    Console.WriteLine($"Lyckades hämta sida från: {urlWithId}");
+                    SaveLastPushId(tryId);
+                    found = true;
                     break;
                 }
                 catch (HttpRequestException ex)
                 {
-                    Console.WriteLine($"Kunde inte hämta {url}: {ex.Message}");
+                    Console.WriteLine($"Kunde inte hämta {urlWithId}: {ex.Message}");
                 }
             }
-            
-            if (html != null) break;
+
+            if (found) break;
+
+            // Fallback: testa utan id
+            var urlNoId = $"{BaseUrl}/forskolaskolaochforskola/matsedelforskolaochskola/matsedelfor{monthName}.html";
+            try
+            {
+                Console.WriteLine($"Försöker URL: {urlNoId}");
+                html = await _httpClient.GetStringAsync(urlNoId);
+                usedUrl = urlNoId;
+                Console.WriteLine($"Lyckades hämta sida från: {urlNoId}");
+                break;
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"Kunde inte hämta {urlNoId}: {ex.Message}");
+            }
         }
-        
         if (html == null)
         {
             Console.WriteLine("Kunde inte hitta matsedel för aktuell månad.");
@@ -263,6 +284,39 @@ public class MatsedelScraper
         var baseId = 3672;
         var monthOffset = (month.Year - 2025) * 12 + (month.Month - 2);
         return (baseId + monthOffset).ToString();
+    }
+
+    private int? LoadLastPushId()
+    {
+        try
+        {
+            if (!File.Exists(PushIdFile)) return null;
+            var json = File.ReadAllText(PushIdFile);
+            var doc = JsonDocument.Parse(json);
+            if (doc.RootElement.TryGetProperty("pushId", out var elem) && elem.TryGetInt32(out var id))
+            {
+                return id;
+            }
+        }
+        catch
+        {
+            // Ignorera fel vid läsning
+        }
+        return null;
+    }
+
+    private void SaveLastPushId(int id)
+    {
+        try
+        {
+            var obj = new { pushId = id };
+            var json = JsonSerializer.Serialize(obj);
+            File.WriteAllText(PushIdFile, json);
+        }
+        catch
+        {
+            // Ignorera skrivfel
+        }
     }
     
     private void GenerateWeeklyFeed(Dictionary<DateTime, MenuDay> menuData, string outputPath)
