@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "zV3dNNqv5G8=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\emgi003\\source\\repos\\GiXxXmO\\Matsedel-rss2\\MatsedelRss\\MatsedelRss.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\emgi003\\.nuget\\packages\\htmlagilitypack\\1.12.4\\htmlagilitypack.1.12.4.nupkg.sha512",
+    "C:\\Users\\emgi003\\.nuget\\packages\\system.servicemodel.syndication\\10.0.2\\system.servicemodel.syndication.10.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

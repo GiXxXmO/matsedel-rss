@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matsedel Skara - Digital Skylt</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 3em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .tab {
+            padding: 15px 30px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 1.1em;
+            color: #666;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+        
+        .tab:hover {
+            color: #667eea;
+        }
+        
+        .content {
+            display: none;
+        }
+        
+        .content.active {
+            display: block;
+        }
+        
+        .today {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .today h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .today .dish {
+            font-size: 1.8em;
+            line-height: 1.6;
+        }
+        
+        .week-view {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .day-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .day-card.today-card {
+            border-left-color: #f5576c;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffeef2 100%);
+        }
+        
+        .day-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        
+        .day-card .date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .day-card .dish {
+            color: #444;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        
+        .error {
+            background: #ffe6e6;
+            color: #c00;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 1.2em;
+        }
+        
+        .last-update {
+            text-align: center;
+            color: #999;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .today h2 {
+                font-size: 1.8em;
+            }
+            
+            .today .dish {
+                font-size: 1.3em;
+            }
+            
+            .week-view {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>??? Matsedel</h1>
+        <p class="subtitle">Skara Kommun</p>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('today')">Dagens Mat</button>
+            <button class="tab" onclick="showTab('week')">Hela Veckan</button>
+        </div>
+        
+        <div id="today-content" class="content active">
+            <div class="loading">Laddar dagens matsedel...</div>
+        </div>
+        
+        <div id="week-content" class="content">
+            <div class="loading">Laddar veckans matsedel...</div>
+        </div>
+        
+        <div class="last-update" id="last-update"></div>
+    </div>
+    
+    <script>
+        // Konfigurera dessa URL:er till dina RSS-feeds
+        const RSS_FEEDS = {
+            today: 'output/matsedel-dagens.xml',
+            week: 'output/matsedel-alla-dagar.xml'
+        };
+        
+        // För GitHub Pages, använd dessa istället:
+        // const RSS_FEEDS = {
+        //     today: 'https://raw.githubusercontent.com/[username]/[repo]/main/MatsedelRss/output/matsedel-dagens.xml',
+        //     week: 'https://raw.githubusercontent.com/[username]/[repo]/main/MatsedelRss/output/matsedel-alla-dagar.xml'
+        // };
+        
+        let currentData = {
+            today: null,
+            week: null
+        };
+        
+        function showTab(tab) {
+            // Uppdatera tabs
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Visa rätt innehåll
+            document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+            document.getElementById(`${tab}-content`).classList.add('active');
+        }
+        
+        async function loadRSSFeed(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Kunde inte ladda feed');
+                
+                const text = await response.text();
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(text, 'text/xml');
+                
+                return xml;
+            } catch (error) {
+                console.error('Fel vid laddning av RSS:', error);
+                return null;
+            }
+        }
+        
+        function parseHTMLContent(html) {
+            const temp = document.createElement('div');
+            temp.innerHTML = html;
+            return temp.textContent || temp.innerText || html;
+        }
+        
+        async function loadTodayMenu() {
+            const xml = await loadRSSFeed(RSS_FEEDS.today);
+            const container = document.getElementById('today-content');
+            
+            if (!xml) {
+                container.innerHTML = '<div class="error">Kunde inte ladda dagens matsedel. Kontrollera att RSS-feeden är tillgänglig.</div>';
+                return;
+            }
+            
+            const items = xml.querySelectorAll('item');
+            if (items.length === 0) {
+                container.innerHTML = '<div class="error">Ingen matsedel hittades.</div>';
+                return;
+            }
+            
+            const item = items[0];
+            const title = item.querySelector('title')?.textContent || 'Dagens lunch';
+            const description = item.querySelector('description')?.textContent || '';
+            
+            // Parsa HTML-innehållet
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = description;
+            
+            const dayName = tempDiv.querySelector('h3')?.textContent || title;
+            const dish = tempDiv.querySelector('p')?.textContent || 'Information saknas';
+            
+            container.innerHTML = `
+                <div class="today">
+                    <h2>${dayName}</h2>
+                    <div class="dish">${dish}</div>
+                </div>
+            `;
+            
+            updateLastUpdateTime(xml);
+        }
+        
+        async function loadWeekMenu() {
+            const xml = await loadRSSFeed(RSS_FEEDS.week);
+            const container = document.getElementById('week-content');
+            
+            if (!xml) {
+                container.innerHTML = '<div class="error">Kunde inte ladda veckans matsedel. Kontrollera att RSS-feeden är tillgänglig.</div>';
+                return;
+            }
+            
+            const items = xml.querySelectorAll('item');
+            if (items.length === 0) {
+                container.innerHTML = '<div class="error">Ingen matsedel hittades.</div>';
+                return;
+            }
+            
+            const today = new Date().toDateString();
+            let html = '<div class="week-view">';
+            
+            items.forEach(item => {
+                const title = item.querySelector('title')?.textContent || '';
+                const description = item.querySelector('description')?.textContent || '';
+                const pubDate = item.querySelector('pubDate')?.textContent || '';
+                
+                // Parsa HTML-innehållet
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = description;
+                
+                const dayName = tempDiv.querySelector('h3')?.textContent || title;
+                const dish = tempDiv.querySelector('p')?.textContent || 'Information saknas';
+                
+                // Kolla om detta är dagens datum
+                const itemDate = new Date(pubDate).toDateString();
+                const isTodayCard = itemDate === today ? 'today-card' : '';
+                
+                html += `
+                    <div class="day-card ${isTodayCard}">
+                        <h3>${dayName}</h3>
+                        <div class="dish">${dish}</div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            container.innerHTML = html;
+            
+            updateLastUpdateTime(xml);
+        }
+        
+        function updateLastUpdateTime(xml) {
+            const lastBuildDate = xml.querySelector('lastBuildDate')?.textContent;
+            if (lastBuildDate) {
+                const date = new Date(lastBuildDate);
+                document.getElementById('last-update').textContent = 
+                    `Senast uppdaterad: ${date.toLocaleString('sv-SE')}`;
+            }
+        }
+        
+        // Ladda data vid sidladdning
+        loadTodayMenu();
+        loadWeekMenu();
+        
+        // Uppdatera automatiskt var 30:e minut
+        setInterval(() => {
+            loadTodayMenu();
+            loadWeekMenu();
+        }, 30 * 60 * 1000);
+    </script>
+</body>
+</html>

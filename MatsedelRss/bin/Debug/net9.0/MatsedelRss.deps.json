@@ -1,0 +1,57 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "MatsedelRss/1.0.0": {
+        "dependencies": {
+          "HtmlAgilityPack": "1.12.4",
+          "System.ServiceModel.Syndication": "10.0.2"
+        },
+        "runtime": {
+          "MatsedelRss.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.12.4": {
+        "runtime": {
+          "lib/net7.0/HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.12.4.0",
+            "fileVersion": "1.12.4.0"
+          }
+        }
+      },
+      "System.ServiceModel.Syndication/10.0.2": {
+        "runtime": {
+          "lib/net9.0/System.ServiceModel.Syndication.dll": {
+            "assemblyVersion": "10.0.0.2",
+            "fileVersion": "10.0.225.61305"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MatsedelRss/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HtmlAgilityPack/1.12.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ljqvBabvFwKoLniuoQKO8b5bJfJweKLs4fUNS/V5dsvpo0A8MlJqxxn9XVmP2DaskbUXty6IYaWAi1SArGIMeQ==",
+      "path": "htmlagilitypack/1.12.4",
+      "hashPath": "htmlagilitypack.1.12.4.nupkg.sha512"
+    },
+    "System.ServiceModel.Syndication/10.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-t28WU9anHmmRD5GHz5qBv/tokqDmU/Ksexz2DI6jAcoSX+p8VQ7rzHCxubDqK6baOtxEyza/oHECzBGi3rHyHQ==",
+      "path": "system.servicemodel.syndication/10.0.2",
+      "hashPath": "system.servicemodel.syndication.10.0.2.nupkg.sha512"
+    }
+  }
+}

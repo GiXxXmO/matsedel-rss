@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Matsedel Skara - Veckovy</title>
+    <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/</link>
+    <description>Matsedel för veckan från Skara kommun</description>
+    <lastBuildDate>Thu, 23 Jan 2026 15:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Matsedel vecka 4</title>
+      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/#week4</link>
+      <guid>week-4-2026</guid>
+      <pubDate>Mon, 20 Jan 2026 00:00:00 GMT</pubDate>
+      <description>
+        &lt;h3&gt;Vecka 4: 20 jan - 24 jan&lt;/h3&gt;
+        &lt;ul&gt;
+        &lt;li&gt;&lt;strong&gt;Måndag 20/1:&lt;/strong&gt; Pannkakor med sylt och grädde&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Tisdag 21/1:&lt;/strong&gt; Lasagne med sallad&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Onsdag 22/1:&lt;/strong&gt; Fiskgratäng med potatis&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Torsdag 23/1:&lt;/strong&gt; Köttbullar med gräddsås, pasta och lingon&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Fredag 24/1:&lt;/strong&gt; Korv Stroganoff med ris&lt;/li&gt;
+        &lt;/ul&gt;
+      </description>
+    </item>
+  </channel>
+</rss>
