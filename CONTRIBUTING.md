@@ -1,108 +1,110 @@
 # Bidra till Matsedel RSS
 
-Tack för ditt intresse att bidra till projektet! Här är några riktlinjer.
+Tack fï¿½r ditt intresse att bidra till projektet! Hï¿½r ï¿½r nï¿½gra riktlinjer.
 
 ## Hur kan jag bidra?
 
 ### Rapportera buggar
-Öppna ett issue med:
+ï¿½ppna ett issue med:
 - Beskrivning av problemet
-- Steg för att återskapa
-- Förväntad vs faktisk funktion
-- Screenshots om möjligt
-- Miljöinformation (OS, .NET-version, etc.)
+- Steg fï¿½r att ï¿½terskapa
+- Fï¿½rvï¿½ntad vs faktisk funktion
+- Screenshots om mï¿½jligt
+- Miljï¿½information (OS, .NET-version, etc.)
 
-### Föreslå nya funktioner
-Öppna ett issue med:
+### Fï¿½reslï¿½ nya funktioner
+ï¿½ppna ett issue med:
 - Beskrivning av funktionen
-- Motivering (varför behövs den?)
-- Exempel på användning
-- Eventuella alternativ du övervägt
+- Motivering (varfï¿½r behï¿½vs den?)
+- Exempel pï¿½ anvï¿½ndning
+- Eventuella alternativ du ï¿½vervï¿½gt
 
 ### Bidra med kod
 
 1. **Forka projektet**
-2. **Skapa en branch** för din feature/bugfix
+2. **Skapa en branch** fï¿½r din feature/bugfix
    ```bash
    git checkout -b feature/min-nya-funktion
    ```
-3. **Gör dina ändringar**
-   - Följ befintlig kodstil
-   - Lägg till kommentarer för komplexa delar
-   - Testa dina ändringar
+3. **Gï¿½r dina ï¿½ndringar**
+   - Fï¿½lj befintlig kodstil
+   - Lï¿½gg till kommentarer fï¿½r komplexa delar
+   - Testa dina ï¿½ndringar
 4. **Committa**
    ```bash
-   git commit -m "Lägg till: beskrivning av ändring"
+   git commit -m "Lï¿½gg till: beskrivning av ï¿½ndring"
    ```
 5. **Pusha till din fork**
    ```bash
    git push origin feature/min-nya-funktion
    ```
-6. **Öppna en Pull Request**
+6. **ï¿½ppna en Pull Request**
 
 ## Kodstandard
 
 ### C# (.NET)
-- Använd PascalCase för klasser och metoder
-- Använd camelCase för privata fält och lokala variabler
-- Använd async/await för asynkrona operationer
-- Hantera exceptions på lämpligt sätt
+- Anvï¿½nd PascalCase fï¿½r klasser och metoder
+- Anvï¿½nd camelCase fï¿½r privata fï¿½lt och lokala variabler
+- Anvï¿½nd async/await fï¿½r asynkrona operationer
+- Hantera exceptions pï¿½ lï¿½mpligt sï¿½tt
 - Kommentera komplexa logik
 
 ### HTML/CSS/JavaScript
-- Använd semantisk HTML
+- Anvï¿½nd semantisk HTML
 - CSS med logisk gruppering
 - Modern JavaScript (ES6+)
-- Kommentarer för icke-självklara delar
+- Kommentarer fï¿½r icke-sjï¿½lvklara delar
 
 ## Testning
 
 Innan du submittar en PR:
 1. Bygg projektet: `dotnet build`
-2. Kör programmet: `dotnet run`
+2. Kï¿½r programmet: `dotnet run`
 3. Verifiera att RSS-feeds genereras korrekt
-4. Testa viewer.html i flera webbläsare
+4. Testa viewer.html i flera webblï¿½sare
 5. Kontrollera att GitHub Actions workflow fungerar
 
-## Utvecklingsmiljö
+## Utvecklingsmiljï¿½
 
 Rekommenderad setup:
 - **IDE**: Visual Studio 2022 eller VS Code
 - **.NET SDK**: 9.0 eller senare
 - **Git**: Latest version
-- **Webbläsare**: Chrome/Edge för testning
+- **Webblï¿½sare**: Chrome/Edge fï¿½r testning
 
-## Projektstruktur att följa
+**Ny till Visual Studio?** Se vï¿½r kompletta guide: **[Visual Studio Setup Guide](VS-SETUP.md)**
+
+## Projektstruktur att fï¿½lja
 
 ```
 MatsedelRss/
 ??? Program.cs          # Huvudlogik
 ??? output/             # Genererade RSS-feeds
-??? viewer.html         # Frontend för visning
+??? viewer.html         # Frontend fï¿½r visning
 ```
 
-Lägg till nya features i separata klasser om de är större än 100 rader.
+Lï¿½gg till nya features i separata klasser om de ï¿½r stï¿½rre ï¿½n 100 rader.
 
 ## Commit-meddelanden
 
-Använd tydliga commit-meddelanden:
-- `Lägg till: [funktion]` - Ny funktionalitet
+Anvï¿½nd tydliga commit-meddelanden:
+- `Lï¿½gg till: [funktion]` - Ny funktionalitet
 - `Fixa: [problem]` - Buggfix
-- `Uppdatera: [komponent]` - Förbättring av befintlig funktion
-- `Dokumentation: [ändring]` - Dokumentationsuppdatering
+- `Uppdatera: [komponent]` - Fï¿½rbï¿½ttring av befintlig funktion
+- `Dokumentation: [ï¿½ndring]` - Dokumentationsuppdatering
 
 ## Pull Request Process
 
-1. Uppdatera README.md om funktionen påverkar användning
-2. Uppdatera QUICKSTART.md om setup-processen ändras
-3. Lägg till/uppdatera kommentarer i koden
-4. Beskriv dina ändringar tydligt i PR-beskrivningen
-5. Länka till relaterade issues
+1. Uppdatera README.md om funktionen pï¿½verkar anvï¿½ndning
+2. Uppdatera QUICKSTART.md om setup-processen ï¿½ndras
+3. Lï¿½gg till/uppdatera kommentarer i koden
+4. Beskriv dina ï¿½ndringar tydligt i PR-beskrivningen
+5. Lï¿½nka till relaterade issues
 
-## Idéer för bidrag
+## Idï¿½er fï¿½r bidrag
 
 ### Funktioner som skulle vara bra att ha:
-- [ ] Stöd för fler kommuner (konfigurerbart)
+- [ ] Stï¿½d fï¿½r fler kommuner (konfigurerbart)
 - [ ] Allergenerinformation
 - [ ] Nutritionsinformation
 - [ ] Veckomeny i PDF-format
@@ -110,34 +112,34 @@ Använd tydliga commit-meddelanden:
 - [ ] Slack/Discord-integration
 - [ ] REST API
 - [ ] Mobilapp
-- [ ] PWA-stöd
-- [ ] Offline-läge
-- [ ] Favoritmaträtter
+- [ ] PWA-stï¿½d
+- [ ] Offline-lï¿½ge
+- [ ] Favoritmatrï¿½tter
 - [ ] Recept/Instruktioner
-- [ ] Bildstöd för maträtter
+- [ ] Bildstï¿½d fï¿½r matrï¿½tter
 
-### Förbättringar:
-- [ ] Bättre HTML-parsning (hantera fler format)
+### Fï¿½rbï¿½ttringar:
+- [ ] Bï¿½ttre HTML-parsning (hantera fler format)
 - [ ] Mer robust felhantering
-- [ ] Caching för snabbare laddning
+- [ ] Caching fï¿½r snabbare laddning
 - [ ] Enhetstester
 - [ ] Integrationstester
-- [ ] CI/CD-förbättringar
+- [ ] CI/CD-fï¿½rbï¿½ttringar
 - [ ] Docker-support
 - [ ] Logging/telemetri
 - [ ] Prestanda-optimeringar
 
 ### Dokumentation:
 - [ ] Video-tutorial
-- [ ] Fler exempel på digital signage-integration
-- [ ] Översättningar till andra språk
+- [ ] Fler exempel pï¿½ digital signage-integration
+- [ ] ï¿½versï¿½ttningar till andra sprï¿½k
 - [ ] API-dokumentation
 - [ ] Architecture Decision Records (ADRs)
 
-## Frågor?
+## Frï¿½gor?
 
-Om du har frågor, öppna ett issue med label "question" eller kontakta projektägaren.
+Om du har frï¿½gor, ï¿½ppna ett issue med label "question" eller kontakta projektï¿½garen.
 
 ## Licens
 
-Genom att bidra till projektet godkänner du att dina bidrag licensieras under MIT License.
+Genom att bidra till projektet godkï¿½nner du att dina bidrag licensieras under MIT License.

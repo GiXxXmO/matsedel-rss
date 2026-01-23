@@ -1,28 +1,40 @@
 # Matsedel RSS - Skara Kommun
 
-En RSS-läsare som automatiskt skrapar matsedeln från Skara kommuns webbplats och genererar RSS-feeds som kan användas i informationsskärmar och andra applikationer.
+En RSS-lï¿½sare som automatiskt skrapar matsedeln frï¿½n Skara kommuns webbplats och genererar RSS-feeds som kan anvï¿½ndas i informationsskï¿½rmar och andra applikationer.
 
 ## Funktioner
 
-- ? Skrapar matsedel från Skara kommuns webbplats
+- ? Skrapar matsedel frï¿½n Skara kommuns webbplats
 - ? Genererar tre RSS-feeds:
   - **Dagens** (`matsedel-dagens.xml`) - Dagens matsedel
   - **Veckovy** (`matsedel-vecka.xml`) - Hela veckans matsedel
   - **Alla dagar** (`matsedel-alla-dagar.xml`) - Kommande 30 dagar
 - ? Automatisk uppdatering via GitHub Actions varje dag
-- ? Automatisk hämtning av nästa månads matsedel i slutet av månaden
-- ? Inbyggd HTML-viewer för digital signage
-- ? Perfekt för informationsskärmar/digital signage
+- ? Automatisk hï¿½mtning av nï¿½sta mï¿½nads matsedel i slutet av mï¿½naden
+- ? Inbyggd HTML-viewer fï¿½r digital signage
+- ? Perfekt fï¿½r informationsskï¿½rmar/digital signage
 
 ## RSS-Feeds
 
-Efter körning finns följande feeds tillgängliga:
+Efter kï¿½rning finns fï¿½ljande feeds tillgï¿½ngliga:
 
 - `MatsedelRss/output/matsedel-dagens.xml` - Dagens matsedel
 - `MatsedelRss/output/matsedel-vecka.xml` - Hela veckans matsedel grupperad per vecka
 - `MatsedelRss/output/matsedel-alla-dagar.xml` - Alla kommande dagar (max 30)
 
-## Användning
+## Kom igï¿½ng
+
+### ï¿½ppna i Visual Studio
+
+Om du vill utveckla och ï¿½ndra projektet i Visual Studio, se den kompletta guiden: **[Visual Studio Setup Guide](VS-SETUP.md)**
+
+Snabbstart:
+1. ï¿½ppna Visual Studio 2022
+2. Klona repository: `https://github.com/GiXxXmO/matsedel-rss.git`
+3. ï¿½ppna `MatsedelRss.sln`
+4. Bï¿½rja koda!
+
+### Anvï¿½ndning
 
 ### Lokalt
 
@@ -30,10 +42,10 @@ Efter körning finns följande feeds tillgängliga:
 # Navigera till projektkatalogen
 cd MatsedelRss
 
-# Återställ dependencies
+# ï¿½terstï¿½ll dependencies
 dotnet restore
 
-# Kör programmet
+# Kï¿½r programmet
 dotnet run
 ```
 
@@ -41,58 +53,58 @@ RSS-filerna genereras i `MatsedelRss/output/` katalogen.
 
 ### HTML Viewer
 
-Projektet inkluderar en färdig HTML-viewer för digital signage:
+Projektet inkluderar en fï¿½rdig HTML-viewer fï¿½r digital signage:
 
-1. Kör programmet för att generera RSS-feeds
-2. Öppna `MatsedelRss/viewer.html` i en webbläsare
-3. För fullskärmsläge (digital signage), tryck F11
+1. Kï¿½r programmet fï¿½r att generera RSS-feeds
+2. ï¿½ppna `MatsedelRss/viewer.html` i en webblï¿½sare
+3. Fï¿½r fullskï¿½rmslï¿½ge (digital signage), tryck F11
 
 Viewer:n uppdateras automatiskt var 30:e minut och visar:
 - **Dagens Mat** - Stor, tydlig vy av dagens lunch
-- **Hela Veckan** - Översikt över veckans alla luncher
+- **Hela Veckan** - ï¿½versikt ï¿½ver veckans alla luncher
 
 ### GitHub Actions
 
-Projektet är konfigurerat att automatiskt uppdatera RSS-feeds:
+Projektet ï¿½r konfigurerat att automatiskt uppdatera RSS-feeds:
 
 - **Daglig uppdatering**: Varje dag kl 06:00 UTC (07:00/08:00 svensk tid)
-- **Manuell körning**: Kan triggas manuellt via GitHub Actions-fliken
+- **Manuell kï¿½rning**: Kan triggas manuellt via GitHub Actions-fliken
 - **Vid push**: Uppdateras automatiskt vid push till main-branchen
-- **Automatisk månadsövergång**: Hämtar nästa månads matsedel 7 dagar innan månadsskifte
+- **Automatisk mï¿½nadsï¿½vergï¿½ng**: Hï¿½mtar nï¿½sta mï¿½nads matsedel 7 dagar innan mï¿½nadsskifte
 
-RSS-feeds committas automatiskt tillbaka till repositoryt och kan nås via:
+RSS-feeds committas automatiskt tillbaka till repositoryt och kan nï¿½s via:
 ```
 https://raw.githubusercontent.com/[username]/[repo]/main/MatsedelRss/output/matsedel-dagens.xml
 https://raw.githubusercontent.com/[username]/[repo]/main/MatsedelRss/output/matsedel-vecka.xml
 https://raw.githubusercontent.com/[username]/[repo]/main/MatsedelRss/output/matsedel-alla-dagar.xml
 ```
 
-## Användning i Informationsskärm
+## Anvï¿½ndning i Informationsskï¿½rm
 
 ### Alternativ 1: HTML Viewer (Rekommenderat)
 
-1. **Konfigurera viewer för GitHub Pages:**
+1. **Konfigurera viewer fï¿½r GitHub Pages:**
    - Redigera `MatsedelRss/viewer.html`
-   - Uppdatera RSS_FEEDS URL:er till dina GitHub Raw-länkar
+   - Uppdatera RSS_FEEDS URL:er till dina GitHub Raw-lï¿½nkar
    
 2. **Aktivera GitHub Pages:**
-   - Gå till Settings ? Pages i ditt repository
-   - Välj "Deploy from a branch"
-   - Välj `main` branch och `/MatsedelRss` folder
-   - Öppna `https://[username].github.io/[repo]/viewer.html`
+   - Gï¿½ till Settings ? Pages i ditt repository
+   - Vï¿½lj "Deploy from a branch"
+   - Vï¿½lj `main` branch och `/MatsedelRss` folder
+   - ï¿½ppna `https://[username].github.io/[repo]/viewer.html`
 
-3. **För lokal display:**
-   - Öppna `viewer.html` direkt från filsystemet
-   - Tryck F11 för fullskärmsläge
+3. **Fï¿½r lokal display:**
+   - ï¿½ppna `viewer.html` direkt frï¿½n filsystemet
+   - Tryck F11 fï¿½r fullskï¿½rmslï¿½ge
    - Viewer:n uppdateras automatiskt
 
-### Alternativ 2: RSS-Reader för Digital Signage
+### Alternativ 2: RSS-Reader fï¿½r Digital Signage
 
-De flesta digital signage-lösningar (t.ex. ScreenCloud, Yodeck, OptiSigns) har inbyggt stöd för RSS-feeds.
+De flesta digital signage-lï¿½sningar (t.ex. ScreenCloud, Yodeck, OptiSigns) har inbyggt stï¿½d fï¿½r RSS-feeds.
 
-1. Använd URL:en till RSS-feeden från GitHub
+1. Anvï¿½nd URL:en till RSS-feeden frï¿½n GitHub
 2. Konfigurera updateringfrekvens (rekommenderat: daglig uppdatering)
-3. Välj mellan veckoöversikt eller dagens mat
+3. Vï¿½lj mellan veckoï¿½versikt eller dagens mat
 
 ### Alternativ 3: Egen HTML/JavaScript-implementation
 
@@ -130,25 +142,25 @@ De flesta digital signage-lösningar (t.ex. ScreenCloud, Yodeck, OptiSigns) har i
 
 ## Konfiguration
 
-### Ändra URL för matsedel
+### ï¿½ndra URL fï¿½r matsedel
 
-Om Skara kommun ändrar URL-strukturen, uppdatera `BaseUrl` och URL-genereringen i `MatsedelScraper` klassen i `Program.cs`.
+Om Skara kommun ï¿½ndrar URL-strukturen, uppdatera `BaseUrl` och URL-genereringen i `MatsedelScraper` klassen i `Program.cs`.
 
-### Ändra uppdateringsschema
+### ï¿½ndra uppdateringsschema
 
-Redigera `.github/workflows/update-rss.yml` och ändra cron-schemat:
+Redigera `.github/workflows/update-rss.yml` och ï¿½ndra cron-schemat:
 
 ```yaml
 schedule:
-  - cron: '0 6 * * *'  # Ändra tiden här (UTC)
+  - cron: '0 6 * * *'  # ï¿½ndra tiden hï¿½r (UTC)
 ```
 
-### Ändra månadsövergångstid
+### ï¿½ndra mï¿½nadsï¿½vergï¿½ngstid
 
-I `Program.cs`, ändra antalet dagar för när nästa månad ska hämtas:
+I `Program.cs`, ï¿½ndra antalet dagar fï¿½r nï¿½r nï¿½sta mï¿½nad ska hï¿½mtas:
 
 ```csharp
-if (daysLeftInMonth <= 7)  // Ändra från 7 till önskat antal dagar
+if (daysLeftInMonth <= 7)  // ï¿½ndra frï¿½n 7 till ï¿½nskat antal dagar
 ```
 
 ## Teknisk Stack
@@ -166,7 +178,7 @@ matsedel-rss/
 ??? MatsedelRss/
 ?   ??? Program.cs              # Huvudprogram med scraper och RSS-generering
 ?   ??? MatsedelRss.csproj      # Projektfil
-?   ??? viewer.html             # HTML-viewer för digital signage
+?   ??? viewer.html             # HTML-viewer fï¿½r digital signage
 ?   ??? output/                 # Genererade RSS-feeds
 ?       ??? matsedel-dagens.xml
 ?       ??? matsedel-vecka.xml
@@ -179,41 +191,41 @@ matsedel-rss/
 ??? .gitignore
 ```
 
-## Felsökning
+## Felsï¿½kning
 
 ### Problem med att hitta matsedeln
 
 Om programmet inte hittar matsedeln:
-1. Besök https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/
-2. Hitta aktuell månads sida
+1. Besï¿½k https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/
+2. Hitta aktuell mï¿½nads sida
 3. Kontrollera URL-strukturen
 4. Uppdatera URL-genereringen i `Program.cs`
 
 ### Problem med parsning
 
-Om HTML-strukturen har ändrats på webbplatsen:
-1. Öppna matsedelssidan i webbläsaren
+Om HTML-strukturen har ï¿½ndrats pï¿½ webbplatsen:
+1. ï¿½ppna matsedelssidan i webblï¿½saren
 2. Inspektera HTML-strukturen (F12)
 3. Uppdatera parsning-logiken i metoderna:
    - `ParseTable()`
    - `ParseDateHeaders()`
 
-### Viewer visar inte innehåll
+### Viewer visar inte innehï¿½ll
 
 - Kontrollera att RSS-feeds har genererats i `output/`-mappen
-- Kontrollera att URL:erna i `viewer.html` är korrekta
-- Öppna webbläsarens konsol (F12) för felmeddelanden
-- För GitHub Pages: Kontrollera att Pages är aktiverat och korrekt konfigurerat
+- Kontrollera att URL:erna i `viewer.html` ï¿½r korrekta
+- ï¿½ppna webblï¿½sarens konsol (F12) fï¿½r felmeddelanden
+- Fï¿½r GitHub Pages: Kontrollera att Pages ï¿½r aktiverat och korrekt konfigurerat
 
-## Förbättringsmöjligheter
+## Fï¿½rbï¿½ttringsmï¿½jligheter
 
-- [ ] Stöd för flera skolor/enheter
-- [ ] Filtrera på allergener
-- [ ] JSON API utöver RSS
-- [ ] E-postnotiser för nya menyer
+- [ ] Stï¿½d fï¿½r flera skolor/enheter
+- [ ] Filtrera pï¿½ allergener
+- [ ] JSON API utï¿½ver RSS
+- [ ] E-postnotiser fï¿½r nya menyer
 - [ ] Historisk data och statistik
-- [ ] PWA-stöd för offline-visning
-- [ ] Stöd för fler kommuner
+- [ ] PWA-stï¿½d fï¿½r offline-visning
+- [ ] Stï¿½d fï¿½r fler kommuner
 
 ## Licens
 
@@ -221,4 +233,4 @@ MIT License
 
 ## Utvecklare
 
-Skapad för att enkelt visa matsedel från Skara kommun på informationsskärmar.
+Skapad fï¿½r att enkelt visa matsedel frï¿½n Skara kommun pï¿½ informationsskï¿½rmar.
