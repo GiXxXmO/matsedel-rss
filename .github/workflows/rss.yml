@@ -13,7 +13,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # krävs för att kunna pusha
+          fetch-depth: 0   # krävs för git push
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -29,17 +29,17 @@ jobs:
       - name: Run program
         run: dotnet run --project MatsedelRss/MatsedelRss.csproj
 
-      - name: Create output folder if missing
-        run: mkdir -p MatsedelRss/output
+      - name: Ensure docs folder exists
+        run: mkdir -p docs
 
-      - name: Copy generated files to repo output folder
+      - name: Copy generated RSS to docs/
         run: |
-          cp -r MatsedelRss/bin/Release/net9.0/output/* MatsedelRss/output/ || echo "No files to copy"
+          cp -r MatsedelRss/bin/Release/net9.0/output/* docs/ || echo "No files to copy"
 
-      - name: Commit RSS output
+      - name: Commit and push updated RSS
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add MatsedelRss/output/*.xml
+          git add docs/*.xml
           git commit -m "Update RSS feed" || echo "No changes to commit"
           git push
