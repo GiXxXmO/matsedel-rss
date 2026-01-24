@@ -29,7 +29,7 @@ jobs:
       - name: Run program
         run: dotnet run --project MatsedelRss/MatsedelRss.csproj
 
-      - name: Debug: list all possible output folders
+      - name: "Debug: list all possible output folders"
         run: |
           echo "Listing Release output:"
           ls -R MatsedelRss/bin/Release/net9.0 || true
@@ -46,21 +46,18 @@ jobs:
           echo "Searching for XML files..."
           FOUND=false
 
-          # Release output
           if compgen -G "MatsedelRss/bin/Release/net9.0/output/*.xml" > /dev/null; then
             echo "Found XML files in Release output"
             cp MatsedelRss/bin/Release/net9.0/output/*.xml docs/
             FOUND=true
           fi
 
-          # Debug output
           if compgen -G "MatsedelRss/bin/Debug/net9.0/output/*.xml" > /dev/null; then
             echo "Found XML files in Debug output"
             cp MatsedelRss/bin/Debug/net9.0/output/*.xml docs/
             FOUND=true
           fi
 
-          # Root output folder
           if compgen -G "output/*.xml" > /dev/null; then
             echo "Found XML files in root output folder"
             cp output/*.xml docs/
