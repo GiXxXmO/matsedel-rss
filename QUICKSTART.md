@@ -1,6 +1,6 @@
 # Snabbstart - Matsedel RSS
 
-## För utvecklare som vill köra lokalt
+## FÃ¶r utvecklare som vill kÃ¶ra lokalt
 
 ### 1. Klona eller ladda ner projektet
 ```bash
@@ -8,32 +8,32 @@ git clone https://github.com/[username]/matsedel-rss.git
 cd matsedel-rss
 ```
 
-### 2. Kör applikationen
+### 2. KÃ¶r applikationen
 ```bash
 dotnet run --project MatsedelRss/MatsedelRss.csproj
 ```
 
 ### 3. Visa resultatet
-Öppna `MatsedelRss/viewer.html` i din webbläsare för att se dagens och veckans matsedel.
+Ã–ppna `MatsedelRss/viewer.html` i din webblÃ¤sare fÃ¶r att se dagens och veckans matsedel.
 
 ---
 
-## För att sätta upp på GitHub med automatisk uppdatering
+## FÃ¶r att sÃ¤tta upp pÃ¥ GitHub med automatisk uppdatering
 
 ### 1. Forka eller pusha projektet till GitHub
 
 ### 2. Aktivera GitHub Actions
-- Gå till "Actions"-fliken i ditt repository
+- GÃ¥ till "Actions"-fliken i ditt repository
 - Klicka "I understand my workflows, go ahead and enable them"
 
-### 3. (Valfritt) Aktivera GitHub Pages för viewer
-- Gå till Settings ? Pages
-- Under "Source", välj "Deploy from a branch"
-- Välj `main` branch och `/MatsedelRss` folder
+### 3. (Valfritt) Aktivera GitHub Pages fÃ¶r viewer
+- GÃ¥ till Settings ? Pages
+- Under "Source", vÃ¤lj "Deploy from a branch"
+- VÃ¤lj `main` branch och `/MatsedelRss` folder
 - Klicka "Save"
-- Din viewer kommer finnas på: `https://[username].github.io/[repo]/viewer.html`
+- Din viewer kommer finnas pÃ¥: `https://[username].github.io/[repo]/viewer.html`
 
-### 4. Konfigurera viewer för GitHub Pages
+### 4. Konfigurera viewer fÃ¶r GitHub Pages
 Om du aktiverade GitHub Pages, uppdatera `MatsedelRss/viewer.html`:
 
 ```javascript
@@ -43,57 +43,57 @@ const RSS_FEEDS = {
 };
 ```
 
-Ersätt `[username]` och `[repo]` med dina faktiska värden.
+ErsÃ¤tt `[username]` och `[repo]` med dina faktiska vÃ¤rden.
 
-### 5. Första körningen
-Kör GitHub Actions manuellt för första gången:
-- Gå till Actions-fliken
-- Välj "Uppdatera Matsedel RSS"
+### 5. FÃ¶rsta kÃ¶rningen
+KÃ¶r GitHub Actions manuellt fÃ¶r fÃ¶rsta gÃ¥ngen:
+- GÃ¥ till Actions-fliken
+- VÃ¤lj "Uppdatera Matsedel RSS"
 - Klicka "Run workflow"
-- Efter det kommer den köra automatiskt varje dag kl 06:00 UTC
+- Efter det kommer den kÃ¶ra automatiskt varje dag kl 06:00 UTC
 
 ---
 
-## För att använda i Digital Signage / Informationsskärm
+## FÃ¶r att anvÃ¤nda i Digital Signage / InformationsskÃ¤rm
 
 ### Metod 1: Lokal HTML-viewer
-1. Kör programmet en gång: `dotnet run --project MatsedelRss/MatsedelRss.csproj`
-2. Öppna `MatsedelRss/viewer.html` i Chrome eller Edge
-3. Tryck F11 för fullskärmsläge
-4. Sätt upp browsern att starta automatiskt vid systemstart
+1. KÃ¶r programmet en gÃ¥ng: `dotnet run --project MatsedelRss/MatsedelRss.csproj`
+2. Ã–ppna `MatsedelRss/viewer.html` i Chrome eller Edge
+3. Tryck F11 fÃ¶r fullskÃ¤rmslÃ¤ge
+4. SÃ¤tt upp browsern att starta automatiskt vid systemstart
 
-### Metod 2: GitHub Pages (Rekommenderat för nätverk)
-1. Följ stegen ovan för att aktivera GitHub Pages
-2. Öppna viewer-URL:en på informationsskärmen
+### Metod 2: GitHub Pages (Rekommenderat fÃ¶r nÃ¤tverk)
+1. FÃ¶lj stegen ovan fÃ¶r att aktivera GitHub Pages
+2. Ã–ppna viewer-URL:en pÃ¥ informationsskÃ¤rmen
 3. Sidan uppdateras automatiskt varje dag via GitHub Actions
 
-### Metod 3: RSS-reader i befintlig Digital Signage-lösning
-Använd följande RSS-URLs i din befintliga lösning:
+### Metod 3: RSS-reader i befintlig Digital Signage-lÃ¶sning
+AnvÃ¤nd fÃ¶ljande RSS-URLs i din befintliga lÃ¶sning:
 - Dagens: `https://raw.githubusercontent.com/[username]/[repo]/main/MatsedelRss/output/matsedel-dagens.xml`
 - Vecka: `https://raw.githubusercontent.com/[username]/[repo]/main/MatsedelRss/output/matsedel-vecka.xml`
 - Alla dagar: `https://raw.githubusercontent.com/[username]/[repo]/main/MatsedelRss/output/matsedel-alla-dagar.xml`
 
 ---
 
-## Felsökning
+## FelsÃ¶kning
 
-### "Kunde inte hämta matsedel"
+### "Kunde inte hÃ¤mta matsedel"
 - Kontrollera att du har internetanslutning
-- Verifiera att Skara kommuns webbplats är uppe
-- Kolla att URL:en i `Program.cs` stämmer med aktuell matsedelssida
+- Verifiera att Skara kommuns webbplats Ã¤r uppe
+- Kolla att URL:en i `Program.cs` stÃ¤mmer med aktuell matsedelssida
 
 ### Viewer visar inte data
 - Kontrollera att RSS-filerna finns i `output/`-mappen
-- För GitHub Pages: Vänta några minuter efter första deploy
-- Öppna webbläsarens konsol (F12) för detaljerade felmeddelanden
+- FÃ¶r GitHub Pages: VÃ¤nta nÃ¥gra minuter efter fÃ¶rsta deploy
+- Ã–ppna webblÃ¤sarens konsol (F12) fÃ¶r detaljerade felmeddelanden
 
 ### GitHub Actions fungerar inte
-- Kontrollera att Actions är aktiverade i repository settings
+- Kontrollera att Actions Ã¤r aktiverade i repository settings
 - Verifiera att workflow-filen finns i `.github/workflows/`
-- Kolla Actions-loggen för detaljerade felmeddelanden
+- Kolla Actions-loggen fÃ¶r detaljerade felmeddelanden
 
 ---
 
 ## Support
 
-För problem eller frågor, öppna ett issue på GitHub.
+FÃ¶r problem eller frÃ¥gor, Ã¶ppna ett issue pÃ¥ GitHub.

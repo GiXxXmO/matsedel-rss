@@ -1,44 +1,44 @@
-# Integration med Digital Signage-lösningar
+# Integration med Digital Signage-lÃ¶sningar
 
-Denna guide visar hur du integrerar Matsedel RSS med populära digital signage-plattformar.
+Denna guide visar hur du integrerar Matsedel RSS med populÃ¤ra digital signage-plattformar.
 
 ## ScreenCloud
 
-1. Logga in på ScreenCloud
-2. Gå till "Apps" ? "RSS Feed"
-3. Lägg till RSS Feed-appen till din skärm
+1. Logga in pÃ¥ ScreenCloud
+2. GÃ¥ till "Apps" ? "RSS Feed"
+3. LÃ¤gg till RSS Feed-appen till din skÃ¤rm
 4. Konfigurera:
    - **Feed URL**: `https://raw.githubusercontent.com/[username]/[repo]/main/MatsedelRss/output/matsedel-dagens.xml`
    - **Update Frequency**: 1 hour eller Daily
    - **Display Duration**: 30-60 sekunder
-5. Anpassa layout och färger efter behov
+5. Anpassa layout och fÃ¤rger efter behov
 
 ## Yodeck
 
-1. Logga in på Yodeck
-2. Gå till "Media" ? "Add Widget"
-3. Välj "RSS Feed"
+1. Logga in pÃ¥ Yodeck
+2. GÃ¥ till "Media" ? "Add Widget"
+3. VÃ¤lj "RSS Feed"
 4. Konfigurera:
    - **URL**: `https://raw.githubusercontent.com/[username]/[repo]/main/MatsedelRss/output/matsedel-alla-dagar.xml`
    - **Refresh Rate**: 3600 seconds (1 timme)
-   - **Template**: Välj en passande mall eller skapa egen
-5. Lägg till i din playlist
+   - **Template**: VÃ¤lj en passande mall eller skapa egen
+5. LÃ¤gg till i din playlist
 
 ## OptiSigns
 
-1. Logga in på OptiSigns
-2. Gå till "Content" ? "Add Content"
-3. Välj "RSS Feed"
+1. Logga in pÃ¥ OptiSigns
+2. GÃ¥ till "Content" ? "Add Content"
+3. VÃ¤lj "RSS Feed"
 4. Konfigurera:
    - **Feed URL**: `https://raw.githubusercontent.com/[username]/[repo]/main/MatsedelRss/output/matsedel-vecka.xml`
    - **Refresh Interval**: 60 minutes
-5. Dra och släpp på din layout
+5. Dra och slÃ¤pp pÃ¥ din layout
 
 ## Rise Vision
 
-1. Logga in på Rise Vision
-2. Gå till "Presentations"
-3. Lägg till "RSS Widget"
+1. Logga in pÃ¥ Rise Vision
+2. GÃ¥ till "Presentations"
+3. LÃ¤gg till "RSS Widget"
 4. Konfigurera:
    - **URL**: `https://raw.githubusercontent.com/[username]/[repo]/main/MatsedelRss/output/matsedel-dagens.xml`
    - **Update Interval**: 1 hour
@@ -46,20 +46,20 @@ Denna guide visar hur du integrerar Matsedel RSS med populära digital signage-pl
 
 ## Xibo
 
-1. Logga in på Xibo CMS
-2. Gå till "Library" ? "Add Media"
-3. Välj "Web Page"
+1. Logga in pÃ¥ Xibo CMS
+2. GÃ¥ till "Library" ? "Add Media"
+3. VÃ¤lj "Web Page"
 4. URL: `https://[username].github.io/[repo]/viewer.html`
 5. Refresh: 3600 seconds
-6. Lägg till i din layout
+6. LÃ¤gg till i din layout
 
-## Google Slides (Enkel lösning)
+## Google Slides (Enkel lÃ¶sning)
 
-För en mycket enkel lösning kan du använda Google Slides:
+FÃ¶r en mycket enkel lÃ¶sning kan du anvÃ¤nda Google Slides:
 
 1. Skapa en ny Google Slides-presentation
-2. Lägg till en textbox för matsedeln
-3. Använd Google Apps Script för att hämta RSS-feed:
+2. LÃ¤gg till en textbox fÃ¶r matsedeln
+3. AnvÃ¤nd Google Apps Script fÃ¶r att hÃ¤mta RSS-feed:
 
 ```javascript
 function updateMenu() {
@@ -77,12 +77,12 @@ function updateMenu() {
 }
 ```
 
-4. Sätt upp en trigger att köra varje timme
+4. SÃ¤tt upp en trigger att kÃ¶ra varje timme
 5. Publicera som webbsida eller visa direkt
 
 ## Raspberry Pi med Chromium (DIY)
 
-Om du vill bygga din egen lösning med en Raspberry Pi:
+Om du vill bygga din egen lÃ¶sning med en Raspberry Pi:
 
 ### Installation
 
@@ -95,7 +95,7 @@ sudo apt-get install chromium-browser unclutter
 nano ~/.config/lxsession/LXDE-pi/autostart
 ```
 
-### Lägg till i autostart:
+### LÃ¤gg till i autostart:
 
 ```bash
 @xset s off
@@ -104,86 +104,86 @@ nano ~/.config/lxsession/LXDE-pi/autostart
 @chromium-browser --noerrdialogs --disable-infobars --kiosk https://[username].github.io/[repo]/viewer.html
 ```
 
-### Eller använd lokal fil:
+### Eller anvÃ¤nd lokal fil:
 
 ```bash
 # Klona repo
 cd ~
 git clone https://github.com/[username]/[repo].git
 
-# Lägg till i autostart
+# LÃ¤gg till i autostart
 @chromium-browser --noerrdialogs --disable-infobars --kiosk file:///home/pi/[repo]/MatsedelRss/viewer.html
 
-# Sätt upp cron för att uppdatera
+# SÃ¤tt upp cron fÃ¶r att uppdatera
 crontab -e
-# Lägg till:
+# LÃ¤gg till:
 0 7 * * * cd ~/[repo] && git pull
 ```
 
-## Smart TV med webbläsare
+## Smart TV med webblÃ¤sare
 
-De flesta moderna smart-TV:ar har en inbyggd webbläsare:
+De flesta moderna smart-TV:ar har en inbyggd webblÃ¤sare:
 
-1. Öppna webbläsaren på TV:n
+1. Ã–ppna webblÃ¤saren pÃ¥ TV:n
 2. Navigera till: `https://[username].github.io/[repo]/viewer.html`
-3. Gå till fullskärmsläge (vanligtvis via meny eller F11)
-4. Ställ in TV:n att starta med webbläsaren öppen
+3. GÃ¥ till fullskÃ¤rmslÃ¤ge (vanligtvis via meny eller F11)
+4. StÃ¤ll in TV:n att starta med webblÃ¤saren Ã¶ppen
 
-## Tips för bästa resultat
+## Tips fÃ¶r bÃ¤sta resultat
 
 ### Uppdateringsfrekvens
-- **Daglig uppdatering räcker**: Matsedeln ändras normalt en gång per dag
-- **GitHub Actions kör kl 06:00 UTC**: Dina feeds uppdateras automatiskt
-- **Viewer uppdaterar var 30:e minut**: Automatisk reload av innehåll
+- **Daglig uppdatering rÃ¤cker**: Matsedeln Ã¤ndras normalt en gÃ¥ng per dag
+- **GitHub Actions kÃ¶r kl 06:00 UTC**: Dina feeds uppdateras automatiskt
+- **Viewer uppdaterar var 30:e minut**: Automatisk reload av innehÃ¥ll
 
-### Display-inställningar
-- **Upplösning**: 1920x1080 (Full HD) rekommenderas
-- **Orientation**: Landscape för veckoöversikt, Portrait för dagens mat
+### Display-instÃ¤llningar
+- **UpplÃ¶sning**: 1920x1080 (Full HD) rekommenderas
+- **Orientation**: Landscape fÃ¶r veckoÃ¶versikt, Portrait fÃ¶r dagens mat
 - **Brightness**: Justera efter omgivande ljus
-- **Sleep Mode**: Inaktivera för 24/7-drift
+- **Sleep Mode**: Inaktivera fÃ¶r 24/7-drift
 
-### Nätverkskrav
-- **Bandbredd**: Minimal (endast XML-filer, några KB)
-- **Stabilitet**: Behöver stabil internetanslutning för uppdateringar
-- **Firewall**: Tillåt utgående trafik till GitHub och Raw-innehåll
+### NÃ¤tverkskrav
+- **Bandbredd**: Minimal (endast XML-filer, nÃ¥gra KB)
+- **Stabilitet**: BehÃ¶ver stabil internetanslutning fÃ¶r uppdateringar
+- **Firewall**: TillÃ¥t utgÃ¥ende trafik till GitHub och Raw-innehÃ¥ll
 
-### Backup-lösning
-Om GitHub är nere:
-- Viewer:n visar senast laddade innehåll
+### Backup-lÃ¶sning
+Om GitHub Ã¤r nere:
+- Viewer:n visar senast laddade innehÃ¥ll
 - RSS-filerna finns lokalt i `output/`-mappen
-- Kan servas från egen webbserver vid behov
+- Kan servas frÃ¥n egen webbserver vid behov
 
 ## Anpassning
 
-### Ändra färger och stil
+### Ã„ndra fÃ¤rger och stil
 Redigera `viewer.html` och uppdatera CSS:
 
 ```css
-/* Ändra huvudfärger */
+/* Ã„ndra huvudfÃ¤rger */
 body {
     background: linear-gradient(135deg, #YOUR_COLOR_1 0%, #YOUR_COLOR_2 100%);
 }
 
-/* Ändra accentfärg */
+/* Ã„ndra accentfÃ¤rg */
 .day-card {
     border-left: 5px solid #YOUR_ACCENT_COLOR;
 }
 ```
 
-### Lägga till logotyp
-I `viewer.html`, lägg till ovanför `<h1>`:
+### LÃ¤gga till logotyp
+I `viewer.html`, lÃ¤gg till ovanfÃ¶r `<h1>`:
 
 ```html
 <img src="path/to/logo.png" alt="Logo" style="max-width: 200px; margin: 0 auto; display: block;">
 ```
 
-### Ändra typsnitt
+### Ã„ndra typsnitt
 ```css
 body {
     font-family: 'Din egen fontfamilj', Arial, sans-serif;
 }
 ```
 
-## Support och frågor
+## Support och frÃ¥gor
 
-För specifika integrationsfrågor, öppna ett issue på GitHub.
+FÃ¶r specifika integrationsfrÃ¥gor, Ã¶ppna ett issue pÃ¥ GitHub.

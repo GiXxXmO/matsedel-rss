@@ -2,23 +2,23 @@
 
 ## Sammanfattning
 
-Ett komplett system för att automatiskt skrapa matsedel från Skara kommuns webbplats och presentera den som RSS-feeds och via en modern webbvisare, perfekt för informationsskärmar och digital signage.
+Ett komplett system fÃ¶r att automatiskt skrapa matsedel frÃ¥n Skara kommuns webbplats och presentera den som RSS-feeds och via en modern webbvisare, perfekt fÃ¶r informationsskÃ¤rmar och digital signage.
 
 ## Nyckelkomponenter
 
 ### 1. MatsedelScraper (Program.cs)
 **Huvudfunktionalitet:**
-- Skrapar matsedelssidan från Skara kommun
-- Hanterar flera URL-format och månadsövergångar
+- Skrapar matsedelssidan frÃ¥n Skara kommun
+- Hanterar flera URL-format och mÃ¥nadsÃ¶vergÃ¥ngar
 - Parsar HTML-tabeller och datum-headers
-- Stödjer svenska datum- och månadsformat
-- Automatisk hämtning av nästa månads matsedel
+- StÃ¶djer svenska datum- och mÃ¥nadsformat
+- Automatisk hÃ¤mtning av nÃ¤sta mÃ¥nads matsedel
 
 **Tekniker:**
-- HtmlAgilityPack för HTML-parsning
-- HttpClient för web requests
-- Regex för textbearbetning
-- CultureInfo för svensk lokalisering
+- HtmlAgilityPack fÃ¶r HTML-parsning
+- HttpClient fÃ¶r web requests
+- Regex fÃ¶r textbearbetning
+- CultureInfo fÃ¶r svensk lokalisering
 
 ### 2. RSS-generering
 **Tre olika feeds:**
@@ -31,7 +31,7 @@ Ett komplett system för att automatiskt skrapa matsedel från Skara kommuns webbp
 #### matsedel-vecka.xml
 - Grupperad per vecka
 - Visar alla veckodagar
-- Perfekt för veckoöversikter
+- Perfekt fÃ¶r veckoÃ¶versikter
 
 #### matsedel-alla-dagar.xml
 - Alla kommande dagar (max 30)
@@ -39,40 +39,40 @@ Ett komplett system för att automatiskt skrapa matsedel från Skara kommuns webbp
 - Exkluderar historiska datum
 
 **Tekniker:**
-- System.ServiceModel.Syndication för RSS 2.0
-- XmlWriter för formaterad output
+- System.ServiceModel.Syndication fÃ¶r RSS 2.0
+- XmlWriter fÃ¶r formaterad output
 - UTF-8 encoding
-- Välformade HTML-beskrivningar
+- VÃ¤lformade HTML-beskrivningar
 
 ### 3. HTML Viewer (viewer.html)
 **Features:**
 - Responsiv design (desktop & mobile)
-- Två vyer: Dagens mat och hela veckan
+- TvÃ¥ vyer: Dagens mat och hela veckan
 - Automatisk uppdatering var 30:e minut
 - Modern gradient-design
 - Visar senaste uppdateringstid
-- Fullskärmsläge för digital signage
+- FullskÃ¤rmslÃ¤ge fÃ¶r digital signage
 
 **Tekniker:**
 - Vanilla JavaScript (ingen dependencies)
 - CSS Grid och Flexbox
-- DOMParser för XML-parsning
-- Fetch API för asynkrona anrop
-- LocalStorage för eventuell caching
+- DOMParser fÃ¶r XML-parsning
+- Fetch API fÃ¶r asynkrona anrop
+- LocalStorage fÃ¶r eventuell caching
 
 ### 4. GitHub Actions (update-rss.yml)
 **Automatisering:**
-- Kör dagligen kl 06:00 UTC
-- Bygg och kör .NET-applikationen
+- KÃ¶r dagligen kl 06:00 UTC
+- Bygg och kÃ¶r .NET-applikationen
 - Committa och pusha RSS-feeds
-- Stöd för manuell trigger
+- StÃ¶d fÃ¶r manuell trigger
 
 **Workflow:**
 1. Checkout kod
 2. Setup .NET 9.0
 3. Restore dependencies
 4. Build projekt
-5. Kör scraper
+5. KÃ¶r scraper
 6. Commit resultat
 7. Push till repository
 
@@ -104,7 +104,7 @@ matsedel-rss/
 
 ```
 
-## Dataflöde
+## DataflÃ¶de
 
 ```
 ???????????????????????
@@ -140,17 +140,17 @@ matsedel-rss/
            ?
 ???????????????????????
 ?  Digital Signage    ?
-?  Lösningar          ?
+?  LÃ¶sningar          ?
 ???????????????????????
 ```
 
 ## Teknisk Stack
 
 ### Backend (.NET)
-- **.NET 9.0**: Modern runtime med bästa prestanda
+- **.NET 9.0**: Modern runtime med bÃ¤sta prestanda
 - **C# 13**: Latest language features
 - **HtmlAgilityPack 1.12.4**: Robust HTML-parsning
-- **System.ServiceModel.Syndication 10.0.2**: RSS/Atom-stöd
+- **System.ServiceModel.Syndication 10.0.2**: RSS/Atom-stÃ¶d
 
 ### Frontend
 - **HTML5**: Semantisk markup
@@ -165,85 +165,85 @@ matsedel-rss/
 
 ## Designbeslut
 
-### Varför .NET?
-- Utmärkt för web scraping
+### VarfÃ¶r .NET?
+- UtmÃ¤rkt fÃ¶r web scraping
 - Stark XML/RSS-support
 - Bra prestanda
 - Cross-platform (Linux/Windows/Mac)
 - GitHub Actions har built-in support
 
-### Varför ingen databas?
-- RSS-filer är tillräckliga
+### VarfÃ¶r ingen databas?
+- RSS-filer Ã¤r tillrÃ¤ckliga
 - Enkelt att deploya
 - Inga extra kostnader
 - Git fungerar som historik
-- Lätt att backup:a
+- LÃ¤tt att backup:a
 
-### Varför tre olika RSS-feeds?
-- Flexibilitet för olika användningsfall
-- Dagens mat för quick-view
-- Vecka för planning
-- Alla dagar för komplett översikt
+### VarfÃ¶r tre olika RSS-feeds?
+- Flexibilitet fÃ¶r olika anvÃ¤ndningsfall
+- Dagens mat fÃ¶r quick-view
+- Vecka fÃ¶r planning
+- Alla dagar fÃ¶r komplett Ã¶versikt
 
-### Varför vanilla JavaScript istället för React/Vue?
-- Inga build-steps behövs
+### VarfÃ¶r vanilla JavaScript istÃ¤llet fÃ¶r React/Vue?
+- Inga build-steps behÃ¶vs
 - Snabbare laddningstid
-- Lättare att underhålla
-- Perfekt för enkla use-cases
-- Fungerar direkt från filsystem
+- LÃ¤ttare att underhÃ¥lla
+- Perfekt fÃ¶r enkla use-cases
+- Fungerar direkt frÃ¥n filsystem
 
 ## Prestanda
 
 ### Scraping
-- **Tid**: ~2-5 sekunder (beroende på nätverkshastighet)
-- **Minne**: ~50MB under körning
-- **Nätverksanrop**: 1-4 requests (försöker olika URLs)
+- **Tid**: ~2-5 sekunder (beroende pÃ¥ nÃ¤tverkshastighet)
+- **Minne**: ~50MB under kÃ¶rning
+- **NÃ¤tverksanrop**: 1-4 requests (fÃ¶rsÃ¶ker olika URLs)
 
 ### RSS-generering
 - **Tid**: <100ms per feed
-- **Filstorlek**: 1-5KB per feed (beroende på innehåll)
+- **Filstorlek**: 1-5KB per feed (beroende pÃ¥ innehÃ¥ll)
 
 ### HTML Viewer
 - **Initial load**: <1 sekund
-- **RSS fetch**: <500ms (från GitHub Raw)
+- **RSS fetch**: <500ms (frÃ¥n GitHub Raw)
 - **Render**: <100ms
-- **Minnesanvändning**: <10MB
+- **MinnesanvÃ¤ndning**: <10MB
 
-## Säkerhet
+## SÃ¤kerhet
 
 ### Web Scraping
-- User-Agent header för att identifiera bot
+- User-Agent header fÃ¶r att identifiera bot
 - Respekterar robots.txt (om implementerat)
-- Ingen känslig data skrapas
+- Ingen kÃ¤nslig data skrapas
 
 ### GitHub Actions
-- Använder bot-konto för commits
-- Inga secrets behövs för public repos
+- AnvÃ¤nder bot-konto fÃ¶r commits
+- Inga secrets behÃ¶vs fÃ¶r public repos
 - Read-only access till external sites
 
 ### Viewer
 - Ingen data skickas till tredje part
-- CORS-friendly (använder Raw URLs)
-- Ingen localStorage av känslig data
+- CORS-friendly (anvÃ¤nder Raw URLs)
+- Ingen localStorage av kÃ¤nslig data
 
-## Framtida möjligheter
+## Framtida mÃ¶jligheter
 
 ### Kortsiktigt
-1. Stöd för flera skolor/enheter
-2. Bättre felhantering vid nätverksproblem
-3. Offline-stöd i viewer
-4. Bildstöd för maträtter
+1. StÃ¶d fÃ¶r flera skolor/enheter
+2. BÃ¤ttre felhantering vid nÃ¤tverksproblem
+3. Offline-stÃ¶d i viewer
+4. BildstÃ¶d fÃ¶r matrÃ¤tter
 
-### Långsiktigt
+### LÃ¥ngsiktigt
 1. REST API
 2. Mobilapp
 3. Push-notiser
-4. Favoritmaträtter
+4. FavoritmatrÃ¤tter
 5. Social sharing
 6. Nutritionsinformation
 7. Allergenerinformation
 
-## Underhåll
+## UnderhÃ¥ll
 
 ### Regelbundet
 - Kontrollera att scraping fungerar
@@ -251,30 +251,30 @@ matsedel-rss/
 - Granska GitHub Actions-loggar
 
 ### Vid problem
-- Verifiera URL-struktur på källsidan
-- Kontrollera HTML-struktur (kan ändras)
+- Verifiera URL-struktur pÃ¥ kÃ¤llsidan
+- Kontrollera HTML-struktur (kan Ã¤ndras)
 - Uppdatera parsning-logik vid behov
 
-### Vid ny månad
+### Vid ny mÃ¥nad
 - Systemet hanterar detta automatiskt
-- Kontrollera första dagarna att rätt data visas
-- Vid problem, kör manuell GitHub Actions
+- Kontrollera fÃ¶rsta dagarna att rÃ¤tt data visas
+- Vid problem, kÃ¶r manuell GitHub Actions
 
 ## Support och Community
 
-- **Issues**: Rapportera buggar och föreslå features
+- **Issues**: Rapportera buggar och fÃ¶reslÃ¥ features
 - **Pull Requests**: Bidra med kod
-- **Discussions**: Ställ frågor och dela erfarenheter
+- **Discussions**: StÃ¤ll frÃ¥gor och dela erfarenheter
 - **Wiki**: Detaljerad dokumentation (coming soon)
 
 ## Licens och Copyright
 
-- **Licens**: MIT (fri att använda och modifiera)
-- **Data**: Matsedelsdata tillhör Skara kommun
-- **Användning**: Följ Skara kommuns användningsvillkor
+- **Licens**: MIT (fri att anvÃ¤nda och modifiera)
+- **Data**: Matsedelsdata tillhÃ¶r Skara kommun
+- **AnvÃ¤ndning**: FÃ¶lj Skara kommuns anvÃ¤ndningsvillkor
 
 ---
 
 **Version**: 1.0.0  
 **Senast uppdaterad**: 2026-01-23  
-**Författare**: GitHub Community
+**FÃ¶rfattare**: GitHub Community

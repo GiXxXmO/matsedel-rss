@@ -1,13 +1,13 @@
 # Test RSS-feeds lokalt
 
-För att testa projektet lokalt:
+FÃ¶r att testa projektet lokalt:
 
 ## 1. Bygg projektet
 ```bash
 dotnet build MatsedelRss/MatsedelRss.csproj
 ```
 
-## 2. Kör programmet
+## 2. KÃ¶r programmet
 ```bash
 dotnet run --project MatsedelRss/MatsedelRss.csproj
 ```
@@ -18,20 +18,20 @@ RSS-filerna skapas i:
 - `MatsedelRss/output/matsedel-dagens.xml`
 
 ## 4. Testa RSS-feeds
-Öppna XML-filerna i en webbläsare eller RSS-läsare för att validera innehållet.
+Ã–ppna XML-filerna i en webblÃ¤sare eller RSS-lÃ¤sare fÃ¶r att validera innehÃ¥llet.
 
 ## GitHub Actions
-När du pushar till GitHub kommer filerna automatiskt uppdateras dagligen via GitHub Actions.
+NÃ¤r du pushar till GitHub kommer filerna automatiskt uppdateras dagligen via GitHub Actions.
 
-## Felsökning
+## FelsÃ¶kning
 
 ### Problem med att hitta matsedeln
-Om programmet inte hittar matsedeln, kan URL-strukturen ha ändrats. Kontrollera:
-1. Besök https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/
-2. Hitta aktuell månads sida
+Om programmet inte hittar matsedeln, kan URL-strukturen ha Ã¤ndrats. Kontrollera:
+1. BesÃ¶k https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/
+2. Hitta aktuell mÃ¥nads sida
 3. Uppdatera URL-genereringen i `Program.cs`
 
 ### Problem med parsning
-Om HTML-strukturen har ändrats på webbplatsen behöver parsning-logiken uppdateras i metoderna:
+Om HTML-strukturen har Ã¤ndrats pÃ¥ webbplatsen behÃ¶ver parsning-logiken uppdateras i metoderna:
 - `ParseTable()`
 - `ParseDateHeaders()`
