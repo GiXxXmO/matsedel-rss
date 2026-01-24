@@ -3,7 +3,7 @@ name: Generate RSS
 on:
   schedule:
     - cron: "0 6 * * *"   # kör varje dag kl 06:00 UTC
-  workflow_dispatch:       # gör att du kan köra manuellt
+  workflow_dispatch:
 
 jobs:
   build-and-run:
@@ -13,7 +13,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # krävs för git push
+          fetch-depth: 0
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -29,17 +29,57 @@ jobs:
       - name: Run program
         run: dotnet run --project MatsedelRss/MatsedelRss.csproj
 
+      - name: Debug: list all possible output folders
+        run: |
+          echo "Listing Release output:"
+          ls -R MatsedelRss/bin/Release/net9.0 || true
+          echo "Listing Debug output:"
+          ls -R MatsedelRss/bin/Debug/net9.0 || true
+          echo "Listing root output folder:"
+          ls -R output || true
+
       - name: Ensure docs folder exists
         run: mkdir -p docs
 
-      - name: Copy generated RSS to docs/
+      - name: Copy generated RSS files to docs/
         run: |
-          cp -r MatsedelRss/bin/Release/net9.0/output/* docs/ || echo "No files to copy"
+          echo "Searching for XML files..."
+          FOUND=false
+
+          # Release output
+          if compgen -G "MatsedelRss/bin/Release/net9.0/output/*.xml" > /dev/null; then
+            echo "Found XML files in Release output"
+            cp MatsedelRss/bin/Release/net9.0/output/*.xml docs/
+            FOUND=true
+          fi
+
+          # Debug output
+          if compgen -G "MatsedelRss/bin/Debug/net9.0/output/*.xml" > /dev/null; then
+            echo "Found XML files in Debug output"
+            cp MatsedelRss/bin/Debug/net9.0/output/*.xml docs/
+            FOUND=true
+          fi
+
+          # Root output folder
+          if compgen -G "output/*.xml" > /dev/null; then
+            echo "Found XML files in root output folder"
+            cp output/*.xml docs/
+            FOUND=true
+          fi
+
+          if [ "$FOUND" = false ]; then
+            echo "No XML files found anywhere"
+          fi
 
       - name: Commit and push updated RSS
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add docs/*.xml
-          git commit -m "Update RSS feed" || echo "No changes to commit"
-          git push
+
+          if compgen -G "docs/*.xml" > /dev/null; then
+            git add docs/*.xml
+            git commit -m "Update RSS feed" || echo "No changes to commit"
+            git push
+          else
+            echo "No XML files in docs/, skipping commit"
+          fi
