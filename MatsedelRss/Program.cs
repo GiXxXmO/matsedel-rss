@@ -165,23 +165,79 @@ public class MatsedelScraper
     {
         var rows = table.SelectNodes(".//tr");
         if (rows == null) return;
-        
+
         foreach (var row in rows)
         {
             var cells = row.SelectNodes(".//td | .//th");
             if (cells == null || cells.Count < 2) continue;
-            
+
             var dateText = cells[0].InnerText.Trim();
-            var menuText = cells[1].InnerText.Trim();
-            
+
+            // Hämta alla textnoder och element från menycellen
+            var menuCell = cells[1];
+            var menuParts = new List<string>();
+
+            // Kolla om det finns flera p-element eller br-taggar i cellen
+            var paragraphs = menuCell.SelectNodes(".//p | .//div");
+            if (paragraphs != null && paragraphs.Count > 1)
+            {
+                // Dela upp per paragraph eller div
+                foreach (var p in paragraphs)
+                {
+                    var text = p.InnerText.Trim();
+                    if (!string.IsNullOrWhiteSpace(text) && !menuParts.Contains(text))
+                    {
+                        menuParts.Add(text);
+                    }
+                }
+            }
+
+            if (menuParts.Count == 0)
+            {
+                // Ingen struktur, försök dela upp på "Veg;" eller "Veg:"
+                var menuText = menuCell.InnerText.Trim();
+
+                // Olika mönster för att hitta Veg-alternativet
+                // Matchar: "...grönsakerVeg; Thaigryta..." eller "...grönsaker Veg: Thaigryta..."
+                var vegPattern = System.Text.RegularExpressions.Regex.Match(
+                    menuText, 
+                    @"^(.*?)\s*[Vv]eg[;:]\s*(.+)$", 
+                    System.Text.RegularExpressions.RegexOptions.Singleline
+                );
+
+                if (vegPattern.Success)
+                {
+                    menuParts.Add(vegPattern.Groups[1].Value.Trim());
+                    menuParts.Add(vegPattern.Groups[2].Value.Trim());
+                }
+                else
+                {
+                    menuParts.Add(menuText);
+                }
+            }
+
             if (TryParseDate(dateText, month, out var date))
             {
+                // Formatera med radbrytningar
+                var mainDish = menuParts.Count > 0 ? menuParts[0] : "";
+                if (menuParts.Count > 1)
+                {
+                    mainDish += "<br/>Veg: " + menuParts[1];
+                }
+                for (int i = 2; i < menuParts.Count; i++)
+                {
+                    mainDish += "<br/>" + menuParts[i];
+                }
+
                 menuData[date] = new MenuDay
                 {
                     Date = date,
-                    MainDish = menuText,
+                    MainDish = mainDish,
+                    VegetarianDish = menuParts.Count > 1 ? menuParts[1] : "",
                     DayName = date.ToString("dddd", new CultureInfo("sv-SE"))
                 };
+
+                Console.WriteLine($"ParseTable: {date:yyyy-MM-dd} - Delar: {menuParts.Count} - {mainDish}");
             }
         }
     }
@@ -310,17 +366,34 @@ public class MatsedelScraper
 
                 if (dishes.Count > 0)
                 {
+                    // Om första rätten innehåller "Veg;" - dela upp den
+                    if (dishes.Count == 1 && dishes[0].Contains("Veg;"))
+                    {
+                        var vegPattern = System.Text.RegularExpressions.Regex.Match(
+                            dishes[0], 
+                            @"^(.*?)\s*[Vv]eg[;:]\s*(.+)$", 
+                            System.Text.RegularExpressions.RegexOptions.Singleline
+                        );
+
+                        if (vegPattern.Success)
+                        {
+                            dishes.Clear();
+                            dishes.Add(vegPattern.Groups[1].Value.Trim());
+                            dishes.Add(vegPattern.Groups[2].Value.Trim());
+                        }
+                    }
+
                     // Formatera rätter: första är huvudrätt, andra är vegetariskt
                     var mainDish = dishes[0];
                     if (dishes.Count > 1)
                     {
-                        mainDish += " | Veg: " + dishes[1];
+                        mainDish += "<br/>Veg: " + dishes[1];
                     }
 
                     // Lägg till eventuella fler rätter
                     for (int j = 2; j < dishes.Count; j++)
                     {
-                        mainDish += " | " + dishes[j];
+                        mainDish += "<br/>" + dishes[j];
                     }
 
                     menuData[date] = new MenuDay
@@ -392,30 +465,43 @@ public class MatsedelScraper
 
         var weekNumber = int.Parse(weekMatch.Groups[1].Value);
 
-        // Beräkna start (måndag) av vecka 1 enligt ISO (veckan som innehåller 4 januari)
-        var jan4 = new DateTime(month.Year, 1, 4);
-        var diffToMonday = DayOfWeek.Monday - jan4.DayOfWeek;
-        var firstWeekStart = jan4.AddDays(diffToMonday);
+        // Använd ISO 8601 veckonumrering (svenska systemet)
+        // Vecka 1 är den första veckan som innehåller en torsdag
+        // Hitta måndagen i den veckan
 
-        // Startdag för önskad vecka
-        var weekStart = firstWeekStart.AddDays((weekNumber - 1) * 7);
+        // Börja från 1 januari och hitta första torsdagen
+        var jan1 = new DateTime(month.Year, 1, 1);
+        int daysUntilThursday = ((int)DayOfWeek.Thursday - (int)jan1.DayOfWeek + 7) % 7;
+        var firstThursday = jan1.AddDays(daysUntilThursday);
+
+        // Hitta måndagen i vecka 1 (3 dagar före första torsdagen)
+        var firstMondayOfWeek1 = firstThursday.AddDays(-3);
+
+        // Beräkna måndagen för den önskade veckan
+        var weekStart = firstMondayOfWeek1.AddDays((weekNumber - 1) * 7);
+
+        Console.WriteLine($"  Vecka {weekNumber}: Veckostart beräknad till {weekStart:yyyy-MM-dd}");
 
         // Hitta vilken dag i veckan weekdayName motsvarar
-        var dayIndex = Array.FindIndex(culture.DateTimeFormat.DayNames,
-            d => string.Equals(d, weekdayName, StringComparison.OrdinalIgnoreCase));
+        var dayIndex = Array.FindIndex(culture.DateTimeFormat.DayNames, 
+            d => d.Equals(weekdayName, StringComparison.OrdinalIgnoreCase));
 
         if (dayIndex == -1)
         {
             dayIndex = Array.FindIndex(culture.DateTimeFormat.AbbreviatedDayNames,
-                d => string.Equals(d, weekdayName, StringComparison.OrdinalIgnoreCase));
+                d => d.Equals(weekdayName, StringComparison.OrdinalIgnoreCase));
         }
 
         if (dayIndex >= 0)
         {
-            // Om dayIndex från DateTimeFormat.DayNames är söndag=0, måndag=1, etc.
-            // Vill ha offset från måndag (måndag=0)
-            var adjustedIndex = ((dayIndex - 1) + 7) % 7; // måndag -> 0, söndag -> 6
-            return weekStart.AddDays(adjustedIndex);
+            // Justera från söndag = 0 till måndag = 0
+            var adjustedIndex = dayIndex == 0 ? 6 : dayIndex - 1;
+            var resultDate = weekStart.AddDays(adjustedIndex);
+
+            // Verifiera att resultatet är i rätt månad (ungefär)
+            Console.WriteLine($"  {weekdayName} i vecka {weekNumber} = {resultDate:yyyy-MM-dd} (veckodag {resultDate.DayOfWeek})");
+
+            return resultDate;
         }
 
         return DateTime.MinValue;
@@ -521,10 +607,8 @@ public class MatsedelScraper
 
         var items = new List<SyndicationItem>();
 
-        // Gruppera efter vecka - använd svensk kalender för att vara konsekvent med parsing
-        var swedish = new CultureInfo("sv-SE");
-        var calendar = swedish.Calendar;
-        var weeks = menuData.GroupBy(m => calendar.GetWeekOfYear(
+        // Gruppera efter vecka
+        var weeks = menuData.GroupBy(m => CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(
             m.Key, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday));
 
         foreach (var week in weeks.OrderBy(w => w.Key))
@@ -534,8 +618,8 @@ public class MatsedelScraper
             var weekEnd = weekDays.Last().Key;
 
             var description = new StringBuilder();
-            description.AppendLine($"<h3>Vecka {week.Key}: {weekStart:d MMM} - {weekEnd:d MMM}</h3>");
-            description.AppendLine("<ul>");
+            //description.AppendLine($"<h3>Vecka {week.Key}: {weekStart:d MMM} - {weekEnd:d MMM}</h3>");
+            //description.AppendLine("<ul>");
 
             foreach (var day in weekDays)
             {
@@ -599,13 +683,14 @@ public class MatsedelScraper
         {
             var description = new StringBuilder();
             var isToday = todayMenu.Key.Date == today;
-            var prefix = isToday ? "Dagens lunch" : $"Nästa lunch ({todayMenu.Value.DayName})";
+            var prefix = isToday ? "Dagens lunch" : $"({todayMenu.Value.DayName})";
 
-            description.AppendLine($"<h3>{todayMenu.Value.DayName} {todayMenu.Key:d MMMM yyyy}</h3>");
+            //description.AppendLine($"<h3>{todayMenu.Value.DayName} {todayMenu.Key:d MMMM yyyy}</h3>");
             description.AppendLine($"<p>{todayMenu.Value.MainDish}</p>");
 
             var item = new SyndicationItem(
-                $"{prefix} - {todayMenu.Value.DayName} {todayMenu.Key:d/M}",
+                //$"{prefix} - {todayMenu.Value.DayName} {todayMenu.Key:d/M}",
+                $"{prefix}",
                 SyndicationContent.CreateHtmlContent(description.ToString()),
                 new Uri($"https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/#day{todayMenu.Key:yyyyMMdd}"),
                 $"day-{todayMenu.Key:yyyyMMdd}",
