@@ -392,28 +392,29 @@ public class MatsedelScraper
 
         var weekNumber = int.Parse(weekMatch.Groups[1].Value);
 
-        // Hitta första dagen i denna vecka för given månad/år
-        var jan1 = new DateTime(month.Year, 1, 1);
-        var daysOffset = DayOfWeek.Monday - jan1.DayOfWeek;
-        if (daysOffset < 0) daysOffset += 7;
+        // Beräkna start (måndag) av vecka 1 enligt ISO (veckan som innehåller 4 januari)
+        var jan4 = new DateTime(month.Year, 1, 4);
+        var diffToMonday = DayOfWeek.Monday - jan4.DayOfWeek;
+        var firstWeekStart = jan4.AddDays(diffToMonday);
 
-        var firstMonday = jan1.AddDays(daysOffset);
-        var weekStart = firstMonday.AddDays((weekNumber - 1) * 7);
+        // Startdag för önskad vecka
+        var weekStart = firstWeekStart.AddDays((weekNumber - 1) * 7);
 
         // Hitta vilken dag i veckan weekdayName motsvarar
-        var dayIndex = Array.FindIndex(culture.DateTimeFormat.DayNames, 
-            d => d.Equals(weekdayName, StringComparison.OrdinalIgnoreCase));
+        var dayIndex = Array.FindIndex(culture.DateTimeFormat.DayNames,
+            d => string.Equals(d, weekdayName, StringComparison.OrdinalIgnoreCase));
 
         if (dayIndex == -1)
         {
             dayIndex = Array.FindIndex(culture.DateTimeFormat.AbbreviatedDayNames,
-                d => d.Equals(weekdayName, StringComparison.OrdinalIgnoreCase));
+                d => string.Equals(d, weekdayName, StringComparison.OrdinalIgnoreCase));
         }
 
         if (dayIndex >= 0)
         {
-            // Justera från söndag = 0 till måndag = 0
-            var adjustedIndex = dayIndex == 0 ? 6 : dayIndex - 1;
+            // Om dayIndex från DateTimeFormat.DayNames är söndag=0, måndag=1, etc.
+            // Vill ha offset från måndag (måndag=0)
+            var adjustedIndex = ((dayIndex - 1) + 7) % 7; // måndag -> 0, söndag -> 6
             return weekStart.AddDays(adjustedIndex);
         }
 
@@ -520,8 +521,10 @@ public class MatsedelScraper
 
         var items = new List<SyndicationItem>();
 
-        // Gruppera efter vecka
-        var weeks = menuData.GroupBy(m => CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(
+        // Gruppera efter vecka - använd svensk kalender för att vara konsekvent med parsing
+        var swedish = new CultureInfo("sv-SE");
+        var calendar = swedish.Calendar;
+        var weeks = menuData.GroupBy(m => calendar.GetWeekOfYear(
             m.Key, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday));
 
         foreach (var week in weeks.OrderBy(w => w.Key))
