@@ -338,7 +338,7 @@ public class MatsedelScraper
                             }
                         }
 
-                        // Samla text från p, div, eller textnoder
+                        // Samla text från p, div, eller textnoden
                         if (nextNode.Name == "p" || nextNode.Name == "div" || nextNode.Name == "li")
                         {
                             var dishText = nextNode.InnerText.Trim();
@@ -605,21 +605,25 @@ public class MatsedelScraper
             DateTime.Now
         );
 
+        // Publicera endast aktuell vecka (använder sv-SE / ISO 8601 regler)
+        var svCulture = new CultureInfo("sv-SE");
+        var calendar = svCulture.Calendar;
+        var currentWeek = calendar.GetWeekOfYear(DateTime.Today, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+
         var items = new List<SyndicationItem>();
 
-        // Gruppera efter vecka
-        var weeks = menuData.GroupBy(m => CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(
-            m.Key, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday));
+        var weeks = menuData.GroupBy(m => calendar.GetWeekOfYear(m.Key, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday));
+        var week = weeks.FirstOrDefault(w => w.Key == currentWeek);
 
-        foreach (var week in weeks.OrderBy(w => w.Key))
+        if (week != null)
         {
             var weekDays = week.OrderBy(d => d.Key).ToList();
             var weekStart = weekDays.First().Key;
             var weekEnd = weekDays.Last().Key;
 
             var description = new StringBuilder();
-            //description.AppendLine($"<h3>Vecka {week.Key}: {weekStart:d MMM} - {weekEnd:d MMM}</h3>");
-            //description.AppendLine("<ul>");
+            description.AppendLine($"<h3>Vecka {week.Key}: {weekStart:d MMM} - {weekEnd:d MMM}</h3>");
+            description.AppendLine("<ul>");
 
             foreach (var day in weekDays)
             {
@@ -631,12 +635,16 @@ public class MatsedelScraper
             var item = new SyndicationItem(
                 $"Matsedel vecka {week.Key}",
                 SyndicationContent.CreateHtmlContent(description.ToString()),
-                new Uri($"https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/#week{week.Key}"),
+                new Uri($"https://www.skara.se/forskolaskolaochforskola/matsedelforskolaochskola/#week{week.Key}"),
                 $"week-{week.Key}-{weekStart.Year}",
                 weekStart
             );
 
             items.Add(item);
+        }
+        else
+        {
+            Console.WriteLine($"Ingen meny hittades för aktuell vecka {currentWeek}.");
         }
 
         feed.Items = items;
