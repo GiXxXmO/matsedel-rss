@@ -882,24 +882,44 @@ public class MatsedelScraper
         image.Mutate(ctx => ctx.Fill(Color.White));
 
         // Ladda systemfont (fallback till default om Arial inte finns)
-        var fontCollection = new FontCollection();
-        FontFamily fontFamily;
+        FontFamily? fontFamily = null;
 
-        if (SystemFonts.TryGet("Arial", out fontFamily))
+        // Prova olika fonter i prioritetsordning
+        var fontsToTry = new[] { "Arial", "DejaVu Sans", "Liberation Sans", "FreeSans" };
+
+        foreach (var fontName in fontsToTry)
         {
-            // Arial finns
+            if (SystemFonts.TryGet(fontName, out var foundFont))
+            {
+                fontFamily = foundFont;
+                Console.WriteLine($"Använder font: {fontName}");
+                break;
+            }
         }
-        else
+
+        // Om ingen av de föredragna fontterna finns, använd första tillgängliga
+        if (fontFamily == null)
         {
-            // Använd första tillgängliga font
-            fontFamily = SystemFonts.Families.First();
+            if (SystemFonts.Families.Any())
+            {
+                var fallbackFont = SystemFonts.Families.First();
+                fontFamily = fallbackFont;
+                Console.WriteLine($"Använder fallback-font: {fallbackFont.Name}");
+            }
+            else
+            {
+                throw new Exception("Inga systemfonter tillgängliga!");
+            }
         }
+
+        // Nu är fontFamily garanterat inte null
+        var actualFont = fontFamily.Value;
 
         // Skapa typsnitt
-        var titleFont = fontFamily.CreateFont(width / 20f, FontStyle.Bold);
-        var dayFont = fontFamily.CreateFont(width / 30f, FontStyle.Bold);
-        var dishFont = fontFamily.CreateFont(width / 35f, FontStyle.Regular);
-        var vegFont = fontFamily.CreateFont(width / 35f, FontStyle.Regular);
+        var titleFont = actualFont.CreateFont(width / 20f, FontStyle.Bold);
+        var dayFont = actualFont.CreateFont(width / 30f, FontStyle.Bold);
+        var dishFont = actualFont.CreateFont(width / 35f, FontStyle.Regular);
+        var vegFont = actualFont.CreateFont(width / 35f, FontStyle.Regular);
 
         // Textfärger
         var titleColor = Color.Black;
