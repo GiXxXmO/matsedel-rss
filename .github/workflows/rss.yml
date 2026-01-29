@@ -2,7 +2,7 @@ name: Generate RSS
 
 on:
   schedule:
-    - cron: "0 4 * * *"   # kör varje dag kl 06:00 UTC
+    - cron: "0 4 * * *"
   workflow_dispatch:
 
 jobs:
@@ -12,76 +12,25 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.0.x'
 
-      - name: Install SkiaSharp dependencies (Linux)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libfontconfig1 libfreetype6
-
       - name: Restore dependencies
         run: dotnet restore
 
       - name: Build
-        run: dotnet build --configuration Release
+        run: dotnet build --configuration Release --no-restore
 
       - name: Run program
-        run: dotnet run --project MatsedelRss/MatsedelRss.csproj
+        run: dotnet run --project MatsedelRss/MatsedelRss.csproj --configuration Release --no-build
 
-      - name: "Debug: list all possible output folders"
+      - name: Commit and push RSS files
         run: |
-          echo "Listing Release output:"
-          ls -R MatsedelRss/bin/Release/net9.0 || true
-          echo "Listing Debug output:"
-          ls -R MatsedelRss/bin/Debug/net9.0 || true
-          echo "Listing root output folder:"
-          ls -R output || true
-
-      - name: Ensure docs folder exists
-        run: mkdir -p docs
-
-      - name: Copy generated RSS files to docs/
-        run: |
-          echo "Searching for XML files..."
-          FOUND=false
-
-          if compgen -G "MatsedelRss/bin/Release/net9.0/output/*.xml" > /dev/null; then
-            echo "Found XML files in Release output"
-            cp MatsedelRss/bin/Release/net9.0/output/*.xml docs/
-            FOUND=true
-          fi
-
-          if compgen -G "MatsedelRss/bin/Debug/net9.0/output/*.xml" > /dev/null; then
-            echo "Found XML files in Debug output"
-            cp MatsedelRss/bin/Debug/net9.0/output/*.xml docs/
-            FOUND=true
-          fi
-
-          if compgen -G "output/*.xml" > /dev/null; then
-            echo "Found XML files in root output folder"
-            cp output/*.xml docs/
-            FOUND=true
-          fi
-
-          if [ "$FOUND" = false ]; then
-            echo "No XML files found anywhere"
-          fi
-
-      - name: Commit and push updated RSS
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-
-          if compgen -G "docs/*.xml" > /dev/null; then
-            git add docs/*.xml
-            git commit -m "Update RSS feed" || echo "No changes to commit"
-            git push
-          else
-            echo "No XML files in docs/, skipping commit"
-          fi
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add output/*.xml output/*.png pushid.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update RSS feeds and menu images [skip ci]"
+          git push
