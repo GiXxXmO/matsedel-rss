@@ -27,10 +27,15 @@ jobs:
       - name: Run program
         run: dotnet run --project MatsedelRss/MatsedelRss.csproj --configuration Release --no-build
 
+      - name: List generated files
+        run: |
+          echo "Contents of output directory:"
+          ls -la output/ || echo "Output directory not found"
+
       - name: Commit and push RSS files
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add output/*.xml output/*.png pushid.json
+          git add output/ pushid.json || true
           git diff --quiet && git diff --staged --quiet || git commit -m "Update RSS feeds and menu images [skip ci]"
           git push
