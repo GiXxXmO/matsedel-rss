@@ -2,7 +2,7 @@ name: Generate RSS
 
 on:
   schedule:
-    - cron: "0 6 * * *"   # kör varje dag kl 06:00 UTC
+    - cron: "0 4 * * *"   # kör varje dag kl 06:00 UTC
   workflow_dispatch:
 
 jobs:
