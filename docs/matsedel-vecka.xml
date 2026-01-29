@@ -3,23 +3,45 @@
   <channel>
     <title>Matsedel Skara - Veckovy</title>
     <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/</link>
-    <description>Matsedel för veckan från Skara kommun</description>
-    <lastBuildDate>Thu, 29 Jan 2026 06:17:30 Z</lastBuildDate>
+    <description>Menyinformation för skolan</description>
+    <language>sv</language>
+    <copyright>© Skara kommun</copyright>
+    <lastBuildDate>Thu, 29 Jan 2026 15:14:05 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">week-5-2026</guid>
-      <link>https://www.skara.se/forskolaskolaochforskola/matsedelforskolaochskola/#week5</link>
-      <title>Matsedel vecka 5</title>
-      <description>&lt;h3&gt;Vecka 5: 26 Jan - 30 Jan&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;måndag 26/1:&lt;/strong&gt; Korv Stroganoff serveras med pasta och grönsaker&lt;br/&gt;Veg: Bön stroganoff med rotfrukter serveras med pasta&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;tisdag 27/1:&lt;/strong&gt; Cowboysoppa, smörgås.&lt;br/&gt;Veg: Cowgirlsoppa, smörgås.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;onsdag 28/1:&lt;/strong&gt; Kokt fisk med persiljesås samt kokt potatis och grönsaker&lt;br/&gt;Veg: Selleristicks med persiljesås och kokt potatis&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;torsdag 29/1:&lt;/strong&gt; Hamburgare med bröd serveras med klyftpotatis, dressing och grönsaker&lt;br/&gt;Veg: Hamburgare med bröd serveras med klyftpotatis, dressing och grönsaker&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;fredag 30/1:&lt;/strong&gt; Gyllengul lasagnette serveras med kall dressing&lt;br/&gt;Veg: Gyllengul lasagnette serveras med kall dressing&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <guid isPermaLink="false">77e1cd7f-e20e-42e6-9111-7591d6d07e82</guid>
+      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/</link>
+      <title>Måndag - Vecka 5</title>
+      <description>&lt;![CDATA[Korv Stroganoff serveras med pasta och grönsaker, &lt;br/&gt;Bön stroganoff med rotfrukter serveras med pasta]]&gt;</description>
       <a10:updated>2026-01-26T00:00:00Z</a10:updated>
+    </item>
+    <item>
+      <guid isPermaLink="false">498c3b96-9b87-46c4-b980-ae7263b4b9fd</guid>
+      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/</link>
+      <title>Tisdag - Vecka 5</title>
+      <description>&lt;![CDATA[Cowboysoppa, smörgås., &lt;br/&gt;Cowgirlsoppa, smörgås.]]&gt;</description>
+      <a10:updated>2026-01-27T00:00:00Z</a10:updated>
+    </item>
+    <item>
+      <guid isPermaLink="false">fc0ee4e2-96e8-486f-8624-32e26669c2d0</guid>
+      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/</link>
+      <title>Onsdag - Vecka 5</title>
+      <description>&lt;![CDATA[Kokt fisk med persiljesås samt kokt potatis och grönsaker, &lt;br/&gt;Selleristicks med persiljesås och kokt potatis]]&gt;</description>
+      <a10:updated>2026-01-28T00:00:00Z</a10:updated>
+    </item>
+    <item>
+      <guid isPermaLink="false">6895d9d4-eaad-4131-91b6-0981cea3cfb5</guid>
+      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/</link>
+      <title>Torsdag - Vecka 5</title>
+      <description>&lt;![CDATA[Hamburgare med bröd serveras med klyftpotatis, dressing och grönsaker, &lt;br/&gt;Hamburgare med bröd serveras med klyftpotatis, dressing och grönsaker]]&gt;</description>
+      <a10:updated>2026-01-29T00:00:00Z</a10:updated>
+    </item>
+    <item>
+      <guid isPermaLink="false">3001152b-0e9b-49fb-ada8-1048dd1e141c</guid>
+      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/</link>
+      <title>Fredag - Vecka 5</title>
+      <description>&lt;![CDATA[Gyllengul lasagnette serveras med kall dressing, &lt;br/&gt;Gyllengul lasagnette serveras med kall dressing]]&gt;</description>
+      <a10:updated>2026-01-30T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
