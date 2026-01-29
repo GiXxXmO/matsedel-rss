@@ -5,7 +5,11 @@ using System.Text;
 using System.Text.Json;
 using System.IO;
 using System.Globalization;
-using SkiaSharp;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.Drawing.Processing;
+using SixLabors.Fonts;
+using SixLabors.ImageSharp.PixelFormats;
 
 var scraper = new MatsedelScraper();
 await scraper.RunAsync();
@@ -67,8 +71,16 @@ public class MatsedelScraper
         GenerateDailyFeed(menuData, "output/matsedel-dagens.xml");
         GenerateAllDaysFeed(menuData, "output/matsedel-alla-dagar.xml");
 
-        // Generera PNG-bilder av veckomatsedeln
-        GenerateWeeklyImages(menuData, "output");
+        // Generera PNG-bilder av veckomatsedeln (försök, men fortsätt om det misslyckas)
+        try
+        {
+            GenerateWeeklyImages(menuData, "output");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Kunde inte generera bilder: {ex.Message}");
+            Console.WriteLine("Fortsätter ändå med RSS-generering...");
+        }
 
         Console.WriteLine($"\nRSS-feeds skapade i output-katalogen.");
         Console.WriteLine($"Totalt {menuData.Count} menyer hittades.");
@@ -862,33 +874,47 @@ public class MatsedelScraper
         var daySpacing = 15f;
 
         // Räkna totalt antal rader (varje dag har minst 2 rader: huvudrätt + veg)
-        var totalLines = weekDays.Count * 3; // Dag + Huvudrätt + Veg
+        var totalLines = weekDays.Count * 3;
         var height = (int)(titleHeight + (totalLines * lineHeight) + (weekDays.Count * daySpacing) + (padding * 2));
 
-        using var surface = SKSurface.Create(new SKImageInfo(width, height));
-        var canvas = surface.Canvas;
+        // Skapa bild med vit bakgrund
+        using var image = new Image<Rgba32>(width, height);
+        image.Mutate(ctx => ctx.Fill(Color.White));
 
-        // Bakgrund - vit
-        canvas.Clear(SKColors.White);
+        // Ladda systemfont (fallback till default om Arial inte finns)
+        var fontCollection = new FontCollection();
+        FontFamily fontFamily;
+
+        if (SystemFonts.TryGet("Arial", out fontFamily))
+        {
+            // Arial finns
+        }
+        else
+        {
+            // Använd första tillgängliga font
+            fontFamily = SystemFonts.Families.First();
+        }
 
         // Skapa typsnitt
-        var titleFont = new SKFont(SKTypeface.FromFamilyName("Arial", SKFontStyle.Bold), width / 20f);
-        var dayFont = new SKFont(SKTypeface.FromFamilyName("Arial", SKFontStyle.Bold), width / 30f);
-        var dishFont = new SKFont(SKTypeface.FromFamilyName("Arial", SKFontStyle.Normal), width / 35f);
-        var vegFont = new SKFont(SKTypeface.FromFamilyName("Arial", SKFontStyle.Normal), width / 35f);
+        var titleFont = fontFamily.CreateFont(width / 20f, FontStyle.Bold);
+        var dayFont = fontFamily.CreateFont(width / 30f, FontStyle.Bold);
+        var dishFont = fontFamily.CreateFont(width / 35f, FontStyle.Regular);
+        var vegFont = fontFamily.CreateFont(width / 35f, FontStyle.Regular);
 
         // Textfärger
-        var titlePaint = new SKPaint { Color = SKColors.Black, IsAntialias = true };
-        var dayPaint = new SKPaint { Color = new SKColor(51, 51, 51), IsAntialias = true };
-        var dishPaint = new SKPaint { Color = new SKColor(85, 85, 85), IsAntialias = true };
-        var vegPaint = new SKPaint { Color = new SKColor(0, 128, 0), IsAntialias = true };
+        var titleColor = Color.Black;
+        var dayColor = Color.FromRgb(51, 51, 51);
+        var dishColor = Color.FromRgb(85, 85, 85);
+        var vegColor = Color.FromRgb(0, 128, 0);
 
         var y = padding;
 
         // Rita titel
         var title = $"Matsedel V.{weekNumber}";
-        var titleWidth = titleFont.MeasureText(title);
-        canvas.DrawText(title, (width - titleWidth) / 2, y + titleFont.Size, titleFont, titlePaint);
+        var titleSize = TextMeasurer.MeasureBounds(title, new TextOptions(titleFont));
+        var titleX = (width - titleSize.Width) / 2;
+
+        image.Mutate(ctx => ctx.DrawText(title, titleFont, titleColor, new PointF(titleX, y)));
         y += titleHeight;
 
         // Rita varje dag
@@ -896,7 +922,7 @@ public class MatsedelScraper
         {
             // Dag
             var dayText = $"{day.Value.DayName}:";
-            canvas.DrawText(dayText, padding, y, dayFont, dayPaint);
+            image.Mutate(ctx => ctx.DrawText(dayText, dayFont, dayColor, new PointF(padding, y)));
             y += lineHeight;
 
             // Dela upp MainDish på <br/> för att visa separat
@@ -910,8 +936,8 @@ public class MatsedelScraper
                 bool isVeg = dish.StartsWith("Veg:", StringComparison.OrdinalIgnoreCase);
 
                 var font = isVeg ? vegFont : dishFont;
-                var paint = isVeg ? vegPaint : dishPaint;
-                var indent = padding + 80; // Indentera maträtterna
+                var color = isVeg ? vegColor : dishColor;
+                var indent = padding + 80;
 
                 // Radbryt lång text om nödvändigt
                 var maxWidth = width - indent - padding;
@@ -919,22 +945,19 @@ public class MatsedelScraper
 
                 foreach (var line in wrappedLines)
                 {
-                    canvas.DrawText(line, indent, y, font, paint);
-                    y += lineHeight * 0.8f; // Lite mindre spacing för omslutna rader
+                    image.Mutate(ctx => ctx.DrawText(line, font, color, new PointF(indent, y)));
+                    y += lineHeight * 0.8f;
                 }
             }
 
-            y += daySpacing; // Extra space mellan dagar
+            y += daySpacing;
         }
 
         // Spara bild
-        using var image = surface.Snapshot();
-        using var data = image.Encode(SKEncodedImageFormat.Png, 100);
-        using var stream = File.OpenWrite(outputPath);
-        data.SaveTo(stream);
+        image.SaveAsPng(outputPath);
     }
 
-    private List<string> WrapText(string text, SKFont font, float maxWidth)
+    private List<string> WrapText(string text, Font font, float maxWidth)
     {
         var lines = new List<string>();
         var words = text.Split(' ');
@@ -943,9 +966,9 @@ public class MatsedelScraper
         foreach (var word in words)
         {
             var testLine = currentLine.Length > 0 ? $"{currentLine} {word}" : word;
-            var lineWidth = font.MeasureText(testLine);
+            var lineSize = TextMeasurer.MeasureBounds(testLine, new TextOptions(font));
 
-            if (lineWidth > maxWidth && currentLine.Length > 0)
+            if (lineSize.Width > maxWidth && currentLine.Length > 0)
             {
                 lines.Add(currentLine.ToString());
                 currentLine.Clear();

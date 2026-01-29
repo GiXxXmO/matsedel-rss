@@ -9,7 +9,8 @@
 
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.12.4" />
-    <PackageReference Include="SkiaSharp" Version="3.119.1" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.7" />
+    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="2.1.5" />
     <PackageReference Include="System.ServiceModel.Syndication" Version="10.0.2" />
   </ItemGroup>
 
