@@ -1,10 +1,11 @@
-﻿using System.ServiceModel.Syndication;
+using System.ServiceModel.Syndication;
 using System.Xml;
 using HtmlAgilityPack;
 using System.Text;
 using System.Text.Json;
 using System.IO;
 using System.Globalization;
+using SkiaSharp;
 
 var scraper = new MatsedelScraper();
 await scraper.RunAsync();
@@ -60,12 +61,15 @@ public class MatsedelScraper
         
         // Skapa output-katalog
         Directory.CreateDirectory("output");
-        
+
         // Generera RSS-feeds
         GenerateWeeklyFeed(menuData, "output/matsedel-vecka.xml");
         GenerateDailyFeed(menuData, "output/matsedel-dagens.xml");
         GenerateAllDaysFeed(menuData, "output/matsedel-alla-dagar.xml");
-        
+
+        // Generera PNG-bilder av veckomatsedeln
+        GenerateWeeklyImages(menuData, "output");
+
         Console.WriteLine($"\nRSS-feeds skapade i output-katalogen.");
         Console.WriteLine($"Totalt {menuData.Count} menyer hittades.");
     }
@@ -114,7 +118,7 @@ public class MatsedelScraper
             if (found) break;
 
             // Fallback: testa utan id
-            var urlNoId = $"{BaseUrl}/forskolaskolaochforskola/matsedelforskolaochskola/matsedelfor{monthName}.html";
+            var urlNoId = $"{BaseUrl}/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/matsedelfor{monthName}.html";
             try
             {
                 Console.WriteLine($"Försöker URL: {urlNoId}");
@@ -599,11 +603,15 @@ public class MatsedelScraper
     {
         var feed = new SyndicationFeed(
             "Matsedel Skara - Veckovy",
-            "Matsedel för veckan från Skara kommun",
+            "Menyinformation för skolan",
             new Uri("https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/"),
             "matsedel-vecka",
             DateTime.Now
         );
+
+        // Lägg till language och copyright
+        feed.Language = "sv";
+        feed.Copyright = new TextSyndicationContent("© Skara kommun");
 
         // Publicera endast aktuell vecka (använder sv-SE / ISO 8601 regler)
         var svCulture = new CultureInfo("sv-SE");
@@ -618,29 +626,49 @@ public class MatsedelScraper
         if (week != null)
         {
             var weekDays = week.OrderBy(d => d.Key).ToList();
-            var weekStart = weekDays.First().Key;
-            var weekEnd = weekDays.Last().Key;
 
-            var description = new StringBuilder();
-            description.AppendLine($"<h3>Vecka {week.Key}: {weekStart:d MMM} - {weekEnd:d MMM}</h3>");
-            description.AppendLine("<ul>");
-
+            // Skapa ett item per dag (liknar Skolmaten)
             foreach (var day in weekDays)
             {
-                description.AppendLine($"<li><strong>{day.Value.DayName} {day.Key:d/M}:</strong> {day.Value.MainDish}</li>");
+                // Konvertera veckodagsnamn till versaliserad form (Måndag, Tisdag, etc.)
+                var dayNameCapitalized = char.ToUpper(day.Value.DayName[0]) + day.Value.DayName.Substring(1);
+                
+                // Titel: "Måndag - Vecka 5"
+                var title = $"{dayNameCapitalized} - Vecka {currentWeek}";
+                
+                // Description: Formatera som "Huvudrätt, <br/>Veg alternativ"
+                var dishes = day.Value.MainDish.Split(new[] { "<br/>" }, StringSplitOptions.RemoveEmptyEntries);
+                var description = new StringBuilder();
+                
+                for (int i = 0; i < dishes.Length; i++)
+                {
+                    var dish = dishes[i].Trim();
+                    
+                    // Ta bort "Veg: " prefix om det finns
+                    if (dish.StartsWith("Veg:", StringComparison.OrdinalIgnoreCase))
+                    {
+                        dish = dish.Substring(4).Trim();
+                    }
+                    
+                    description.Append(dish);
+                    
+                    // Lägg till komma och <br/> mellan rätter (utom sista)
+                    if (i < dishes.Length - 1)
+                    {
+                        description.Append(", <br/>");
+                    }
+                }
+                
+                var item = new SyndicationItem(
+                    title,
+                    SyndicationContent.CreateHtmlContent($"<![CDATA[{description}]]>"),
+                    new Uri("https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/"),
+                    $"{Guid.NewGuid()}", // Unikt GUID för varje dag
+                    day.Key
+                );
+                
+                items.Add(item);
             }
-
-            description.AppendLine("</ul>");
-
-            var item = new SyndicationItem(
-                $"Matsedel vecka {week.Key}",
-                SyndicationContent.CreateHtmlContent(description.ToString()),
-                new Uri($"https://www.skara.se/forskolaskolaochforskola/matsedelforskolaochskola/#week{week.Key}"),
-                $"week-{week.Key}-{weekStart.Year}",
-                weekStart
-            );
-
-            items.Add(item);
         }
         else
         {
@@ -786,6 +814,156 @@ public class MatsedelScraper
         rssFormatter.WriteTo(writer);
 
         Console.WriteLine($"Alla dagars matsedel sparad: {outputPath}");
+    }
+
+    private void GenerateWeeklyImages(Dictionary<DateTime, MenuDay> menuData, string outputDir)
+    {
+        // Hämta aktuell vecka
+        var svCulture = new CultureInfo("sv-SE");
+        var calendar = svCulture.Calendar;
+        var currentWeek = calendar.GetWeekOfYear(DateTime.Today, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+
+        var weeks = menuData.GroupBy(m => calendar.GetWeekOfYear(m.Key, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday));
+        var week = weeks.FirstOrDefault(w => w.Key == currentWeek);
+
+        if (week == null)
+        {
+            Console.WriteLine($"Ingen meny för vecka {currentWeek}, kan inte generera bild.");
+            return;
+        }
+
+        var weekDays = week.OrderBy(d => d.Key).ToList();
+
+        // Olika storlekar att generera
+        var sizes = new[] 
+        { 
+            (800, "VeckansMeny_800.png"),      // TV/Tablet
+            (1024, "VeckansMeny_1024.png"),    // Standard skärm
+            (1200, "VeckansMeny_1200.png"),    // Laptop
+            (1600, "VeckansMeny_1600.png"),    // Desktop/Pintomind
+            (1920, "VeckansMeny_1920.png"),    // Full HD
+            (800, "VeckansMeny.png")           // Standard (alias för 800)
+        };
+
+        foreach (var (width, filename) in sizes)
+        {
+            var path = Path.Combine(outputDir, filename);
+            GenerateMenuImage(weekDays, currentWeek, width, path);
+            Console.WriteLine($"Genererade bild: {path}");
+        }
+    }
+
+    private void GenerateMenuImage(List<KeyValuePair<DateTime, MenuDay>> weekDays, int weekNumber, int width, string outputPath)
+    {
+        // Beräkna höjd baserat på antal dagar och text
+        var lineHeight = 50f;
+        var titleHeight = 80f;
+        var padding = 40f;
+        var daySpacing = 15f;
+
+        // Räkna totalt antal rader (varje dag har minst 2 rader: huvudrätt + veg)
+        var totalLines = weekDays.Count * 3; // Dag + Huvudrätt + Veg
+        var height = (int)(titleHeight + (totalLines * lineHeight) + (weekDays.Count * daySpacing) + (padding * 2));
+
+        using var surface = SKSurface.Create(new SKImageInfo(width, height));
+        var canvas = surface.Canvas;
+
+        // Bakgrund - vit
+        canvas.Clear(SKColors.White);
+
+        // Skapa typsnitt
+        var titleFont = new SKFont(SKTypeface.FromFamilyName("Arial", SKFontStyle.Bold), width / 20f);
+        var dayFont = new SKFont(SKTypeface.FromFamilyName("Arial", SKFontStyle.Bold), width / 30f);
+        var dishFont = new SKFont(SKTypeface.FromFamilyName("Arial", SKFontStyle.Normal), width / 35f);
+        var vegFont = new SKFont(SKTypeface.FromFamilyName("Arial", SKFontStyle.Normal), width / 35f);
+
+        // Textfärger
+        var titlePaint = new SKPaint { Color = SKColors.Black, IsAntialias = true };
+        var dayPaint = new SKPaint { Color = new SKColor(51, 51, 51), IsAntialias = true };
+        var dishPaint = new SKPaint { Color = new SKColor(85, 85, 85), IsAntialias = true };
+        var vegPaint = new SKPaint { Color = new SKColor(0, 128, 0), IsAntialias = true };
+
+        var y = padding;
+
+        // Rita titel
+        var title = $"Matsedel V.{weekNumber}";
+        var titleWidth = titleFont.MeasureText(title);
+        canvas.DrawText(title, (width - titleWidth) / 2, y + titleFont.Size, titleFont, titlePaint);
+        y += titleHeight;
+
+        // Rita varje dag
+        foreach (var day in weekDays)
+        {
+            // Dag
+            var dayText = $"{day.Value.DayName}:";
+            canvas.DrawText(dayText, padding, y, dayFont, dayPaint);
+            y += lineHeight;
+
+            // Dela upp MainDish på <br/> för att visa separat
+            var dishes = day.Value.MainDish.Split(new[] { "<br/>" }, StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < dishes.Length; i++)
+            {
+                var dish = dishes[i].Trim();
+
+                // Kolla om det är veg-alternativet
+                bool isVeg = dish.StartsWith("Veg:", StringComparison.OrdinalIgnoreCase);
+
+                var font = isVeg ? vegFont : dishFont;
+                var paint = isVeg ? vegPaint : dishPaint;
+                var indent = padding + 80; // Indentera maträtterna
+
+                // Radbryt lång text om nödvändigt
+                var maxWidth = width - indent - padding;
+                var wrappedLines = WrapText(dish, font, maxWidth);
+
+                foreach (var line in wrappedLines)
+                {
+                    canvas.DrawText(line, indent, y, font, paint);
+                    y += lineHeight * 0.8f; // Lite mindre spacing för omslutna rader
+                }
+            }
+
+            y += daySpacing; // Extra space mellan dagar
+        }
+
+        // Spara bild
+        using var image = surface.Snapshot();
+        using var data = image.Encode(SKEncodedImageFormat.Png, 100);
+        using var stream = File.OpenWrite(outputPath);
+        data.SaveTo(stream);
+    }
+
+    private List<string> WrapText(string text, SKFont font, float maxWidth)
+    {
+        var lines = new List<string>();
+        var words = text.Split(' ');
+        var currentLine = new StringBuilder();
+
+        foreach (var word in words)
+        {
+            var testLine = currentLine.Length > 0 ? $"{currentLine} {word}" : word;
+            var lineWidth = font.MeasureText(testLine);
+
+            if (lineWidth > maxWidth && currentLine.Length > 0)
+            {
+                lines.Add(currentLine.ToString());
+                currentLine.Clear();
+                currentLine.Append(word);
+            }
+            else
+            {
+                if (currentLine.Length > 0) currentLine.Append(" ");
+                currentLine.Append(word);
+            }
+        }
+
+        if (currentLine.Length > 0)
+        {
+            lines.Add(currentLine.ToString());
+        }
+
+        return lines;
     }
 }
 
