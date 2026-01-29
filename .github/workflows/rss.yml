@@ -40,6 +40,18 @@ jobs:
           echo "Contents of output directory:"
           ls -la output/ || echo "Output directory not found"
 
+      - name: Copy files to docs directory
+        run: |
+          echo "=== Creating docs directory if it doesn't exist ==="
+          mkdir -p docs
+
+          echo "=== Copying RSS feeds and images to docs ==="
+          cp -v output/*.xml docs/
+          cp -v output/*.png docs/
+
+          echo "=== Contents of docs directory ==="
+          ls -la docs/
+
       - name: Commit and push RSS files
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -49,7 +61,7 @@ jobs:
           git status
 
           echo "=== Adding files ==="
-          git add output/ pushid.json
+          git add docs/ output/ pushid.json
 
           echo "=== Git Status After Add ==="
           git status
