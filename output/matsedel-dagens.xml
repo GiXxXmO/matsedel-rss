@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Matsedel Skara - Dagens</title>
+    <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/</link>
+    <description>Dagens matsedel från Skara kommun</description>
+    <lastBuildDate>Thu, 29 Jan 2026 14:54:45 Z</lastBuildDate>
+    <a10:id>matsedel-dagens</a10:id>
+    <item>
+      <guid isPermaLink="false">day-20260129</guid>
+      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/#day20260129</link>
+      <title>Dagens lunch</title>
+      <description>&lt;p&gt;Hamburgare med bröd serveras med klyftpotatis, dressing och grönsaker&lt;br/&gt;Veg: Hamburgare med bröd serveras med klyftpotatis, dressing och grönsaker&lt;/p&gt;
+</description>
+      <a10:updated>2026-01-29T00:00:00Z</a10:updated>
+    </item>
+  </channel>
+</rss>
