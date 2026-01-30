@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0">
+<rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0" type="application/rss+xml" >
   <channel>
     <title>Matsedel Skara - Veckovy</title>
     <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/</link>
