@@ -4,15 +4,14 @@
     <title>Matsedel Skara - Dagens</title>
     <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/</link>
     <description>Dagens matsedel från Skara kommun</description>
-    <lastBuildDate>Fri, 30 Jan 2026 04:36:09 Z</lastBuildDate>
+    <lastBuildDate>Sat, 31 Jan 2026 04:34:58 Z</lastBuildDate>
     <a10:id>matsedel-dagens</a10:id>
     <item>
-      <guid isPermaLink="false">day-20260130</guid>
-      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/#day20260130</link>
-      <title>Dagens lunch</title>
-      <description>&lt;p&gt;Gyllengul lasagnette serveras med kall dressing&lt;br/&gt;Veg: Gyllengul lasagnette serveras med kall dressing&lt;/p&gt;
-</description>
-      <a10:updated>2026-01-30T00:00:00Z</a10:updated>
+      <guid isPermaLink="false">no-menu-20260131</guid>
+      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/</link>
+      <title>Ingen lunch tillgänglig</title>
+      <description>&lt;p&gt;Ingen matsedel tillgänglig för närvarande.&lt;/p&gt;</description>
+      <a10:updated>2026-01-31T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
