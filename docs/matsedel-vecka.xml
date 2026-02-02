@@ -6,7 +6,35 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Mon, 02 Feb 2026 04:45:03 Z</lastBuildDate>
+    <lastBuildDate>Mon, 02 Feb 2026 11:32:38 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
+    <item>
+      <guid isPermaLink="false">aa16d659-d8a4-46c2-9cdc-e240311fe3df</guid>
+      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
+      <title>Måndag - Vecka 6</title>
+      <description>&lt;![CDATA[CousCous schnitzel serveras med kulpotatis, bearnaisesås och grönsaker, &lt;br/&gt;Veg; CousCous schnitzel serveras med kulpotatis, bearnaisesås och grönsaker, &lt;br/&gt;Tisdag, &lt;br/&gt;Panerad fisk serveras med kall sås och kokt potatis, &lt;br/&gt;Veg; Ratatuille serveras med kokt potatis och grönsaker]]&gt;</description>
+      <a10:updated>2026-02-02T00:00:00Z</a10:updated>
+    </item>
+    <item>
+      <guid isPermaLink="false">052dfc17-314f-4957-958a-86ef1b8dc877</guid>
+      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
+      <title>Onsdag - Vecka 6</title>
+      <description>&lt;![CDATA[Flygande Jakobgryta (kycklinggryta) serveras med bulgur och grönsaker, &lt;br/&gt;Flygande Jakobgryta med quorn serveras med bulgur och grönsaker]]&gt;</description>
+      <a10:updated>2026-02-04T00:00:00Z</a10:updated>
+    </item>
+    <item>
+      <guid isPermaLink="false">9cb5dfae-b52c-407a-9c58-794ddcf47f00</guid>
+      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
+      <title>Torsdag - Vecka 6</title>
+      <description>&lt;![CDATA[Krämig tomatsoppa med risoni. Smörgås., &lt;br/&gt;Krämig tomatsoppa med risoni. Smörgås.]]&gt;</description>
+      <a10:updated>2026-02-05T00:00:00Z</a10:updated>
+    </item>
+    <item>
+      <guid isPermaLink="false">d4f9fa5e-8d1f-42db-b946-da4657ce9fda</guid>
+      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
+      <title>Fredag - Vecka 6</title>
+      <description>&lt;![CDATA[Köttfärspaj med tacosmak på potatisbotten serveras med kall dressing och grönsaker, &lt;br/&gt;Tacosmakande paj med tomat och majs serveras med kall sås]]&gt;</description>
+      <a10:updated>2026-02-06T00:00:00Z</a10:updated>
+    </item>
   </channel>
 </rss>
