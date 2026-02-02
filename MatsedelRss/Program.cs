@@ -20,7 +20,8 @@ public class MatsedelScraper
     private const string BaseUrl = "https://www.skara.se";
     private const string PushIdFile = "pushid.json";
     private const int DefaultPushId = 3671;
-    private const int Tries = 20; // Öka från 10 till 20 för att täcka fler möjliga ID:n
+    private const int Tries = 20;
+    private const int MaxDishLength = 55; // Max längd för maträtt inkl. "Veg: "
     
     public MatsedelScraper()
     {
@@ -252,7 +253,8 @@ public class MatsedelScraper
         }
         
         // Försök 2: Leta efter listor med datum
-        var dateHeaders = doc.DocumentNode.SelectNodes("//h2 | //h3 | //h4 | //strong");
+        // Inkludera både h2/h3/h4/strong direkt OCH strong inuti p-taggar
+        var dateHeaders = doc.DocumentNode.SelectNodes("//h2 | //h3 | //h4 | //strong | //p/strong");
         if (dateHeaders != null)
         {
             ParseDateHeaders(dateHeaders, menuData, month);
@@ -438,7 +440,13 @@ public class MatsedelScraper
 
                 // Nu har vi datum och veckodag, samla maträtter
                 var dishes = new List<string>();
-                var nextNode = header.NextSibling;
+                
+                // Om headern är en <strong> inuti <p>, börja från förälder-<p>:s nästa syskon
+                // Annars börja från header-elementets nästa syskon
+                var nextNode = header.Name == "strong" && header.ParentNode?.Name == "p" 
+                    ? header.ParentNode.NextSibling 
+                    : header.NextSibling;
+                    
                 int dishCount = 0;
 
                 while (nextNode != null && dishCount < 10) // Max 10 rätter per dag
@@ -446,6 +454,7 @@ public class MatsedelScraper
                     // Stoppa vid nästa header (nästa veckodag)
                     if (nextNode.NodeType == HtmlNodeType.Element)
                     {
+                        // Kolla om detta är en header-tagg (h2, h3, h4, strong)
                         if (nextNode.Name == "h2" || nextNode.Name == "h3" || nextNode.Name == "h4" || nextNode.Name == "strong")
                         {
                             var nextHeaderText = nextNode.InnerText.Trim();
@@ -458,15 +467,31 @@ public class MatsedelScraper
                             }
                         }
 
-                        // Samla text från p, div, eller textnoden
+                        // Samla text från p, div, eller li-element
                         if (nextNode.Name == "p" || nextNode.Name == "div" || nextNode.Name == "li")
                         {
+                            // Kolla först om <p> innehåller en <strong> med veckodag (ex: <p><strong>Tisdag</strong></p>)
+                            var strongInP = nextNode.SelectSingleNode(".//strong");
+                            if (strongInP != null)
+                            {
+                                var strongText = strongInP.InnerText.Trim();
+                                if (dayNames.Any(d => !string.IsNullOrEmpty(d) && strongText.Equals(d, StringComparison.OrdinalIgnoreCase)))
+                                {
+                                    Console.WriteLine($"  Stoppar vid <strong> i <p>: {strongText}");
+                                    break;
+                                }
+                            }
+                            
                             var dishText = nextNode.InnerText.Trim();
                             if (!string.IsNullOrWhiteSpace(dishText))
                             {
-                                dishes.Add(dishText);
-                                dishCount++;
-                                Console.WriteLine($"  Hittade rätt {dishCount}: {dishText}");
+                                // Kontrollera att det inte är en veckodag
+                                if (!dayNames.Any(d => !string.IsNullOrEmpty(d) && dishText.Equals(d, StringComparison.OrdinalIgnoreCase)))
+                                {
+                                    dishes.Add(dishText);
+                                    dishCount++;
+                                    Console.WriteLine($"  Hittade rätt {dishCount}: {dishText}");
+                                }
                             }
                         }
                     }
@@ -475,9 +500,13 @@ public class MatsedelScraper
                         var dishText = nextNode.InnerText.Trim();
                         if (!string.IsNullOrWhiteSpace(dishText) && dishText.Length > 3)
                         {
-                            dishes.Add(dishText);
-                            dishCount++;
-                            Console.WriteLine($"  Hittade rätt {dishCount}: {dishText}");
+                            // Kontrollera att det inte är en veckodag
+                            if (!dayNames.Any(d => !string.IsNullOrEmpty(d) && dishText.Equals(d, StringComparison.OrdinalIgnoreCase)))
+                            {
+                                dishes.Add(dishText);
+                                dishCount++;
+                                Console.WriteLine($"  Hittade rätt {dishCount}: {dishText}");
+                            }
                         }
                     }
 
@@ -528,7 +557,16 @@ public class MatsedelScraper
                 }
                 else
                 {
-                    Console.WriteLine($"  Hittade inga rätter för {headerText} {date:yyyy-MM-dd}");
+                    // Skapa placeholder för dagen även om ingen mat hittades
+                    // Detta förhindrar att dagen helt försvinner från veckobilden
+                    menuData[date] = new MenuDay
+                    {
+                        Date = date,
+                        MainDish = "(Ingen matsedel tillgänglig)",
+                        VegetarianDish = "",
+                        DayName = date.ToString("dddd", new CultureInfo("sv-SE"))
+                    };
+                    Console.WriteLine($"  Hittade inga rätter för {headerText} {date:yyyy-MM-dd} - skapar placeholder");
                 }
             }
             else if (TryParseDate(headerText, month, out var date))
@@ -568,6 +606,7 @@ public class MatsedelScraper
                         MainDish = menuText.Trim(),
                         DayName = date.ToString("dddd", new CultureInfo("sv-SE"))
                     };
+                    Console.WriteLine($"  Sparade meny för datum-header: {date:yyyy-MM-dd}");
                 }
             }
         }
@@ -1064,7 +1103,7 @@ public class MatsedelScraper
         foreach (var day in weekDays)
         {
             // Dag
-            var dayText = $"{day.Value.DayName}:";
+            var dayText = $"{char.ToUpper(day.Value.DayName[0])}{day.Value.DayName.Substring(1)}:";
             image.Mutate(ctx => ctx.DrawText(dayText, dayFont, dayColor, new PointF(padding, y)));
             y += lineHeight;
 
@@ -1082,15 +1121,14 @@ public class MatsedelScraper
                 var color = isVeg ? vegColor : dishColor;
                 var indent = padding + 80;
 
-                // Radbryt lång text om nödvändigt
-                var maxWidth = width - indent - padding;
-                var wrappedLines = WrapText(dish, font, maxWidth);
-
-                foreach (var line in wrappedLines)
+                // Klipp texten vid MaxDishLength tecken (inkl. "Veg: " prefix)
+                if (dish.Length > MaxDishLength)
                 {
-                    image.Mutate(ctx => ctx.DrawText(line, font, color, new PointF(indent, y)));
-                    y += lineHeight * 0.8f;
+                    dish = dish.Substring(0, MaxDishLength - 3) + "...";
                 }
+
+                image.Mutate(ctx => ctx.DrawText(dish, font, color, new PointF(indent, y)));
+                y += lineHeight * 0.8f;
             }
 
             y += daySpacing;
@@ -1098,38 +1136,6 @@ public class MatsedelScraper
 
         // Spara bild
         image.SaveAsPng(outputPath);
-    }
-
-    private List<string> WrapText(string text, Font font, float maxWidth)
-    {
-        var lines = new List<string>();
-        var words = text.Split(' ');
-        var currentLine = new StringBuilder();
-
-        foreach (var word in words)
-        {
-            var testLine = currentLine.Length > 0 ? $"{currentLine} {word}" : word;
-            var lineSize = TextMeasurer.MeasureBounds(testLine, new TextOptions(font));
-
-            if (lineSize.Width > maxWidth && currentLine.Length > 0)
-            {
-                lines.Add(currentLine.ToString());
-                currentLine.Clear();
-                currentLine.Append(word);
-            }
-            else
-            {
-                if (currentLine.Length > 0) currentLine.Append(" ");
-                currentLine.Append(word);
-            }
-        }
-
-        if (currentLine.Length > 0)
-        {
-            lines.Add(currentLine.ToString());
-        }
-
-        return lines;
     }
 }
 
