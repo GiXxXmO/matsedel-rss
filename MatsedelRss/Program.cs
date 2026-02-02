@@ -20,7 +20,7 @@ public class MatsedelScraper
     private const string BaseUrl = "https://www.skara.se";
     private const string PushIdFile = "pushid.json";
     private const int DefaultPushId = 3671;
-    private const int Tries = 10;
+    private const int Tries = 20; // Öka från 10 till 20 för att täcka fler möjliga ID:n
     
     public MatsedelScraper()
     {
@@ -39,7 +39,7 @@ public class MatsedelScraper
         
         // Om vi är i slutet av månaden, försök också hämta nästa månads matsedel
         var daysLeftInMonth = DateTime.DaysInMonth(currentMonth.Year, currentMonth.Month) - currentMonth.Day;
-        if (daysLeftInMonth <= 7)
+        if (daysLeftInMonth <= 7 && menuData.Count > 0)
         {
             Console.WriteLine("\nKontrollerar om nästa månads matsedel finns tillgänglig...");
             var nextMonth = currentMonth.AddMonths(1);
@@ -59,7 +59,7 @@ public class MatsedelScraper
         
         if (menuData.Count == 0)
         {
-            Console.WriteLine("Kunde inte hämta matsedel.");
+            Console.WriteLine("\n❌ Kunde inte hämta matsedel.");
             return;
         }
         
@@ -89,6 +89,9 @@ public class MatsedelScraper
     private async Task<Dictionary<DateTime, MenuDay>> GetMenuForMonthAsync(DateTime month)
     {
         var menuData = new Dictionary<DateTime, MenuDay>();
+        
+        Console.WriteLine($"\n=== Söker matsedel för {month:MMMM yyyy} ===");
+        
         // Försök olika URL-format för att hitta matsedeln
         var monthNames = new[] 
         { 
@@ -96,34 +99,113 @@ public class MatsedelScraper
             month.ToString("MMMM", CultureInfo.InvariantCulture).ToLower()
         };
         
+        Console.WriteLine($"Månadsnamn att testa: {string.Join(", ", monthNames)}");
+        
         string? html = null;
         string? usedUrl = null;
 
-        // Läs senaste sparade pushID (om finns) och testa sekventiellt
-        var savedId = LoadLastPushId() ?? DefaultPushId;
+        // Läs senaste sparade pushID (om finns)
+        var savedIdInfo = LoadLastPushId();
+        var savedId = savedIdInfo?.pushId ?? DefaultPushId;
+        var savedMonth = savedIdInfo?.month ?? DateTime.MinValue;
+        
+        // Om vi är i en ny månad, börja söka från DefaultPushId eller något högre
+        var startId = savedId;
+        if (savedMonth != DateTime.MinValue && month.Month != savedMonth.Month)
+        {
+            Console.WriteLine($"Ny månad detekterad (från {savedMonth:yyyy-MM} till {month:yyyy-MM}), expanderar sökningen...");
+            // Börja från sparad ID men testa även bakåt och framåt mer aggressivt
+            startId = savedId;
+        }
 
         foreach (var monthName in monthNames)
         {
             bool found = false;
 
+            // Försök först framåt från saved ID
             for (int offset = 0; offset < Tries; offset++)
             {
-                var tryId = savedId + offset;
+                var tryId = startId + offset;
                 var urlWithId = $"{BaseUrl}/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/matsedelfor{monthName}.{tryId}.html";
 
                 try
                 {
                     Console.WriteLine($"Försöker URL: {urlWithId}");
-                    html = await _httpClient.GetStringAsync(urlWithId);
-                    usedUrl = urlWithId;
-                    Console.WriteLine($"Lyckades hämta sida från: {urlWithId}");
-                    SaveLastPushId(tryId);
-                    found = true;
-                    break;
+                    var testHtml = await _httpClient.GetStringAsync(urlWithId);
+                    
+                    // Validering: Kontrollera om HTML:en innehåller datumformat för rätt månad
+                    // Ex: "Vecka 5, 3-7 februari" eller "Måndag 3 februari"
+                    var monthInSwedish = month.ToString("MMMM", new CultureInfo("sv-SE")).ToLower();
+                    var monthInEnglish = month.ToString("MMMM", CultureInfo.InvariantCulture).ToLower();
+                    
+                    var htmlLower = testHtml.ToLower();
+                    // Leta efter mönster: "nummer månad" (ex: "3 februari", "7 februari")
+                    var pattern = $@"\d+\s+{monthInSwedish}";
+                    var hasCorrectMonth = System.Text.RegularExpressions.Regex.IsMatch(htmlLower, pattern);
+                    
+                    if (hasCorrectMonth)
+                    {
+                        html = testHtml;
+                        usedUrl = urlWithId;
+                        Console.WriteLine($"✓ Lyckades hämta sida från: {urlWithId}");
+                        Console.WriteLine($"  Validering: Hittade datummönster för {monthInSwedish}");
+                        SaveLastPushId(tryId, month);
+                        found = true;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"⚠️ Sidan innehåller inte datummönster för '{monthInSwedish}', försöker nästa ID...");
+                    }
                 }
                 catch (HttpRequestException ex)
                 {
-                    Console.WriteLine($"Kunde inte hämta {urlWithId}: {ex.Message}");
+                    Console.WriteLine($"✗ Kunde inte hämta {urlWithId}: {ex.Message}");
+                }
+            }
+
+            if (found) break;
+
+            // Om inte hittat framåt, försök bakåt från saved ID
+            Console.WriteLine($"\nFörsöker söka bakåt från ID {startId}...");
+            for (int offset = 1; offset <= 10; offset++)
+            {
+                var tryId = startId - offset;
+                if (tryId < DefaultPushId) break; // Gå inte under default ID
+
+                var urlWithId = $"{BaseUrl}/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/matsedelfor{monthName}.{tryId}.html";
+
+                try
+                {
+                    Console.WriteLine($"Försöker URL: {urlWithId}");
+                    var testHtml = await _httpClient.GetStringAsync(urlWithId);
+                    
+                    // Samma validering som framåt-sökningen
+                    var monthInSwedish = month.ToString("MMMM", new CultureInfo("sv-SE")).ToLower();
+                    var monthInEnglish = month.ToString("MMMM", CultureInfo.InvariantCulture).ToLower();
+                    
+                    var htmlLower = testHtml.ToLower();
+                    var pattern = $@"\d+\s+{monthInSwedish}";
+                    var hasCorrectMonth = System.Text.RegularExpressions.Regex.IsMatch(htmlLower, pattern);
+                    
+                    if (hasCorrectMonth)
+                    {
+                        html = testHtml;
+                        usedUrl = urlWithId;
+                        Console.WriteLine($"✓ Lyckades hämta sida från: {urlWithId}");
+                        Console.WriteLine($"  Validering: Hittade datummönster för {monthInSwedish}");
+                        SaveLastPushId(tryId, month);
+                        found = true;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"⚠️ Sidan innehåller inte datummönster för '{monthInSwedish}'");
+                    }
+                }
+                catch (HttpRequestException ex)
+                {
+                    Console.WriteLine($"✗ Kunde inte hämta {urlWithId}: {ex.Message}");
                 }
             }
 
@@ -133,22 +215,24 @@ public class MatsedelScraper
             var urlNoId = $"{BaseUrl}/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/matsedelfor{monthName}.html";
             try
             {
-                Console.WriteLine($"Försöker URL: {urlNoId}");
+                Console.WriteLine($"\nFörsöker URL utan ID: {urlNoId}");
                 html = await _httpClient.GetStringAsync(urlNoId);
                 usedUrl = urlNoId;
-                Console.WriteLine($"Lyckades hämta sida från: {urlNoId}");
+                Console.WriteLine($"✓ Lyckades hämta sida från: {urlNoId}");
                 break;
             }
             catch (HttpRequestException ex)
             {
-                Console.WriteLine($"Kunde inte hämta {urlNoId}: {ex.Message}");
+                Console.WriteLine($"✗ Kunde inte hämta {urlNoId}: {ex.Message}");
             }
         }
         if (html == null)
         {
-            Console.WriteLine("Kunde inte hitta matsedel för aktuell månad.");
+            Console.WriteLine($"\n⚠️ Kunde inte hitta matsedel för {month:MMMM yyyy}.");
             return menuData;
         }
+        
+        Console.WriteLine($"\n✓ Hämtade HTML-data, börjar parsa...");
         
         // Parsa HTML
         var doc = new HtmlDocument();
@@ -173,6 +257,26 @@ public class MatsedelScraper
         {
             ParseDateHeaders(dateHeaders, menuData, month);
         }
+        
+        // Validera att vi faktiskt hittade data för rätt månad
+        var correctMonthCount = menuData.Count(m => m.Key.Month == month.Month && m.Key.Year == month.Year);
+        var wrongMonthCount = menuData.Count - correctMonthCount;
+        
+        if (wrongMonthCount > 0)
+        {
+            Console.WriteLine($"\n⚠️ VARNING: Hittade {wrongMonthCount} menyer från fel månad! Ta bara bort dessa.");
+            // Ta bort alla menyer från fel månad
+            var keysToRemove = menuData.Where(m => m.Key.Month != month.Month || m.Key.Year != month.Year)
+                                       .Select(m => m.Key)
+                                       .ToList();
+            foreach (var key in keysToRemove)
+            {
+                Console.WriteLine($"  Tar bort: {key:yyyy-MM-dd} (månad {key.Month})");
+                menuData.Remove(key);
+            }
+        }
+        
+        Console.WriteLine($"\n✓ Totalt {menuData.Count} menyer hittades för {month:MMMM yyyy}");
         
         return menuData;
     }
@@ -464,7 +568,6 @@ public class MatsedelScraper
                         MainDish = menuText.Trim(),
                         DayName = date.ToString("dddd", new CultureInfo("sv-SE"))
                     };
-                    Console.WriteLine($"  Sparade meny för datum-header: {date:yyyy-MM-dd}");
                 }
             }
         }
@@ -578,17 +681,36 @@ public class MatsedelScraper
         return (baseId + monthOffset).ToString();
     }
 
-    private int? LoadLastPushId()
+    private int GetFirstWeekOfMonth(DateTime month)
+    {
+        var svCulture = new CultureInfo("sv-SE");
+        var calendar = svCulture.Calendar;
+        var firstDay = new DateTime(month.Year, month.Month, 1);
+        return calendar.GetWeekOfYear(firstDay, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+    }
+
+    private PushIdInfo? LoadLastPushId()
     {
         try
         {
             if (!File.Exists(PushIdFile)) return null;
             var json = File.ReadAllText(PushIdFile);
             var doc = JsonDocument.Parse(json);
+            
+            int pushId = DefaultPushId;
+            DateTime month = DateTime.MinValue;
+            
             if (doc.RootElement.TryGetProperty("pushId", out var elem) && elem.TryGetInt32(out var id))
             {
-                return id;
+                pushId = id;
             }
+            
+            if (doc.RootElement.TryGetProperty("month", out var monthElem) && monthElem.TryGetDateTime(out var m))
+            {
+                month = m;
+            }
+            
+            return new PushIdInfo { pushId = pushId, month = month };
         }
         catch
         {
@@ -597,17 +719,18 @@ public class MatsedelScraper
         return null;
     }
 
-    private void SaveLastPushId(int id)
+    private void SaveLastPushId(int id, DateTime month)
     {
         try
         {
-            var obj = new { pushId = id };
-            var json = JsonSerializer.Serialize(obj);
+            var obj = new { pushId = id, month = month.ToString("yyyy-MM-01") };
+            var json = JsonSerializer.Serialize(obj, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(PushIdFile, json);
+            Console.WriteLine($"Sparade pushId {id} för månad {month:yyyy-MM}");
         }
-        catch
+        catch (Exception ex)
         {
-            // Ignorera skrivfel
+            Console.WriteLine($"Kunde inte spara pushId: {ex.Message}");
         }
     }
     
@@ -674,7 +797,7 @@ public class MatsedelScraper
                 var item = new SyndicationItem(
                     title,
                     SyndicationContent.CreateHtmlContent($"<![CDATA[{description}]]>"),
-                    new Uri("https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/"),
+                    new Uri("https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/"),
                     $"{Guid.NewGuid()}", // Unikt GUID för varje dag
                     day.Key
                 );
@@ -897,7 +1020,7 @@ public class MatsedelScraper
             }
         }
 
-        // Om ingen av de föredragna fontterna finns, använd första tillgängliga
+        // Om ingen av de föredragna fonterna finns, använd första tillgängliga
         if (fontFamily == null)
         {
             if (SystemFonts.Families.Any())
@@ -1016,4 +1139,10 @@ public class MenuDay
     public string DayName { get; set; } = "";
     public string MainDish { get; set; } = "";
     public string VegetarianDish { get; set; } = "";
+}
+
+public class PushIdInfo
+{
+    public int pushId { get; set; }
+    public DateTime month { get; set; }
 }
