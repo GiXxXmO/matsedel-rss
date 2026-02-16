@@ -6,42 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 15 Feb 2026 04:43:08 Z</lastBuildDate>
+    <lastBuildDate>Mon, 16 Feb 2026 04:46:06 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">01ec0d97-bd93-4f3a-9502-c493efba12c0</guid>
+      <guid isPermaLink="false">80b6eece-0129-4987-883b-d276280231bb</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 7</title>
-      <description>&lt;![CDATA[Köttbullar serveras med makaronersamt grönsakerKvällsmat: Kaviarfrestelse med ägghalva]]&gt;</description>
-      <a10:updated>2026-02-09T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 8</title>
+      <description>&lt;![CDATA[Falukorv i ugn serveras med potatismos och grönsaker, &lt;br/&gt;Sojakorv serveras med potatismos]]&gt;</description>
+      <a10:updated>2026-02-16T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">ca13b7d6-f735-4327-be98-c765cf41af90</guid>
+      <guid isPermaLink="false">dabce03f-761a-49f0-9e3c-b8c17ee31a01</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 7</title>
-      <description>&lt;![CDATA[Kycklingsoppa med nudla, smörgås, &lt;br/&gt;Quornsoppa med nudlar, smörgås]]&gt;</description>
-      <a10:updated>2026-02-10T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 8</title>
+      <description>&lt;![CDATA[Fiskgratäng med tomat och oregano serveras med kokt potatis och grönsaker, &lt;br/&gt;Grönsaksgratäng med tomat och oregano serveras med kokt potatis]]&gt;</description>
+      <a10:updated>2026-02-17T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">f549dfe2-b34e-47c0-8eb8-e1e255cabf33</guid>
+      <guid isPermaLink="false">073f803e-4f7b-4cff-93ac-14a2f4184460</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 7</title>
-      <description>&lt;![CDATA[Panerad fisk serveras med kokt potatis , kall sås och grönsaker, &lt;br/&gt;Selleristicks serveras med potatis och kall sås]]&gt;</description>
-      <a10:updated>2026-02-11T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 8</title>
+      <description>&lt;![CDATA[Broccolisoppa, smörgås., &lt;br/&gt;Broccolisoppa, smörgås]]&gt;</description>
+      <a10:updated>2026-02-18T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">c9b9b2f2-4357-45c9-91b1-48be19038cdf</guid>
+      <guid isPermaLink="false">51703e2c-67ec-4763-b3f7-6f1a1c82476b</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 7</title>
-      <description>&lt;![CDATA[Vad köket erbjuder, &lt;br/&gt;Vad köket erbjuder]]&gt;</description>
-      <a10:updated>2026-02-12T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 8</title>
+      <description>&lt;![CDATA[Kycklingbiff serveras med kokt potatis, sås och grönsaker, &lt;br/&gt;Morotsbiff serveras med kokt potatis och sås]]&gt;</description>
+      <a10:updated>2026-02-19T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">59f595ac-33c7-483d-b678-b43d418c9baa</guid>
+      <guid isPermaLink="false">78d9edde-cda6-47bb-bf23-6d0ed17dbfdb</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 7</title>
-      <description>&lt;![CDATA[Husets pizza, &lt;br/&gt;Husets pizza]]&gt;</description>
-      <a10:updated>2026-02-13T00:00:00Z</a10:updated>
+      <title>Fredag - Vecka 8</title>
+      <description>&lt;![CDATA[Köttfärslasagnette serveras med kall dressing, &lt;br/&gt;Lasagnette med spenat och keso serveras med kall dressing]]&gt;</description>
+      <a10:updated>2026-02-20T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
