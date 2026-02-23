@@ -6,42 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 22 Feb 2026 04:39:15 Z</lastBuildDate>
+    <lastBuildDate>Mon, 23 Feb 2026 04:45:26 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">16947243-3a53-4d5a-a83e-a216bc6ccee3</guid>
+      <guid isPermaLink="false">f8b6228c-8246-4f9e-bb58-c8a78fba0b6e</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 8</title>
-      <description>&lt;![CDATA[Falukorv i ugn serveras med potatismos och grönsaker, &lt;br/&gt;Sojakorv serveras med potatismos]]&gt;</description>
-      <a10:updated>2026-02-16T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 9</title>
+      <description>&lt;![CDATA[Kyckling med currysås serveras med bulgur och grönsaker, &lt;br/&gt;Blomkålsgryta med kikärtor serveras med bulgur och grönsaker]]&gt;</description>
+      <a10:updated>2026-02-23T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">eab4183e-182f-4e3c-8cd2-07af90d0fde4</guid>
+      <guid isPermaLink="false">d427b115-cf42-40d0-b927-6b92546ed08a</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 8</title>
-      <description>&lt;![CDATA[Fiskgratäng med tomat och oregano serveras med kokt potatis och grönsaker, &lt;br/&gt;Grönsaksgratäng med tomat och oregano serveras med kokt potatis]]&gt;</description>
-      <a10:updated>2026-02-17T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 9</title>
+      <description>&lt;![CDATA[Köttbullar serveras med potatismos och grönsaker, &lt;br/&gt;falafel serveras med potatismos och grönsaker]]&gt;</description>
+      <a10:updated>2026-02-24T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">d3b994e7-2c4b-4e88-91f7-a2c6196992e8</guid>
+      <guid isPermaLink="false">43859ffc-3117-4379-b7f2-6496973fcc3c</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 8</title>
-      <description>&lt;![CDATA[Broccolisoppa, smörgås., &lt;br/&gt;Broccolisoppa, smörgås]]&gt;</description>
-      <a10:updated>2026-02-18T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 9</title>
+      <description>&lt;![CDATA[Ugnstekt fisk serveras med varm citronsås, kokt potatis och grönsaker, &lt;br/&gt;Grön ärtmedaljong med dill serveras med varm citronsås och kokt potatis]]&gt;</description>
+      <a10:updated>2026-02-25T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">3af2de41-a640-4c62-9e40-a0f9175af2cb</guid>
+      <guid isPermaLink="false">a157ad9f-83ff-49bd-878a-64deb646ce58</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 8</title>
-      <description>&lt;![CDATA[Kycklingbiff serveras med kokt potatis, sås och grönsaker, &lt;br/&gt;Morotsbiff serveras med kokt potatis och sås]]&gt;</description>
-      <a10:updated>2026-02-19T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 9</title>
+      <description>&lt;![CDATA[Cowboysoppa, smörgås., &lt;br/&gt;Cowgirlsoppa, smörgås]]&gt;</description>
+      <a10:updated>2026-02-26T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">6c22cf72-43d1-4270-9a0c-442a258e9506</guid>
+      <guid isPermaLink="false">344e5221-d10b-46f6-bf1a-fb7f0ec23d67</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 8</title>
-      <description>&lt;![CDATA[Köttfärslasagnette serveras med kall dressing, &lt;br/&gt;Lasagnette med spenat och keso serveras med kall dressing]]&gt;</description>
-      <a10:updated>2026-02-20T00:00:00Z</a10:updated>
+      <title>Fredag - Vecka 9</title>
+      <description>&lt;![CDATA[Vad köket erbjuder, &lt;br/&gt;Vad köket erbjuder]]&gt;</description>
+      <a10:updated>2026-02-27T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
