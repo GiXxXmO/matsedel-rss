@@ -127,7 +127,7 @@ public class MatsedelScraper
             for (int offset = 0; offset < Tries; offset++)
             {
                 var tryId = startId + offset;
-                var urlWithId = $"{BaseUrl}/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/matsedelfor{monthName}.{tryId}.html";
+                var urlWithId = $"{BaseUrl}/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/matsedelfor{monthName}.html";
 
                 try
                 {
@@ -1152,3 +1152,4 @@ public class PushIdInfo
     public int pushId { get; set; }
     public DateTime month { get; set; }
 }
+
