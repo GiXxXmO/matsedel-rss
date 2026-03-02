@@ -4,14 +4,15 @@
     <title>Matsedel Skara - Dagens</title>
     <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/</link>
     <description>Dagens matsedel från Skara kommun</description>
-    <lastBuildDate>Sat, 28 Feb 2026 04:29:30 Z</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 08:04:38 Z</lastBuildDate>
     <a10:id>matsedel-dagens</a10:id>
     <item>
-      <guid isPermaLink="false">no-menu-20260228</guid>
-      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/</link>
-      <title>Ingen lunch tillgänglig</title>
-      <description>&lt;p&gt;Ingen matsedel tillgänglig för närvarande.&lt;/p&gt;</description>
-      <a10:updated>2026-02-28T00:00:00Z</a10:updated>
+      <guid isPermaLink="false">day-20260302</guid>
+      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/matsedelforskolaochskola/#day20260302</link>
+      <title>Dagens lunch</title>
+      <description>&lt;p&gt;Pasta Carbonara&lt;br/&gt;Veg: Veg: Pasta med Mamma mia sås&lt;/p&gt;
+</description>
+      <a10:updated>2026-03-02T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>

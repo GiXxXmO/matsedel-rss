@@ -6,42 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sat, 28 Feb 2026 04:29:30 Z</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 08:04:38 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">544b4523-e94a-4037-98da-61894477590a</guid>
+      <guid isPermaLink="false">483306bc-48cc-490e-8317-d3e78866dc6d</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 9</title>
-      <description>&lt;![CDATA[Kyckling med currysås serveras med bulgur och grönsaker, &lt;br/&gt;Blomkålsgryta med kikärtor serveras med bulgur och grönsaker]]&gt;</description>
-      <a10:updated>2026-02-23T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 10</title>
+      <description>&lt;![CDATA[Pasta Carbonara, &lt;br/&gt;Veg: Pasta med Mamma mia sås]]&gt;</description>
+      <a10:updated>2026-03-02T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">6858d656-a3eb-4070-a9a1-fcdc60373e90</guid>
+      <guid isPermaLink="false">3c2e9cb0-e354-4af1-aa10-a6c4ad00677d</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 9</title>
-      <description>&lt;![CDATA[Köttbullar serveras med potatismos och grönsaker, &lt;br/&gt;falafel serveras med potatismos och grönsaker]]&gt;</description>
-      <a10:updated>2026-02-24T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 10</title>
+      <description>&lt;![CDATA[Couscous schnitzel serveras med kulpotatis och bearnaisesås samt grönsak]]&gt;</description>
+      <a10:updated>2026-03-03T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">f03d815b-74e0-4752-9e3a-d16d86e41b64</guid>
+      <guid isPermaLink="false">bac28f6d-9b8a-4631-a680-dec1827e99cb</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 9</title>
-      <description>&lt;![CDATA[Ugnstekt fisk serveras med varm citronsås, kokt potatis och grönsaker, &lt;br/&gt;Grön ärtmedaljong med dill serveras med varm citronsås och kokt potatis]]&gt;</description>
-      <a10:updated>2026-02-25T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 10</title>
+      <description>&lt;![CDATA[Gulaschsoppa serveras med smörgås. Veg: Gulaschsoppa på grönsaker och vegfärs]]&gt;</description>
+      <a10:updated>2026-03-04T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">9c172a47-6230-4662-8502-bb6315faf443</guid>
+      <guid isPermaLink="false">a2049ec9-6261-43d1-87d1-0a8f2cdcd7af</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 9</title>
-      <description>&lt;![CDATA[Cowboysoppa, smörgås., &lt;br/&gt;Cowgirlsoppa, smörgås]]&gt;</description>
-      <a10:updated>2026-02-26T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 10</title>
+      <description>&lt;![CDATA[Panerad fisk serveras med kokt potatis och kall örtsås Veg: Morotsbiff serveras med kokt potatis och kall örtsås]]&gt;</description>
+      <a10:updated>2026-03-05T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">e96871d2-8831-49a4-b184-ae3bfc7e9a60</guid>
+      <guid isPermaLink="false">92361758-ca1c-4653-b913-4ebea7bb7bcf</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 9</title>
-      <description>&lt;![CDATA[Vad köket erbjuder, &lt;br/&gt;Vad köket erbjuder]]&gt;</description>
-      <a10:updated>2026-02-27T00:00:00Z</a10:updated>
+      <title>Fredag - Vecka 10</title>
+      <description>&lt;![CDATA[Köttfärslimpa serveras med kokt potatis och sås Veg: Färslimpa på grönt vis serveras med kokt potatis och sås]]&gt;</description>
+      <a10:updated>2026-03-06T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
