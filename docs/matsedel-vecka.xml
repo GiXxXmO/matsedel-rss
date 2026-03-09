@@ -6,42 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 08 Mar 2026 04:36:32 Z</lastBuildDate>
+    <lastBuildDate>Mon, 09 Mar 2026 04:40:22 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">d53cc094-9136-4f06-aa4f-383a5bf19ac2</guid>
+      <guid isPermaLink="false">d9cc22c0-6756-4083-96af-2e7c27212841</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 10</title>
-      <description>&lt;![CDATA[Pasta Carbonara, &lt;br/&gt;Veg: Pasta med Mamma mia sås]]&gt;</description>
-      <a10:updated>2026-03-02T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 11</title>
+      <description>&lt;![CDATA[Spagetti och köttfärssås Veg: Spagetti och vegetarisk bolognesmed linser och bönor]]&gt;</description>
+      <a10:updated>2026-03-09T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">4e58e1f7-e163-4d5e-8f92-8b78e67d5238</guid>
+      <guid isPermaLink="false">7d6a6246-3079-487c-8953-d68373107049</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 10</title>
-      <description>&lt;![CDATA[Couscous schnitzel serveras med kulpotatis och bearnaisesås samt grönsak]]&gt;</description>
-      <a10:updated>2026-03-03T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 11</title>
+      <description>&lt;![CDATA[Green nuggets serveras med havreris och currydressing]]&gt;</description>
+      <a10:updated>2026-03-10T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">c2c8e023-4549-423c-8943-3c63148cc847</guid>
+      <guid isPermaLink="false">55b23a06-11b9-40c8-9f65-be20fc07c9d4</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 10</title>
-      <description>&lt;![CDATA[Gulaschsoppa serveras med smörgås. Veg: Gulaschsoppa på grönsaker och vegfärs]]&gt;</description>
-      <a10:updated>2026-03-04T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 11</title>
+      <description>&lt;![CDATA[Panerad fisk med potatis och kall gurkdressing, &lt;br/&gt;Veg; Broccolimedaljonger med potatis och kall gurkdressing]]&gt;</description>
+      <a10:updated>2026-03-11T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">eb1389fe-3ce8-4514-a9ee-8f7b4eb17030</guid>
+      <guid isPermaLink="false">21db93b4-68f8-4372-9854-2b82c6e347fa</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 10</title>
-      <description>&lt;![CDATA[Panerad fisk serveras med kokt potatis och kall örtsås Veg: Morotsbiff serveras med kokt potatis och kall örtsås]]&gt;</description>
-      <a10:updated>2026-03-05T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 11</title>
+      <description>&lt;![CDATA[Kycklingsoppa serveras med smörgås. Veg: Italiensk röd linssoppa med örter och potatis serveras med smörgås]]&gt;</description>
+      <a10:updated>2026-03-12T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">29869039-5b92-4bcc-8958-8ab120e97b0f</guid>
+      <guid isPermaLink="false">e7ebb839-b40a-47d0-9e56-e847f363a9da</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 10</title>
-      <description>&lt;![CDATA[Köttfärslimpa serveras med kokt potatis och sås Veg: Färslimpa på grönt vis serveras med kokt potatis och sås]]&gt;</description>
-      <a10:updated>2026-03-06T00:00:00Z</a10:updated>
+      <title>Fredag - Vecka 11</title>
+      <description>&lt;![CDATA[Stroganoff på fläskkött serveras med kokt potatis Veg: Bön och rotfruktsstroganoff serveras med kokt potatis]]&gt;</description>
+      <a10:updated>2026-03-13T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
