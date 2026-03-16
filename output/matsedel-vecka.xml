@@ -6,42 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 15 Mar 2026 04:50:54 Z</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2026 04:57:34 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">b6765143-8fd9-4ffa-ba67-bacf8d81f40f</guid>
+      <guid isPermaLink="false">a3fc585d-ea7a-40ee-b290-8c9d1107c017</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 11</title>
-      <description>&lt;![CDATA[Spagetti och köttfärssås Veg: Spagetti och vegetarisk bolognesmed linser och bönor]]&gt;</description>
-      <a10:updated>2026-03-09T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 12</title>
+      <description>&lt;![CDATA[Korv serveras med kokt potatis och senapssås Veg: Sojakorv serveras med kokt potatis och senapssås]]&gt;</description>
+      <a10:updated>2026-03-16T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">966ae29c-198f-4271-8ef9-b94be3500007</guid>
+      <guid isPermaLink="false">ed1d59f3-369b-45d0-be86-50782f885a3e</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 11</title>
-      <description>&lt;![CDATA[Green nuggets serveras med havreris och currydressing]]&gt;</description>
-      <a10:updated>2026-03-10T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 12</title>
+      <description>&lt;![CDATA[Kycklingbiff serveras med bulgur och kall såsVeg: Kikärtsbiff serveras med bulgur och kall sås]]&gt;</description>
+      <a10:updated>2026-03-17T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">3b8e0a49-2c72-474d-b2ea-4833c7252dd7</guid>
+      <guid isPermaLink="false">45407542-2010-4acd-bf24-81700c7eec9c</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 11</title>
-      <description>&lt;![CDATA[Panerad fisk med potatis och kall gurkdressing, &lt;br/&gt;Veg; Broccolimedaljonger med potatis och kall gurkdressing]]&gt;</description>
-      <a10:updated>2026-03-11T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 12</title>
+      <description>&lt;![CDATA[Chili con Carne serveras med havrerisVeg: Chili sin carne serveras med havreris]]&gt;</description>
+      <a10:updated>2026-03-18T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">e95d0984-3351-4fb2-98af-4811edd67611</guid>
+      <guid isPermaLink="false">abd351db-307a-431b-89a0-efed4f736607</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 11</title>
-      <description>&lt;![CDATA[Kycklingsoppa serveras med smörgås. Veg: Italiensk röd linssoppa med örter och potatis serveras med smörgås]]&gt;</description>
-      <a10:updated>2026-03-12T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 12</title>
+      <description>&lt;![CDATA[Ugnstekt fisk serveras med kokt potatis och kall dillsås Veg: Husets Frittata med grönsaker]]&gt;</description>
+      <a10:updated>2026-03-19T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">897f2525-33ee-4819-8b33-91d9f0a42580</guid>
+      <guid isPermaLink="false">b537405e-a1fc-452c-8219-21d991e9f1ba</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 11</title>
-      <description>&lt;![CDATA[Stroganoff på fläskkött serveras med kokt potatis Veg: Bön och rotfruktsstroganoff serveras med kokt potatis]]&gt;</description>
-      <a10:updated>2026-03-13T00:00:00Z</a10:updated>
+      <title>Fredag - Vecka 12</title>
+      <description>&lt;![CDATA[Krämig broccolisoppa samt smörgås.]]&gt;</description>
+      <a10:updated>2026-03-20T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
