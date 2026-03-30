@@ -6,42 +6,28 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 29 Mar 2026 04:53:52 Z</lastBuildDate>
+    <lastBuildDate>Mon, 30 Mar 2026 05:01:06 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">6ea1d219-ce61-4569-95eb-915be8573a7d</guid>
+      <guid isPermaLink="false">90a7d023-8c3f-4471-8df1-aea86299923d</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 13</title>
-      <description>&lt;![CDATA[Fiskbullar serveras med kokt potatis och dillsås Veg: Quorn i dillsås serveras med kokt potatis]]&gt;</description>
-      <a10:updated>2026-03-23T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 14</title>
+      <description>&lt;![CDATA[Kycklinggryta thai serveras med havreris Veg: Thaigryta med quorn och grönsaker serveras med havreris]]&gt;</description>
+      <a10:updated>2026-03-30T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">4ed98280-6da6-408a-8ac9-1bddaa2604f3</guid>
+      <guid isPermaLink="false">de916c64-ead7-40d4-a023-25e3e2c615ea</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 13</title>
-      <description>&lt;![CDATA[Fläskköttsgryta serveras med kokt potatis Veg: Indisk Daal]]&gt;</description>
-      <a10:updated>2026-03-24T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 14</title>
+      <description>&lt;![CDATA[Panerad fisk serveras med kokt potatis och spenatsås Veg: Majsbiff med gräslök serveras med kokt potatis och spenatsås]]&gt;</description>
+      <a10:updated>2026-03-31T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">467fa9af-2aa3-4e9e-bcc2-bb84a78bdc85</guid>
+      <guid isPermaLink="false">a23634c3-2467-4adc-93ae-69100aa3f8ed</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 13</title>
-      <description>&lt;![CDATA[Påskbuffé]]&gt;</description>
-      <a10:updated>2026-03-25T00:00:00Z</a10:updated>
-    </item>
-    <item>
-      <guid isPermaLink="false">28598d51-4062-45c6-ba93-f62cac2ed4ca</guid>
-      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 13</title>
-      <description>&lt;![CDATA[Kycklingsoppa med nudlar samt smörgås. Veg: Nudelsoppa med svamp och grönsaker samt smörgås]]&gt;</description>
-      <a10:updated>2026-03-26T00:00:00Z</a10:updated>
-    </item>
-    <item>
-      <guid isPermaLink="false">2d3f4bc3-3d19-4dcd-a234-e689c47b9790</guid>
-      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 13</title>
-      <description>&lt;![CDATA[Stekt falukorv severas med makaronerVeg: Falafel serveras med makaroner]]&gt;</description>
-      <a10:updated>2026-03-27T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 14</title>
+      <description>&lt;![CDATA[Hedvigsoppa med morot och vitkål serveras med smörgås.Veg; Vegetarisk Hedvigsoppa serveras med smörgås, &lt;br/&gt;Vad köket erbjuder]]&gt;</description>
+      <a10:updated>2026-04-01T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
