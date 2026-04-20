@@ -6,42 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 19 Apr 2026 05:04:46 Z</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 05:07:43 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">25529ec1-ecb3-4e43-ba0e-7d5a0999e42b</guid>
+      <guid isPermaLink="false">f3a7e3ff-1a6e-4825-a82d-7a266c568916</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 16</title>
-      <description>&lt;![CDATA[Couscous schnitzel serveras med kulpotatis och bearnaisesås]]&gt;</description>
-      <a10:updated>2026-04-13T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 17</title>
+      <description>&lt;![CDATA[Köttfärssås och spagetti, &lt;br/&gt;Mamma mia sås serveras med spagetti]]&gt;</description>
+      <a10:updated>2026-04-20T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">c9be6d3e-3089-4464-b187-9f26bb935624</guid>
+      <guid isPermaLink="false">429203dc-03b3-439b-9e43-9650d31419b2</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 16</title>
-      <description>&lt;![CDATA[Panerad fisk serveras med kokt potatis och kall dillsås, &lt;br/&gt;Panerad zucchini med ost serveras med kokt potatis och kall dillsås]]&gt;</description>
-      <a10:updated>2026-04-14T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 17</title>
+      <description>&lt;![CDATA[Panerad fisk serveras med potatis och remuladsås, &lt;br/&gt;Gröna ärtbiffar med dill och citron serveras med kall sås och kokt potatis]]&gt;</description>
+      <a10:updated>2026-04-21T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">d9e7c746-9da9-456a-99d1-8b684f88dad0</guid>
+      <guid isPermaLink="false">6096ac52-e315-4f4e-a081-0d1b9c4b7f63</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 16</title>
-      <description>&lt;![CDATA[Flygande Jacob kycklinggryta serveras med bulgur, &lt;br/&gt;Ratatouille serveras med bulgur]]&gt;</description>
-      <a10:updated>2026-04-15T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 17</title>
+      <description>&lt;![CDATA[Bygg din egen sallad med olika tillbehör samt dressing]]&gt;</description>
+      <a10:updated>2026-04-22T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">33fe1e9e-b271-4980-b8a1-6779d3e1744c</guid>
+      <guid isPermaLink="false">9a529af1-6848-4001-9d79-5bb35da6b219</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 16</title>
-      <description>&lt;![CDATA[Krämig tomatsoppa med risoni serveras med smörgås.]]&gt;</description>
-      <a10:updated>2026-04-16T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 17</title>
+      <description>&lt;![CDATA[Högsbosoppa serveras med smörgås.]]&gt;</description>
+      <a10:updated>2026-04-23T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">32ca0ddc-7313-4817-9b1e-bc1a52b35b21</guid>
+      <guid isPermaLink="false">bc194803-c523-4c86-a097-4248a3365aa9</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 16</title>
-      <description>&lt;![CDATA[Köttfärspaj Taco på potatisbotten serveras med kall dressing, &lt;br/&gt;Tacopaj serveras med kall dressing]]&gt;</description>
-      <a10:updated>2026-04-17T00:00:00Z</a10:updated>
+      <title>Fredag - Vecka 17</title>
+      <description>&lt;![CDATA[Vad köket erbjuder]]&gt;</description>
+      <a10:updated>2026-04-24T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
