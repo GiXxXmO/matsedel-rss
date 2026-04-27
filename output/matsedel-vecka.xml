@@ -6,42 +6,28 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 26 Apr 2026 05:06:54 Z</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2026 05:10:02 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">04dc0cfa-f931-42ea-b382-7f6666c596c2</guid>
+      <guid isPermaLink="false">6a1d23a3-b766-4bd4-a8fb-99258d26b160</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 17</title>
-      <description>&lt;![CDATA[Köttfärssås och spagetti, &lt;br/&gt;Mamma mia sås serveras med spagetti]]&gt;</description>
-      <a10:updated>2026-04-20T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 18</title>
+      <description>&lt;![CDATA[Falukorv i ugn med potatismos, &lt;br/&gt;Sojakorv serveras med potatismos]]&gt;</description>
+      <a10:updated>2026-04-27T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">d07e08bb-f917-4ffa-9f87-d067950d5826</guid>
+      <guid isPermaLink="false">445d0d44-910d-4acc-bb56-9f1719cfeae4</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 17</title>
-      <description>&lt;![CDATA[Panerad fisk serveras med potatis och remuladsås, &lt;br/&gt;Gröna ärtbiffar med dill och citron serveras med kall sås och kokt potatis]]&gt;</description>
-      <a10:updated>2026-04-21T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 18</title>
+      <description>&lt;![CDATA[Fiskgratäng med tomat och dill serveras med kokt potatis, &lt;br/&gt;Gratinerade grönsaker med tomat och ost serveras med kokt potatis]]&gt;</description>
+      <a10:updated>2026-04-28T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">4a3100ec-398e-4d7c-add6-40477f7d2032</guid>
+      <guid isPermaLink="false">3c235c5b-fe1a-4615-a255-0f617d162e91</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 17</title>
-      <description>&lt;![CDATA[Bygg din egen sallad med olika tillbehör samt dressing]]&gt;</description>
-      <a10:updated>2026-04-22T00:00:00Z</a10:updated>
-    </item>
-    <item>
-      <guid isPermaLink="false">54ee62a9-a9da-4050-9ccd-ccd48d7e7be3</guid>
-      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 17</title>
-      <description>&lt;![CDATA[Högsbosoppa serveras med smörgås.]]&gt;</description>
-      <a10:updated>2026-04-23T00:00:00Z</a10:updated>
-    </item>
-    <item>
-      <guid isPermaLink="false">ee8ef7b7-f6b5-440d-be1a-daf896b63eaf</guid>
-      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 17</title>
-      <description>&lt;![CDATA[Vad köket erbjuder]]&gt;</description>
-      <a10:updated>2026-04-24T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 18</title>
+      <description>&lt;![CDATA[Broccolisoppa serveras med smörgås., &lt;br/&gt;Kycklingburgare med bröd serveras med klyftpotatis samt dressingVeg; Greenburger med bröd serveras med klyftpotatis samt dressing]]&gt;</description>
+      <a10:updated>2026-04-29T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
