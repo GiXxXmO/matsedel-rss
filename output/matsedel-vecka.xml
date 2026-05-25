@@ -6,42 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 24 May 2026 05:24:43 Z</lastBuildDate>
+    <lastBuildDate>Mon, 25 May 2026 05:38:11 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">80c058ca-a7ed-436a-8947-3f78ca032ade</guid>
+      <guid isPermaLink="false">dd518bb8-92e9-43a3-8616-36890cdb0905</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 21</title>
-      <description>&lt;![CDATA[Spagetti och köttfärssås, &lt;br/&gt;Veg; Vegetarisk boulognese]]&gt;</description>
-      <a10:updated>2026-05-18T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 22</title>
+      <description>&lt;![CDATA[Korv, potatismos och gurkdressing, &lt;br/&gt;Veg; Sojakorv, potatismos och gurkdressing]]&gt;</description>
+      <a10:updated>2026-05-25T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">e913af2d-3e80-4336-8f2c-870a0d8085f5</guid>
+      <guid isPermaLink="false">181b1b8a-d263-4207-b739-5783cbec7128</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 21</title>
-      <description>&lt;![CDATA[Green nuggets med havreris och currydressing]]&gt;</description>
-      <a10:updated>2026-05-19T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 22</title>
+      <description>&lt;![CDATA[Kycklingbiff serveras med bulgur och kall sås, &lt;br/&gt;Veg; Kikärtsbiff serveras med bulgur och kall sås]]&gt;</description>
+      <a10:updated>2026-05-26T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">82bccb83-3c91-4c89-ad98-6709e0791186</guid>
+      <guid isPermaLink="false">4c723f0f-b338-4d99-b263-406c70d429a9</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 21</title>
-      <description>&lt;![CDATA[Panerad fisk serveras med dansk remouladsås och kokt potatis, &lt;br/&gt;Veg; Broccolimedaljonger serveras med kokt potatis och dansk remouladsås]]&gt;</description>
-      <a10:updated>2026-05-20T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 22</title>
+      <description>&lt;![CDATA[Chili con carne serveras med havreris, &lt;br/&gt;Veg; Chili sin carne serveras med havreris]]&gt;</description>
+      <a10:updated>2026-05-27T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">26a9a967-2b7e-423f-8789-c56719387da7</guid>
+      <guid isPermaLink="false">925522eb-32cf-4ecd-87c3-f5069ab10e0c</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 21</title>
-      <description>&lt;![CDATA[Italiensk kycklingsoppa och smörgås, &lt;br/&gt;Veg; Italiensk linssoppa med örter och smörgås]]&gt;</description>
-      <a10:updated>2026-05-21T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 22</title>
+      <description>&lt;![CDATA[Kokt fisk serveras med kokt potatis och persiljesås, &lt;br/&gt;Veg; Frittata med grönsaker]]&gt;</description>
+      <a10:updated>2026-05-28T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">7fe66327-c8c0-4817-a49a-c12b582a95d3</guid>
+      <guid isPermaLink="false">f519da3b-86f6-41ad-a8db-ab1f7aa39e2e</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 21</title>
-      <description>&lt;![CDATA[Stroganoff på fläskkött serveras med kokt potatis, &lt;br/&gt;Veg; Strofanoff på bönor och rotfrukter serveras med kokt potatis]]&gt;</description>
-      <a10:updated>2026-05-22T00:00:00Z</a10:updated>
+      <title>Fredag - Vecka 22</title>
+      <description>&lt;![CDATA[Vad köket erbjuder]]&gt;</description>
+      <a10:updated>2026-05-29T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
