@@ -6,42 +6,35 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 14 Jun 2026 05:39:28 Z</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2026 05:54:07 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">57d5afb4-968b-47c1-bde1-44b26102b180</guid>
+      <guid isPermaLink="false">821642c3-e677-4111-ba3e-3dddee8063f0</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 24</title>
-      <description>&lt;![CDATA[Sommarlunch med kallskuret och potatissallad, &lt;br/&gt;Veg; Sommarlunch med örtmarinerad quorn och potatissallad]]&gt;</description>
-      <a10:updated>2026-06-08T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 25</title>
+      <description>&lt;![CDATA[Fiskburgare med bröd serveras med klyftpotatis och dressing, &lt;br/&gt;veg; Green burger med bröd serveras med klyftpotatis och dressing]]&gt;</description>
+      <a10:updated>2026-06-15T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">ff412bc4-b288-48c4-b850-06a8dca84d1d</guid>
+      <guid isPermaLink="false">968d11bf-ff32-4679-bbe5-ed06afda638a</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 24</title>
-      <description>&lt;![CDATA[Panerad fisk serveras med remouladsås och kokt potatis, &lt;br/&gt;Veg; Selleribiff serveras med remouladsås och kokt potatis]]&gt;</description>
-      <a10:updated>2026-06-09T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 25</title>
+      <description>&lt;![CDATA[Potatisbullar serveras med skink-och ostsås, &lt;br/&gt;veg; Potatisbullar serveras med ost-och broccolosås]]&gt;</description>
+      <a10:updated>2026-06-16T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">431c9c18-6cd1-4bae-8f53-eb827815d8be</guid>
+      <guid isPermaLink="false">52a481f0-fc57-4ba7-98e5-80dd65a233df</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 24</title>
-      <description>&lt;![CDATA[Högsbosoppa och smörgås]]&gt;</description>
-      <a10:updated>2026-06-10T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 25</title>
+      <description>&lt;![CDATA[Bygg din egen sallad]]&gt;</description>
+      <a10:updated>2026-06-17T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">46638ab2-4904-4c2a-98dd-1830f8faff4b</guid>
+      <guid isPermaLink="false">d6ed73ce-170a-4c64-9e46-ea654c26b1ab</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 24</title>
-      <description>&lt;![CDATA[Bönkebab med bröd och kebabsås]]&gt;</description>
-      <a10:updated>2026-06-11T00:00:00Z</a10:updated>
-    </item>
-    <item>
-      <guid isPermaLink="false">ae80f7e3-375c-47e5-8097-4b3527b2ccf0</guid>
-      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 24</title>
-      <description>&lt;![CDATA[Vad köket erbjuder]]&gt;</description>
-      <a10:updated>2026-06-12T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 25</title>
+      <description>&lt;![CDATA[Litet midsommarbord]]&gt;</description>
+      <a10:updated>2026-06-18T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
