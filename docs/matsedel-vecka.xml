@@ -6,28 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 05 Jul 2026 05:22:47 Z</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2026 05:30:53 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">dcdbfd7f-0510-48aa-9358-ae09e7788765</guid>
+      <guid isPermaLink="false">ea9d520d-ee75-47e2-918a-180eea86a4c1</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 27</title>
-      <description>&lt;![CDATA[Green nuggets serveras med rostad potatis och vitlöksdressing]]&gt;</description>
-      <a10:updated>2026-07-01T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 28</title>
+      <description>&lt;![CDATA[Panerad fisk serveras med dansk remouladsås och kokt potatis, &lt;br/&gt;Veg; Grönsaksbiff serveras med dansk remouladsås och kokt potatis]]&gt;</description>
+      <a10:updated>2026-07-06T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">c1c44be3-539a-4059-ac16-65b35fb82cc0</guid>
+      <guid isPermaLink="false">6556ebbe-d414-4b53-9856-29ad18dad334</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 27</title>
-      <description>&lt;![CDATA[Köttbullar serveras med makaroner, &lt;br/&gt;Veg; Falafel serveras med makaroner]]&gt;</description>
-      <a10:updated>2026-07-02T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 28</title>
+      <description>&lt;![CDATA[Spenatsoppa med ägghalva. Smörgås]]&gt;</description>
+      <a10:updated>2026-07-07T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">4f869156-92c7-4558-845a-d50849677b94</guid>
+      <guid isPermaLink="false">d72cce35-50aa-411c-abe3-1b2d75ca0f37</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 27</title>
-      <description>&lt;![CDATA[Flygande Jakobgryta serveras med bulgur, &lt;br/&gt;Veg; Flygande Jakob på rotfrukter serveras med bulgur]]&gt;</description>
-      <a10:updated>2026-07-03T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 28</title>
+      <description>&lt;![CDATA[Couscousschnitzel serveras med rostad potatis och vitlökscremé]]&gt;</description>
+      <a10:updated>2026-07-08T00:00:00Z</a10:updated>
+    </item>
+    <item>
+      <guid isPermaLink="false">4fcd4db9-cb2f-40c8-b5fe-81d3800f71f9</guid>
+      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
+      <title>Torsdag - Vecka 28</title>
+      <description>&lt;![CDATA[Vad köket erbjuder]]&gt;</description>
+      <a10:updated>2026-07-09T00:00:00Z</a10:updated>
+    </item>
+    <item>
+      <guid isPermaLink="false">e38aea49-d5b5-4d91-803a-94df0cef6240</guid>
+      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
+      <title>Fredag - Vecka 28</title>
+      <description>&lt;![CDATA[Grillkryddad kyckling serveras med bulgur och kall dressing, &lt;br/&gt;Veg; Marinerad Quornfilé serveras med bulgur och vitlöksdressing]]&gt;</description>
+      <a10:updated>2026-07-10T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
