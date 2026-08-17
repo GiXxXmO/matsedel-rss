@@ -6,42 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 16 Aug 2026 04:15:17 Z</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 04:17:54 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">5906ee84-a945-49bf-80d6-406d4ac54030</guid>
+      <guid isPermaLink="false">e21ec69b-af95-4e51-9f10-0bdd32452021</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 33</title>
-      <description>&lt;![CDATA[Green nuggets, rostad potatis, tzatziki]]&gt;</description>
-      <a10:updated>2026-08-10T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 34</title>
+      <description>&lt;![CDATA[Köttfärssås och spagetti, &lt;br/&gt;Veg; Färssås och spagetti]]&gt;</description>
+      <a10:updated>2026-08-17T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">86bb2d1b-aee5-4b7e-aa7b-afcef51e42fb</guid>
+      <guid isPermaLink="false">ab482447-4ec0-4992-9ff4-01aebb27fe26</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 33</title>
-      <description>&lt;![CDATA[Kyckling i curry serveras med havreris, &lt;br/&gt;Veg; Indisk daal serveras med havreris]]&gt;</description>
-      <a10:updated>2026-08-11T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 34</title>
+      <description>&lt;![CDATA[Kassler serevras med potatissallad, &lt;br/&gt;Veg; Marinerad quorn serveras med potatissallad]]&gt;</description>
+      <a10:updated>2026-08-18T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">e45048b3-80a9-4a94-89c1-c79646f60f61</guid>
+      <guid isPermaLink="false">5be0889b-849b-4493-acb4-4115e52119b2</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 33</title>
-      <description>&lt;![CDATA[Cowboysoppa, smörgås, &lt;br/&gt;Veg; cowgirlsoppa sereveras med smörgås]]&gt;</description>
-      <a10:updated>2026-08-12T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 34</title>
+      <description>&lt;![CDATA[Korv serveras med potatismos och gurkdressing, &lt;br/&gt;Veg; Sojakorv serveras med potatismos och gurkdressing]]&gt;</description>
+      <a10:updated>2026-08-19T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">6d8d9662-0e3e-46e5-b822-0d4da48a8456</guid>
+      <guid isPermaLink="false">37f90a3c-7365-49d8-b9b1-a22140063b1c</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 33</title>
-      <description>&lt;![CDATA[Panerad fisk serveras med kall dillsås och kokt potatis, &lt;br/&gt;Veg; Broccolimedaljong serveras med kall dillsås och kokt potatis]]&gt;</description>
-      <a10:updated>2026-08-13T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 34</title>
+      <description>&lt;![CDATA[Kycklingsoppa serevras med smörgås, &lt;br/&gt;Veg; Nudelsoppa serveras med smörgås]]&gt;</description>
+      <a10:updated>2026-08-20T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">0eb928c0-a875-47fb-9f13-9b8f21ddc805</guid>
+      <guid isPermaLink="false">0ede521d-38f9-424b-a701-129adb6d1afd</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 33</title>
-      <description>&lt;![CDATA[Potatis-och skinkfrestelse, &lt;br/&gt;Veg; Spenat- och kesofrestelse]]&gt;</description>
-      <a10:updated>2026-08-14T00:00:00Z</a10:updated>
+      <title>Fredag - Vecka 34</title>
+      <description>&lt;![CDATA[Fiskburgare sereveras med bröd, klyftpotatis, dressing, &lt;br/&gt;Veg; Grönsaksburgare serveras med bröd, klyftpotatis och dressing]]&gt;</description>
+      <a10:updated>2026-08-21T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
