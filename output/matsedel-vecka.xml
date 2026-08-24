@@ -6,42 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 23 Aug 2026 04:16:34 Z</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 04:19:07 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">874c2e4a-90aa-4f68-89fe-84d5c738a252</guid>
+      <guid isPermaLink="false">afa53b6a-f40d-4637-847b-fffbb24a4a32</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 34</title>
-      <description>&lt;![CDATA[Köttfärssås och spagetti, &lt;br/&gt;Veg; Färssås och spagetti]]&gt;</description>
-      <a10:updated>2026-08-17T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 35</title>
+      <description>&lt;![CDATA[Pasta carbonara, &lt;br/&gt;Veg; pasta med broccoli- och ostsås]]&gt;</description>
+      <a10:updated>2026-08-24T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">e5c57bb7-f292-4dd5-af2f-eab7cb99d833</guid>
+      <guid isPermaLink="false">d4538769-d036-4824-afcf-7a43b9538bdd</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 34</title>
-      <description>&lt;![CDATA[Kassler serevras med potatissallad, &lt;br/&gt;Veg; Marinerad quorn serveras med potatissallad]]&gt;</description>
-      <a10:updated>2026-08-18T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 35</title>
+      <description>&lt;![CDATA[Ugnsgratinerad falukorv serveras med potatismos, &lt;br/&gt;Veg; Ugnsgratinerade grönsaker serveras med potatismos]]&gt;</description>
+      <a10:updated>2026-08-25T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">245dffb4-036c-46a1-abd3-74652192f5ec</guid>
+      <guid isPermaLink="false">3fb255a4-1cb2-4e71-a2fb-d777c410881f</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 34</title>
-      <description>&lt;![CDATA[Korv serveras med potatismos och gurkdressing, &lt;br/&gt;Veg; Sojakorv serveras med potatismos och gurkdressing]]&gt;</description>
-      <a10:updated>2026-08-19T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 35</title>
+      <description>&lt;![CDATA[Tacobuffé med tillbehör, &lt;br/&gt;Veg; Tacobuffé med tillbehör]]&gt;</description>
+      <a10:updated>2026-08-26T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">b2963163-5754-4ecc-b5b0-4a10cd154e65</guid>
+      <guid isPermaLink="false">1cf6422a-5d51-4645-aa1a-9ceb88b94faa</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 34</title>
-      <description>&lt;![CDATA[Kycklingsoppa serevras med smörgås, &lt;br/&gt;Veg; Nudelsoppa serveras med smörgås]]&gt;</description>
-      <a10:updated>2026-08-20T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 35</title>
+      <description>&lt;![CDATA[Egenpanerad fisk serveras med kall dillsås och kokt potatis, &lt;br/&gt;Veg; Husets gröna ärtbiff med dill serveras med kall dillsås och kokt potatis]]&gt;</description>
+      <a10:updated>2026-08-27T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">6fd1296b-e7ab-4faf-985d-2b4fa5e33785</guid>
+      <guid isPermaLink="false">c7184b12-3fda-49da-a5b1-03dcdef0ef88</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 34</title>
-      <description>&lt;![CDATA[Fiskburgare sereveras med bröd, klyftpotatis, dressing, &lt;br/&gt;Veg; Grönsaksburgare serveras med bröd, klyftpotatis och dressing]]&gt;</description>
-      <a10:updated>2026-08-21T00:00:00Z</a10:updated>
+      <title>Fredag - Vecka 35</title>
+      <description>&lt;![CDATA[Hedvigsoppa serveras med smörgås, &lt;br/&gt;Veg; Hedvigsoppa serveras med smörgås]]&gt;</description>
+      <a10:updated>2026-08-28T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
