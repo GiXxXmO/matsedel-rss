@@ -6,42 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 30 Aug 2026 04:15:26 Z</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2026 04:17:19 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">36469fd5-a22e-4062-98c9-cb0d37182182</guid>
+      <guid isPermaLink="false">42df8132-74e0-434e-a0e6-f14df72e2f21</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 35</title>
-      <description>&lt;![CDATA[Pasta carbonara, &lt;br/&gt;Veg; pasta med broccoli- och ostsås]]&gt;</description>
-      <a10:updated>2026-08-24T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 36</title>
+      <description>&lt;![CDATA[Kycklinggryta Thai serveras med havreris, &lt;br/&gt;Veg; Thaigryta med grönsasker och svamp serveras med havreris]]&gt;</description>
+      <a10:updated>2026-08-31T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">5a2b99a7-1ade-42e0-a8ed-07c8d942fdd3</guid>
+      <guid isPermaLink="false">82b5cbab-7ddb-42c4-b550-6a5d2c41d65e</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 35</title>
-      <description>&lt;![CDATA[Ugnsgratinerad falukorv serveras med potatismos, &lt;br/&gt;Veg; Ugnsgratinerade grönsaker serveras med potatismos]]&gt;</description>
-      <a10:updated>2026-08-25T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 36</title>
+      <description>&lt;![CDATA[Gratinerad kassler serveras med rostad potatis och kall sås, &lt;br/&gt;Gratinerade grönsaker serveras med rostad potatis och kall sås]]&gt;</description>
+      <a10:updated>2026-09-01T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">86d3f501-3288-46f3-8a50-3ec71a12be8a</guid>
+      <guid isPermaLink="false">6024f815-0247-47bd-9b47-e36d18153c6a</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 35</title>
-      <description>&lt;![CDATA[Tacobuffé med tillbehör, &lt;br/&gt;Veg; Tacobuffé med tillbehör]]&gt;</description>
-      <a10:updated>2026-08-26T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 36</title>
+      <description>&lt;![CDATA[Rosa fiskgratäng serveras med kokt potatis, &lt;br/&gt;Veg; Broccoli-och tomatpaj]]&gt;</description>
+      <a10:updated>2026-09-02T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">b26a8c40-664d-42b8-a574-29421b5f1bf5</guid>
+      <guid isPermaLink="false">0d825341-fbdc-40f5-8495-ac0d0a514489</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 35</title>
-      <description>&lt;![CDATA[Egenpanerad fisk serveras med kall dillsås och kokt potatis, &lt;br/&gt;Veg; Husets gröna ärtbiff med dill serveras med kall dillsås och kokt potatis]]&gt;</description>
-      <a10:updated>2026-08-27T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 36</title>
+      <description>&lt;![CDATA[Bygg din egen sallad med goda tillbehör, dressing]]&gt;</description>
+      <a10:updated>2026-09-03T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">364224a6-8218-4eca-8d59-117034df7557</guid>
+      <guid isPermaLink="false">cda5c9df-78f9-4c7c-8270-651f435c9e7f</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 35</title>
-      <description>&lt;![CDATA[Hedvigsoppa serveras med smörgås, &lt;br/&gt;Veg; Hedvigsoppa serveras med smörgås]]&gt;</description>
-      <a10:updated>2026-08-28T00:00:00Z</a10:updated>
+      <title>Fredag - Vecka 36</title>
+      <description>&lt;![CDATA[Lunch: Pannbiff serveras med kokt potatis och brunsås, &lt;br/&gt;Selleri piccata serveras med örtdressing och kokt potatis]]&gt;</description>
+      <a10:updated>2026-09-04T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
