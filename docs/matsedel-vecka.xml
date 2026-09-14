@@ -6,42 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sat, 12 Sep 2026 04:14:40 Z</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 04:16:58 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">b5b09538-bc93-4e2e-b962-6898c2f4c1c4</guid>
+      <guid isPermaLink="false">ff7d9e82-6ca8-4aad-bdbf-0c1355c66faa</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 37</title>
-      <description>&lt;![CDATA[Fläskköttsgryta serveras med bulgur, &lt;br/&gt;Gryta med bambuskott, gönsaker och soja serveras med bulgur]]&gt;</description>
-      <a10:updated>2026-09-07T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 38</title>
+      <description>&lt;![CDATA[Stroganoff på kyckling serveras med havreris, &lt;br/&gt;Rotfruktsstroganoff serveras med havreris]]&gt;</description>
+      <a10:updated>2026-09-14T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">c8d0e1a8-3500-409d-b40e-c559f7d35911</guid>
+      <guid isPermaLink="false">7f8d27c5-3f78-40fc-97dc-5aabc8a942cb</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 37</title>
-      <description>&lt;![CDATA[Krämig tomatsoppa serveras med smörgås]]&gt;</description>
-      <a10:updated>2026-09-08T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 38</title>
+      <description>&lt;![CDATA[Egen Panerad fisk serveras med kokt potatis och kall dillsås, &lt;br/&gt;Panerad zucchini med linser serveras med kall dillsås och kokt potatis]]&gt;</description>
+      <a10:updated>2026-09-15T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">ee2bd5d5-c3ad-4b2d-9239-2589233fcb59</guid>
+      <guid isPermaLink="false">d99083a7-339a-43df-8207-b6e9409be25e</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 37</title>
-      <description>&lt;![CDATA[Kokt fisk serveras med kokt potatis och persiljesås, &lt;br/&gt;Morotsbiff med purjolök serveras med persiljesås och kokt potatis]]&gt;</description>
-      <a10:updated>2026-09-09T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 38</title>
+      <description>&lt;![CDATA[Kött-och grönsakssoppa serveras med smörgås, &lt;br/&gt;Rostad majssoppa med sambal oelek serveras med smörgås]]&gt;</description>
+      <a10:updated>2026-09-16T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">9e8702a7-4e95-49d3-93b8-d8d5132f480c</guid>
+      <guid isPermaLink="false">b3096aaf-9566-4ee6-95b2-58db8af9f99b</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 37</title>
-      <description>&lt;![CDATA[Hamburgare serveras med klyftpotatis och dressing, &lt;br/&gt;Rödbetsbiff serveras med klyftpotatis och dressing]]&gt;</description>
-      <a10:updated>2026-09-10T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 38</title>
+      <description>&lt;![CDATA[Köttbullar serveras med makaroner, &lt;br/&gt;Falafel serveras med makaroner]]&gt;</description>
+      <a10:updated>2026-09-17T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">4fa6a516-817f-4b35-a0e3-0fb57e093921</guid>
+      <guid isPermaLink="false">ae2897d7-f3a1-49cc-8a05-a979c5045581</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 37</title>
-      <description>&lt;![CDATA[Svensk moussaka, &lt;br/&gt;Moussaka på grönt vis]]&gt;</description>
-      <a10:updated>2026-09-11T00:00:00Z</a10:updated>
+      <title>Fredag - Vecka 38</title>
+      <description>&lt;![CDATA[Gyllengul lasagnette serveras med dressing]]&gt;</description>
+      <a10:updated>2026-09-18T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
