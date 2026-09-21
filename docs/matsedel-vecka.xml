@@ -6,42 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 20 Sep 2026 04:15:42 Z</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 04:17:23 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">61ac6ebe-73fb-4d84-bcc9-d57e4de6ab8f</guid>
+      <guid isPermaLink="false">3273d926-1617-40de-af56-fba393c2cf0b</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 38</title>
-      <description>&lt;![CDATA[Stroganoff på kyckling serveras med havreris, &lt;br/&gt;Rotfruktsstroganoff serveras med havreris]]&gt;</description>
-      <a10:updated>2026-09-14T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 39</title>
+      <description>&lt;![CDATA[Köttfärssås och spagetti, &lt;br/&gt;Pasta med lins-och färssås]]&gt;</description>
+      <a10:updated>2026-09-21T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">93d6bf74-98a8-491b-9c62-80de7059e6ce</guid>
+      <guid isPermaLink="false">3733dc6b-2a8d-4a8a-9071-05da5fe8efd7</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 38</title>
-      <description>&lt;![CDATA[Egen Panerad fisk serveras med kokt potatis och kall dillsås, &lt;br/&gt;Panerad zucchini med linser serveras med kall dillsås och kokt potatis]]&gt;</description>
-      <a10:updated>2026-09-15T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 39</title>
+      <description>&lt;![CDATA[Fiskgratäng med citrontäcke serveras med kokt potatis, &lt;br/&gt;Spansk Frittata]]&gt;</description>
+      <a10:updated>2026-09-22T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">01f9ff4c-4d98-4a6d-bee7-e10c66400a30</guid>
+      <guid isPermaLink="false">72dd353e-5635-496d-82e5-d0ed7221990e</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 38</title>
-      <description>&lt;![CDATA[Kött-och grönsakssoppa serveras med smörgås, &lt;br/&gt;Rostad majssoppa med sambal oelek serveras med smörgås]]&gt;</description>
-      <a10:updated>2026-09-16T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 39</title>
+      <description>&lt;![CDATA[Gulaschsoppa serveras med smörgås, &lt;br/&gt;Gulaschsoppa på grönt vis serveras med smörgås]]&gt;</description>
+      <a10:updated>2026-09-23T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">d2599704-1858-4d11-996f-46a485bbc580</guid>
+      <guid isPermaLink="false">8182d8f2-18ec-400e-a1fa-f4ddea5b45af</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 38</title>
-      <description>&lt;![CDATA[Köttbullar serveras med makaroner, &lt;br/&gt;Falafel serveras med makaroner]]&gt;</description>
-      <a10:updated>2026-09-17T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 39</title>
+      <description>&lt;![CDATA[Kyckling Tikka masala serveras med havreris, &lt;br/&gt;Indisk kikärts-och blomkålsgryta serveras med havreris]]&gt;</description>
+      <a10:updated>2026-09-24T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">01cbee46-80ab-4046-a7b2-d17355161325</guid>
+      <guid isPermaLink="false">382ecd04-4f13-4a7b-a852-d8f87ec1ca85</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 38</title>
-      <description>&lt;![CDATA[Gyllengul lasagnette serveras med dressing]]&gt;</description>
-      <a10:updated>2026-09-18T00:00:00Z</a10:updated>
+      <title>Fredag - Vecka 39</title>
+      <description>&lt;![CDATA[Skinkstek med äppelsås serveras med rostade rotfrukter och potatis, &lt;br/&gt;Quornfilé serveras med rostade rotfrukter och potatis]]&gt;</description>
+      <a10:updated>2026-09-25T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
