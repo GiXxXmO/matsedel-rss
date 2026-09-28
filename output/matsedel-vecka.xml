@@ -6,42 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 27 Sep 2026 04:15:54 Z</lastBuildDate>
+    <lastBuildDate>Mon, 28 Sep 2026 04:18:14 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">ccd08d5d-febc-40b8-a7f9-c2a18d6c24d6</guid>
+      <guid isPermaLink="false">b6979746-38ac-4076-b6dd-94f5a3b9b9e3</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 39</title>
-      <description>&lt;![CDATA[Köttfärssås och spagetti, &lt;br/&gt;Pasta med lins-och färssås]]&gt;</description>
-      <a10:updated>2026-09-21T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 40</title>
+      <description>&lt;![CDATA[Fiskbullar serveras med dillsås och kokt potatis, &lt;br/&gt;Veg; Skördegryta med smörbönor och dill serveras med kokt potatis]]&gt;</description>
+      <a10:updated>2026-09-28T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">7103d91c-7832-4f37-9df3-35b083cbb28c</guid>
+      <guid isPermaLink="false">25b15ed8-59dc-48dc-b2e4-1e3703bfd08e</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 39</title>
-      <description>&lt;![CDATA[Fiskgratäng med citrontäcke serveras med kokt potatis, &lt;br/&gt;Spansk Frittata]]&gt;</description>
-      <a10:updated>2026-09-22T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 40</title>
+      <description>&lt;![CDATA[Cowboysoppa serveras med smörgås, &lt;br/&gt;Cowgirlsoppa serveras med smörgås]]&gt;</description>
+      <a10:updated>2026-09-29T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">df4536d1-6685-4147-a141-e92236e7407b</guid>
+      <guid isPermaLink="false">d6414c93-12c7-4619-9cc0-830b99ee96a5</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 39</title>
-      <description>&lt;![CDATA[Gulaschsoppa serveras med smörgås, &lt;br/&gt;Gulaschsoppa på grönt vis serveras med smörgås]]&gt;</description>
-      <a10:updated>2026-09-23T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 40</title>
+      <description>&lt;![CDATA[Potatisgratäng serveras med kall kassler, &lt;br/&gt;Veg; Potatisgratäng serveras med grönsaksbiff]]&gt;</description>
+      <a10:updated>2026-09-30T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">f8c30f13-af0f-4099-9047-9d6bad67a8c3</guid>
+      <guid isPermaLink="false">601b4db6-12f7-4fd5-9ee0-330bf551bf86</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 39</title>
-      <description>&lt;![CDATA[Kyckling Tikka masala serveras med havreris, &lt;br/&gt;Indisk kikärts-och blomkålsgryta serveras med havreris]]&gt;</description>
-      <a10:updated>2026-09-24T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 40</title>
+      <description>&lt;![CDATA[Egenpanerad fisk serveras med remouladsås och kokt potatis, &lt;br/&gt;Veg; Gröna ärtmedaljonger med dill och citron serveras med remouladsås och kokt potatis]]&gt;</description>
+      <a10:updated>2026-10-01T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">6c57f641-82c8-408d-b1be-b4c3bdbc00a9</guid>
+      <guid isPermaLink="false">27a78241-dc83-42e1-bed8-5d6849d4c79b</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 39</title>
-      <description>&lt;![CDATA[Skinkstek med äppelsås serveras med rostade rotfrukter och potatis, &lt;br/&gt;Quornfilé serveras med rostade rotfrukter och potatis]]&gt;</description>
-      <a10:updated>2026-09-25T00:00:00Z</a10:updated>
+      <title>Fredag - Vecka 40</title>
+      <description>&lt;![CDATA[Köttfärslasagnette serveras med kall dressing, &lt;br/&gt;Veg; Lasagnette med vegetarisk färs serveras med kall dressing]]&gt;</description>
+      <a10:updated>2026-10-02T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
