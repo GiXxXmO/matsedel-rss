@@ -6,38 +6,17 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Wed, 30 Sep 2026 04:17:14 Z</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 04:16:50 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">051f8f7e-368a-43c5-8881-3368f48e02f8</guid>
-      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 40</title>
-      <description>&lt;![CDATA[Fiskbullar serveras med dillsås och kokt potatis, &lt;br/&gt;Veg; Skördegryta med smörbönor och dill serveras med kokt potatis]]&gt;</description>
-      <a10:updated>2026-09-28T00:00:00Z</a10:updated>
-    </item>
-    <item>
-      <guid isPermaLink="false">31bd7e74-3169-43d2-af06-2a17776c6efd</guid>
-      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 40</title>
-      <description>&lt;![CDATA[Cowboysoppa serveras med smörgås, &lt;br/&gt;Cowgirlsoppa serveras med smörgås]]&gt;</description>
-      <a10:updated>2026-09-29T00:00:00Z</a10:updated>
-    </item>
-    <item>
-      <guid isPermaLink="false">36777814-103b-413c-b122-d3eb84428fce</guid>
-      <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 40</title>
-      <description>&lt;![CDATA[Potatisgratäng serveras med kall kassler, &lt;br/&gt;Veg; Potatisgratäng serveras med grönsaksbiff]]&gt;</description>
-      <a10:updated>2026-09-30T00:00:00Z</a10:updated>
-    </item>
-    <item>
-      <guid isPermaLink="false">ecaf6d3d-cc18-44a8-a3b8-7c99a8b59599</guid>
+      <guid isPermaLink="false">6ba07087-f5ed-4fda-aec0-20369de5a2ec</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
       <title>Torsdag - Vecka 40</title>
       <description>&lt;![CDATA[Egenpanerad fisk serveras med remouladsås och kokt potatis, &lt;br/&gt;Veg; Gröna ärtmedaljonger med dill och citron serveras med remouladsås och kokt potatis]]&gt;</description>
       <a10:updated>2026-10-01T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">0bb40608-582c-46c3-aca7-a964b11ae2f6</guid>
+      <guid isPermaLink="false">6b2583c5-6d7a-4e13-b5de-555e7838a4f1</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
       <title>Fredag - Vecka 40</title>
       <description>&lt;![CDATA[Köttfärslasagnette serveras med kall dressing, &lt;br/&gt;Veg; Lasagnette med vegetarisk färs serveras med kall dressing]]&gt;</description>
