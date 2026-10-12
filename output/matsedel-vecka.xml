@@ -6,42 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 11 Oct 2026 04:17:07 Z</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 04:23:40 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">4f50ca2a-3bbe-4d1a-ad34-06b8f0fe0d7f</guid>
+      <guid isPermaLink="false">08b24a53-cb42-4077-a5b6-74ea31c85410</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 41</title>
-      <description>&lt;![CDATA[Kycklinggryta med curry och grönsaker, bulgur, &lt;br/&gt;Veg; Blomkålsgryta med kikärtor och curry, bulgur]]&gt;</description>
-      <a10:updated>2026-10-05T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 42</title>
+      <description>&lt;![CDATA[Schnitzel (vegetarisk) serveras med kulpotatis samt kökets egengjorda bearnaisesås]]&gt;</description>
+      <a10:updated>2026-10-12T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">05d5d115-5483-47b8-9f9f-eb5fabf41e82</guid>
+      <guid isPermaLink="false">1c3c3e66-3091-49fd-96c3-a7739ddd97ec</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 41</title>
-      <description>&lt;![CDATA[Fisknuggets serveras med kall örtsås samt kokt potatis, &lt;br/&gt;Veg; Vegetariska bitar kryddade med tillbehör serveras med rhode islanddressing]]&gt;</description>
-      <a10:updated>2026-10-06T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 42</title>
+      <description>&lt;![CDATA[Köttbullar serveras med kokt potatis, sås, &lt;br/&gt;Veg; Falafel serveras med kokt potatis samt kall dressing]]&gt;</description>
+      <a10:updated>2026-10-13T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">f036ce1d-2d94-4c3f-bce6-0e849cfe035c</guid>
+      <guid isPermaLink="false">d58af64c-c736-4ca5-a22f-fd5288b3fea1</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 41</title>
-      <description>&lt;![CDATA[Köttfärslimpa serveras med kokt potatis och sås, &lt;br/&gt;Veg; Ugnsfärs serveras med kokt potatis och sås]]&gt;</description>
-      <a10:updated>2026-10-07T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 42</title>
+      <description>&lt;![CDATA[Kycklingsoppa, smörgås, &lt;br/&gt;Veg; Nudelsoppa med bönor och grönsaker, smörgås]]&gt;</description>
+      <a10:updated>2026-10-14T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">c1131d0f-17fb-4535-9679-a764c533e0eb</guid>
+      <guid isPermaLink="false">4211bebe-df69-485f-b748-e2d343ade14b</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 41</title>
-      <description>&lt;![CDATA[Krämig broccolisoppa, smörgås]]&gt;</description>
-      <a10:updated>2026-10-08T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 42</title>
+      <description>&lt;![CDATA[Varmkorv/grynkorv serveras med potatismos, &lt;br/&gt;Veg; Sojakorv serveras med potatismos]]&gt;</description>
+      <a10:updated>2026-10-15T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">b3d1afab-14a4-4afd-b157-ba1fcc8868d2</guid>
+      <guid isPermaLink="false">ad858861-6a19-4c65-aa42-57be06e9a941</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 41</title>
-      <description>&lt;![CDATA[Bönkebab serveras med bröd, dressing samt grönsaker]]&gt;</description>
-      <a10:updated>2026-10-09T00:00:00Z</a10:updated>
+      <title>Fredag - Vecka 42</title>
+      <description>&lt;![CDATA[Köttfärspaj med tacosmak på en potatisbotten serveras med dressing, &lt;br/&gt;Veg; Tacosmakande paj serveras med dressing]]&gt;</description>
+      <a10:updated>2026-10-16T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
