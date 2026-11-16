@@ -6,42 +6,42 @@
     <description>Menyinformation för skolan</description>
     <language>sv</language>
     <copyright>© Skara kommun</copyright>
-    <lastBuildDate>Sun, 15 Nov 2026 04:09:47 Z</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2026 04:11:12 Z</lastBuildDate>
     <a10:id>matsedel-vecka</a10:id>
     <item>
-      <guid isPermaLink="false">3d83139f-3c69-45fc-8a2d-23c180cf2bbe</guid>
+      <guid isPermaLink="false">efc881d1-d7e0-420b-913b-01d2c150a362</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Måndag - Vecka 46</title>
-      <description>&lt;![CDATA[Kycklinggryta thai med grönsaker serveras med havrerisVegetariskt; Thaigryta med grönsaker och svamp serveras med havreris]]&gt;</description>
-      <a10:updated>2026-11-09T00:00:00Z</a10:updated>
+      <title>Måndag - Vecka 47</title>
+      <description>&lt;![CDATA[Korv stroganoff serveras med pastaVegetariskt; Ratatouille serveras med pasta]]&gt;</description>
+      <a10:updated>2026-11-16T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">fe4d0a2d-74d6-4cc3-9299-3b7ca94f1aa1</guid>
+      <guid isPermaLink="false">bd4e93fd-8115-4da1-87e2-6dd970a9d143</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Tisdag - Vecka 46</title>
-      <description>&lt;![CDATA[Broccolisoppa, smörgås]]&gt;</description>
-      <a10:updated>2026-11-10T00:00:00Z</a10:updated>
+      <title>Tisdag - Vecka 47</title>
+      <description>&lt;![CDATA[Minestronesoppa serveras med smörgåsVegetariskt; Minestronesoppa serveras med smörgås]]&gt;</description>
+      <a10:updated>2026-11-17T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">3566d642-83ef-4c66-958d-c561b144e602</guid>
+      <guid isPermaLink="false">b43729d1-4e01-42ef-b0fc-0f2c45e19d07</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Onsdag - Vecka 46</title>
-      <description>&lt;![CDATA[Fiskgratäng med dill serveras med kokt potatisVegetariskt; Gratinerade grönsaker med kikärtor, tomat och osttäcke , kokt potatis]]&gt;</description>
-      <a10:updated>2026-11-11T00:00:00Z</a10:updated>
+      <title>Onsdag - Vecka 47</title>
+      <description>&lt;![CDATA[Kokt fisk serveras med persiljesås samt kokt potatisVegetariskt; Morotsbiff serveras med persiljesås och kokt potatis]]&gt;</description>
+      <a10:updated>2026-11-18T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">1446d5fb-93a0-436a-a914-a2c31a9b7695</guid>
+      <guid isPermaLink="false">a0d481ae-e84e-4664-8569-30fedfa61b5b</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Torsdag - Vecka 46</title>
-      <description>&lt;![CDATA[Bönkebabgryta serveras med bulgur]]&gt;</description>
-      <a10:updated>2026-11-12T00:00:00Z</a10:updated>
+      <title>Torsdag - Vecka 47</title>
+      <description>&lt;![CDATA[KycklinglasagnetteVegetariskt; Lasagnette med spenat och ost]]&gt;</description>
+      <a10:updated>2026-11-19T00:00:00Z</a10:updated>
     </item>
     <item>
-      <guid isPermaLink="false">b51e55f8-61f1-4657-b105-9ee87d9db6cc</guid>
+      <guid isPermaLink="false">7cfd1b5c-1a23-4058-9d47-ee620be1cd1d</guid>
       <link>https://www.skara.se/forskolaskolaochutbildning/matiskolaochforskola/</link>
-      <title>Fredag - Vecka 46</title>
-      <description>&lt;![CDATA[Lasagnette serveras med kall dressingVegetariskt; Spenatlasagnette serveras med kall dressing]]&gt;</description>
-      <a10:updated>2026-11-13T00:00:00Z</a10:updated>
+      <title>Fredag - Vecka 47</title>
+      <description>&lt;![CDATA[Krämig kasslergryta serveras med bulgurVegetariskt; Krämig quorngryta serveras med bulgur]]&gt;</description>
+      <a10:updated>2026-11-20T00:00:00Z</a10:updated>
     </item>
   </channel>
 </rss>
